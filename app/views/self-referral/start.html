@@ -1,0 +1,54 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Essential workers: apply for a coronavirus test  - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="start">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Essential workers: apply for a coronavirus test 
+      </h1>
+    
+      <p class="govuk-body">If you're an essential worker who is self-isolating (not able to leave home), you can now apply for you and your household to get tested for coronavirus (COVID-19).</p>
+      
+      <p class="govuk-body">If your test result turns out to be negative, you can safely return to work, as long as:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>you are well enough</li>
+        <li>you have not had a high temperature for 48 hours</li>
+        <li>anyone you live with also tests negative</li>
+      </ul>
+      
+      <p class="govuk-body">If your test result is positive, or someone you live with tests positive, you cannot return to work. You’ll need to continue to self-isolate. <a target="_blank" href="https://www.nhs.uk/conditions/coronavirus-covid-19/self-isolation-advice/" class="govuk-link">Read NHS advice about how long to self-isolate.</a></p>
+      
+      <p class="govuk-body">If your condition gets worse, or you do not get better after 7 days, use the NHS 111 online coronavirus service. Only call 111 if you cannot get help online. For a medical emergency dial 999.</p>
+      
+      <p class="govuk-body">Call 111 if you're worried about a baby or child. If the baby or child seems very unwell, is getting worse, or you think there’s something seriously wrong, call 999. Do not delay getting help if you’re worried. Trust your instincts. Get more advice about <a target="_blank" href="https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-in-children/" class="govuk-link">coronavirus in children.</a></p>
+      
+      <p class="govuk-body">Follow these next steps to check you can have the coronavirus test. We will then ask you to choose between visiting a drive through test site or requesting a home test kit.</p>
+      
+      <h2 class="govuk-heading-m">If you're not an essential worker</h2>
+      
+      <p class="govuk-body">If you're not an essential worker you cannot apply for a test. If you have symptoms, use the <a target="_blank" href="https://111.nhs.uk/covid-19/" class="govuk-link">111 online coronavirus service</a> to find out what to do.</p>
+      
+      <p class="govuk-body"><a target="_blank" href="https://www.gov.uk/government/publications/coronavirus-covid-19-testing-privacy-information" class="govuk-link">Read the coronavirus privacy information</a></p>
+
+
+      {{ govukButton({
+        text: "Start now",
+        href: "eligibility",
+        isStartButton: true
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

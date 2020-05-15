@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What's your mobile number? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="name-error">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form class="form" action="mobile-number-error" method="post">
+
+        <div class="govuk-form-group">
+
+          {% call govukFieldset({
+            legend: {
+              text: "What's your mobile number?",
+              classes: "govuk-fieldset__legend--xl",
+              isPageHeading: true
+            }
+          }) %}
+          
+            {{ govukInput({
+              label: {
+                text: "Mobile phone number"
+              },
+              id: "mobileNumber",
+              name: "mobileNumber",
+              type: "tel",
+              autocomplete: "tel",
+              classes: "govuk-input--width-20"
+            }) }}
+          
+            {{ govukInput({
+              label: {
+                text: "Confirm mobile phone number"
+              },
+              id: "mobileNumberConfirmation",
+              name: "mobileNumberConfirmation",
+              type: "tel",
+              autocomplete: "tel",
+              classes: "govuk-input--width-20"
+            }) }}
+                    
+          {% endcall %}
+
+        </div>
+
+        {{ govukDetails({
+          summaryText: " Why are we asking for this?",
+          text: "We will use this information to help identify you at a later stage. Also, this information will help us recognise your data if you complete other NHS forms or surveys. "
+        }) }}
+  
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

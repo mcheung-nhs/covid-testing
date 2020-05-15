@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: What's your mobile number? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="mobile-number">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      {{ govukErrorSummary({
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Enter a mobile number",
+            "href": "#mobileNumber"
+          },
+          {
+            "text": "Re-enter a matching mobile number",
+            "href": "#mobileNumberConfirmation"
+          }
+        ]
+      }) }}
+      
+
+      <form class="form" action="profession" method="post">
+
+        <div class="govuk-form-group">
+
+          {% call govukFieldset({
+            legend: {
+              text: "What's your mobile number?",
+              classes: "govuk-fieldset__legend--xl",
+              isPageHeading: true
+            }
+          }) %}
+          
+            {{ govukInput({
+              label: {
+                text: "Mobile phone number"
+              },
+              id: "mobileNumber",
+              name: "mobileNumber",
+              type: "tel",
+              autocomplete: "tel",
+              errorMessage: {
+                "text": "Enter a mobile number"
+              },
+              classes: "govuk-input--width-20"
+            }) }}
+          
+            {{ govukInput({
+              label: {
+                text: "Confirm mobile phone number"
+              },
+              id: "mobileNumberConfirmation",
+              name: "mobileNumberConfirmation",
+              type: "tel",
+              autocomplete: "tel",
+              errorMessage: {
+                "text": "Re-enter a matching mobile number"
+              },
+              classes: "govuk-input--width-20"
+            }) }}
+                    
+          {% endcall %}
+
+        </div>
+
+        {{ govukDetails({
+          summaryText: " Why are we asking for this?",
+          text: "We will use this information to help identify you at a later stage. Also, this information will help us recognise your data if you complete other NHS forms or surveys. "
+        }) }}
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

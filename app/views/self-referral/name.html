@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What's your name? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="test-type-error">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form class="form" action="name-error" method="post">
+
+        <div class="govuk-form-group">
+
+          {% call govukFieldset({
+            legend: {
+              text: "What's your name?",
+              classes: "govuk-fieldset__legend--xl",
+              isPageHeading: true
+            }
+          }) %}
+          
+            {{ govukInput({
+              label: {
+                text: "First name"
+              },
+              id: "given-name",
+              name: "given-name",
+              autocomplete: "given-name",
+              attributes: {
+                spellcheck: "false"
+              }
+            }) }}
+          
+            {{ govukInput({
+              label: {
+                text: "Last name"
+              },
+              id: "family-name",
+              name: "family-name",
+              autocomplete: "family-name",
+              attributes: {
+                spellcheck: "false"
+              }
+            }) }}
+                    
+          {% endcall %}
+
+        </div>
+
+        {{ govukDetails({
+          summaryText: " Why are we asking for this?",
+          text: "We will use this information to help identify you at a later stage. Also, this information will help us recognise your data if you complete other NHS forms or surveys. "
+        }) }}
+  
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}

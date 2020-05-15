@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: How do you want to take the coronavirus test? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="test-type">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      {{ govukErrorSummary({
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Select your country or ask for a home test kit.",
+            "href": "#GB-ENG"
+          }
+        ]
+      }) }}
+      
+
+      <form class="form" action="name" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="test-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                How do you want to take the coronavirus test?
+              </h1>
+            </legend>
+            <span id="test-hint" class="govuk-hint">
+              For a drive-through test, you or someone you live with must have a car to get to a regional test centre. Select your country or ask for a home test kit.
+            </span>
+            <div class="govuk-form-group govuk-form-group--error">
+              
+              <span id="ChosenTestType-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> Select your country or ask for a home test kit.
+              </span>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="GB-ENG" name="ChosenTestType" type="radio" value="GB-ENG">
+                  <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="GB-ENG">England <strong class="govuk-tag govuk-tag--green"> AVAILABLE </strong></label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="GB-SCT" name="ChosenTestType" type="radio" value="GB-SCT">
+                  <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="GB-SCT">Scotland <strong class="govuk-tag govuk-tag--green"> AVAILABLE </strong></label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="GB-WLS" name="ChosenTestType" type="radio" value="GB-WLS">
+                  <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="GB-WLS">Wales <strong class="govuk-tag govuk-tag--green"> AVAILABLE </strong></label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="GB-NIR" name="ChosenTestType" type="radio" value="GB-NIR">
+                  <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="GB-NIR">Northern Ireland <strong class="govuk-tag govuk-tag--green"> AVAILABLE </strong></label>
+                </div>
+                <div class="govuk-radios__divider">or</div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="home" name="ChosenTestType" type="radio" value="home" aria-describedby="home-hint">
+                  <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="home">
+                    Request a home test kit <strong class="govuk-tag govuk-tag--green"> AVAILABLE </strong>
+                  </label>
+                  <span id="home-hint" class="govuk-hint govuk-radios__hint">
+                    You can ask for a kit for yourself and anyone else you live with who has coronavirus symptoms. There is an identity check for home test kits.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

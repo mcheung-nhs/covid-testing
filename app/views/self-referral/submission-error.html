@@ -1,0 +1,23 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Submission error - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Submission error</h1>
+
+      <p class="govuk-body">There was an error when submitting your application. </p>
+      
+      <button class="govuk-button">Try again</button>
+
+    </div>
+  </div>
+
+{% endblock %}

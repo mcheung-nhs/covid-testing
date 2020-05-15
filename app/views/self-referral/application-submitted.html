@@ -1,0 +1,75 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Application submitted - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Application submitted
+        </h1>
+        <div class="govuk-panel__body govuk-!-font-size-19">
+          15 May 2020, 3.32pm
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-m">Your details</h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "John Smith"
+            }
+          },
+          {
+            key: {
+              text: "Mobile number"
+            },
+            value: {
+              text: "07777 777777"
+            }
+          },
+          {
+            key: {
+              text: "Reason for getting tested"
+            },
+            value: {
+              html: "Clinical referral from NHS 111 online"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        You’ll receive a text message when it’s time to book your test appointment. The text will usually arrive in a few moments, but may take longer at busy times.
+      </p>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          We are experiencing a high demand for tests. It may take longer to get an appointment. 
+        </strong>
+      </div>
+
+      <p class="govuk-body">
+        During very busy times, you may get a text telling you there are no longer any more appointments. This means you’ll have to register again. Do not register again unless you receive this message. 
+      </p>
+ 
+    </div>
+  </div>
+
+{% endblock %}

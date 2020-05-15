@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: Why are you getting tested? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="profession">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      {{ govukErrorSummary({
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Select a reason for getting tested",
+            "href": "#testCentre"
+          }
+        ]
+      }) }}
+      
+
+      <form class="form" action="check-answers" method="post">
+
+        <div class="govuk-form-group">
+
+          {% call govukFieldset({
+            legend: {
+              text: "Why are you getting tested?",
+              classes: "govuk-fieldset__legend--xl",
+              isPageHeading: true
+            }
+          }) %}
+          
+          {{ govukSelect({
+            id: "testCentre",
+            name: "testCentre",
+            label: {
+              text: "Reason for getting tested"
+            },
+            errorMessage: {
+              "text": "Select a reason for getting tested"
+            },
+            items: [
+              {
+                value: "",
+                text: "Please select",
+                selected: true
+              },
+              {
+                value: "1014",
+                text: "Clinical referral from NHS 111 online"
+              },
+              {
+                value: "1015",
+                text: "I am 65 or over and I have symptoms"
+              },
+              {
+                value: "1016",
+                text: "I must travel to work and have symptoms"
+              },
+              {
+                value: "1000",
+                text: "Health care"
+              },
+              {
+                value: "1001",
+                text: "Social care"
+              },
+              {
+                value: "1002",
+                text: "Medical supply and distribution"
+              },
+              {
+                value: "1003",
+                text: "Education and childcare"
+              },
+              {
+                value: "1004",
+                text: "Prisons and judiciary system"
+              },
+              {
+                value: "1005",
+                text: "Funeral industry"
+              },
+              {
+                value: "1006",
+                text: "Local and national government"
+              },
+              {
+                value: "1007",
+                text: "Food production and distribution"
+              },
+              {
+                value: "1008",
+                text: "Defence"
+              },
+              {
+                value: "1009",
+                text: "Police"
+              },
+              {
+                value: "1010",
+                text: "Fire service"
+              },
+              {
+                value: "1011",
+                text: "Transport"
+              },
+              {
+                value: "1012",
+                text: "Utilities, communications, broadcasting and financial services"
+              },
+              {
+                value: "1013",
+                text: "Volunteers"
+              }
+            ]
+          }) }}
+
+          {% endcall %}
+
+        </div>
+
+        <p class="govuk-body"> If your reason is not listed, the test is not yet available for you. If you have symptoms, use the <a target="_blank" href="https://www.nhs.uk/conditions/coronavirus-covid-19/" class="govuk-link"> 111 online coronavirus service </a> to find out what to do. </p>
+
+        {{ govukDetails({
+          summaryText: " Why are we asking for this?",
+          text: "We will use this information to help identify you at a later stage. Also, this information will help us recognise your data if you complete other NHS forms or surveys. "
+        }) }}
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
