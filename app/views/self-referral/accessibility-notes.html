@@ -1,0 +1,459 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Accessibility testing notes - Essential workers: apply for a coronavirus test  - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Accessibility testing notes</span>
+        Essential workers: apply for a coronavirus test
+      </h1>
+
+      <p>URL tested: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/">https://npd-int-1-sr.int.bluesquirrelproject.net/</a></p>
+    
+      <ol class="govuk-list govuk-list--number">
+        
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Start page</h2>
+          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/">start</a><br>Page with sample HTML: <a href="start">start</a></p> 
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>No <code>&lt;main&gt;</code> element on the page. This landmark would help screen reader users with navigation.</li>
+            <li>If you go back to this page after passing the "What's your name?" page, there are sometimes hidden reCAPTCHA form elements present on this page, which may confuse screen reader users. The elements are listed in the form controls menu when using VoiceOver on iOS and MacOS.</li>
+          </ol>
+        </li>
+
+        
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Eligibility page</h2>
+          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/eligibility">eligibility</a><br>Page with sample HTML: <a href="eligibility">eligibility</a></p> 
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>No <code>&lt;main&gt;</code> element on the page. This landmark would help screen reader users with navigation.</li>
+            <li>If you go back to this page after passing the "What's your name?" page, there are sometimes hidden reCAPTCHA form elements present on this page, which may confuse screen reader users. The elements are listed in the form controls menu when using VoiceOver on iOS and MacOS.</li>
+          </ol>
+        </li>
+
+        
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">How do you want to take the coronavirus test?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/test-type">test-type</a><br>Page with sample HTML: <a href="test-type">test-type</a></p>
+          
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Hint text is not correctly associated with the <code>&lt;fieldset&gt;</code>. Correcting this improves the screen reader experience.</li>
+            <li>Missing <code>&lt;legend&gt;</code> element which is a requirement inside the <code>&lt;fieldset&gt;</code> element. This can be added and made a heading.</li>
+            <li>No <code>&lt;main&gt;</code> element on the page. This landmark would help screen reader users with navigation.</li>
+            <li>If you go back to this page after passing the "What's your name?" page, there are sometimes hidden reCAPTCHA form elements present on this page, which may confuse screen reader users. The elements are listed in the form controls menu when using VoiceOver on iOS and MacOS.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/fieldset/">https://design-system.service.gov.uk/components/fieldset/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/radios/">https://design-system.service.gov.uk/components/radios/</a></li>
+          </ul>
+          
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;form&gt;
+  &lt;div class="govuk-form-group"&gt;
+    &lt;fieldset class="govuk-fieldset" aria-describedby="test-hint"&gt;
+      &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"&gt;
+        &lt;h1 class="govuk-fieldset__heading"&gt;
+          How do you want to take the coronavirus test?
+        &lt;/h1&gt;
+      &lt;/legend&gt;
+      &lt;span id="test-hint" class="govuk-hint"&gt;
+        For a drive-through test, you or someone you live with must have a car to get to a regional test centre. Select your country or ask for a home test kit.
+      &lt;/span&gt;
+      &lt;div class="govuk-form-group"&gt;
+        &lt;div class="govuk-radios"&gt;
+          &lt;div class="govuk-radios__item"&gt;
+            &lt;input class="govuk-radios__input" id="GB-ENG" name="ChosenTestType" type="radio" value="GB-ENG"&gt;
+            &lt;label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="GB-ENG"&gt;England &lt;strong class="govuk-tag govuk-tag--green"&gt; AVAILABLE &lt;/strong&gt;&lt;/label&gt;
+          &lt;/div&gt;
+          &lt;div class="govuk-radios__item"&gt;
+            &lt;input class="govuk-radios__input" id="GB-SCT" name="ChosenTestType" type="radio" value="GB-SCT"&gt;
+            &lt;label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="GB-SCT"&gt;Scotland &lt;strong class="govuk-tag govuk-tag--green"&gt; AVAILABLE &lt;/strong&gt;&lt;/label&gt;
+          &lt;/div&gt;
+          &lt;div class="govuk-radios__item"&gt;
+            &lt;input class="govuk-radios__input" id="GB-WLS" name="ChosenTestType" type="radio" value="GB-WLS"&gt;
+            &lt;label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="GB-WLS"&gt;Wales &lt;strong class="govuk-tag govuk-tag--green"&gt; AVAILABLE &lt;/strong&gt;&lt;/label&gt;
+          &lt;/div&gt;
+          &lt;div class="govuk-radios__item"&gt;
+            &lt;input class="govuk-radios__input" id="GB-NIR" name="ChosenTestType" type="radio" value="GB-NIR"&gt;
+            &lt;label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="GB-NIR"&gt;Northern Ireland &lt;strong class="govuk-tag govuk-tag--green"&gt; AVAILABLE &lt;/strong&gt;&lt;/label&gt;
+          &lt;/div&gt;
+          &lt;div class="govuk-radios__divider"&gt;or&lt;/div&gt;
+          &lt;div class="govuk-radios__item"&gt;
+            &lt;input class="govuk-radios__input" id="home" name="ChosenTestType" type="radio" value="home" aria-describedby="home-hint"&gt;
+            &lt;label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="home"&gt;
+              Request a home test kit &lt;strong class="govuk-tag govuk-tag--green"&gt; AVAILABLE &lt;/strong&gt;
+            &lt;/label&gt;
+            &lt;span id="home-hint" class="govuk-hint govuk-radios__hint"&gt;
+              You can ask for a kit for yourself and anyone else you live with who has coronavirus symptoms. There is an identity check for home test kits.
+            &lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+  &lt;/div&gt;
+  &lt;button class="govuk-button"&gt;Continue&lt;/button&gt;
+&lt;/form&gt;
+          </code></pre>
+        </li>
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Error - How do you want to take the coronavirus test?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/test-type">test-type</a> (with forced error)<br>Page with sample HTML: <a href="test-type-error">test-type-error</a></p>
+          
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Recommend adding "Error:" to the page title</li>
+            <li>Ensure error message in the summary box links to the first selectable radio button</li>
+            <li>Recommend changing the error message to be more descriptive</li>
+            <li>Add visually hidden "Error:" to the error message to help screen reader users</li>
+            <li>Hint text is not correctly associated with the <code>&lt;fieldset&gt;</code>. Correcting this improves the screen reader experience.</li>
+            <li>Missing <code>&lt;legend&gt;</code> element which is a requirement inside the <code>&lt;fieldset&gt;</code> element. This can be added and made a heading.</li>
+            <li>No <code>&lt;main&gt;</code> element on the page. This landmark would help screen reader users with navigation.</li>
+            <li>If you go back to this page after passing the "What's your name?" page, there are sometimes hidden reCAPTCHA form elements present on this page, which may confuse screen reader users. The elements are listed in the form controls menu when using VoiceOver on iOS and MacOS.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/error-message/">https://design-system.service.gov.uk/components/error-message/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-summary/">https://design-system.service.gov.uk/components/error-summary/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;span id="ChosenTestType-error" class="govuk-error-message"&gt;
+  &lt;span class="govuk-visually-hidden"&gt;Error:&lt;/span&gt; Select your country or ask for a home test kit.
+&lt;/span&gt;
+          </code></pre>
+        </li>
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">What's your name?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/name">name</a><br>Page with sample HTML: <a href="name">name</a></p>
+          
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Missing <code>&lt;legend&gt;</code> element which is a requirement inside the <code>&lt;fieldset&gt;</code> element. This can be added and made a heading.</li>
+            <li>Incorrect use of the <code>&lt;fieldset&gt;</code> element. Don't need one for each input field. This reduces 'noise' for screen readers</li>
+            <li>There is no <code>&lt;label&gt;</code> association with the <code>&lt;input&gt;</code> fields</li>
+            <li>If you go back to this page, there are sometimes hidden reCAPTCHA form elements present on this page, which may confuse screen reader users. The elements are listed in the form controls menu when using VoiceOver on iOS and MacOS.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/patterns/names/">https://design-system.service.gov.uk/patterns/names/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/text-input/">https://design-system.service.gov.uk/components/text-input/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;form&gt;
+  &lt;div class="govuk-form-group"&gt;
+    &lt;fieldset class="govuk-fieldset"&gt;
+      
+      &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"&gt;
+        &lt;h1 class="govuk-fieldset__heading"&gt;What's your name?&lt;/h1&gt;
+      &lt;/legend&gt;
+
+      &lt;div class="govuk-form-group"&gt;
+        &lt;label class="govuk-label" for="given-name"&gt;
+          First name
+        &lt;/label&gt;
+        &lt;input class="govuk-input" id="given-name" name="given-name" type="text" autocomplete="given-name" spellcheck="false"&gt;
+      &lt;/div&gt;
+
+      &lt;div class="govuk-form-group"&gt;
+        &lt;label class="govuk-label" for="family-name"&gt;
+          Last name
+        &lt;/label&gt;
+        &lt;input class="govuk-input" id="family-name" name="family-name" type="text" autocomplete="family-name" spellcheck="false"&gt;
+      &lt;/div&gt;
+    
+    &lt;/fieldset&gt;
+  &lt;/div&gt;
+
+  &lt;!-- reCAPTCHA code --&gt;
+
+&lt;/form&gt;
+          </code></pre>
+        </li>
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Error - What's your name?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/name">name</a> (with forced error)<br>Page with sample HTML: <a href="name-error">name-error</a></p>
+          
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Recommend adding "Error:" to the page title</li>
+            <li>Ensure that each error message in the summary box links to the appropriate input field and not to the error message</li>
+            <li>There are sometimes hidden reCAPTCHA form elements present on this page, which may confuse screen reader users. The elements are listed in the form controls menu when using VoiceOver on iOS and MacOS.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/error-message/">https://design-system.service.gov.uk/components/error-message/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-summary/">https://design-system.service.gov.uk/components/error-summary/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary"&gt;
+  &lt;h2 class="govuk-error-summary__title" id="error-summary-title"&gt;
+    There is a problem
+  &lt;/h2&gt;
+  &lt;div class="govuk-error-summary__body"&gt;
+    &lt;ul class="govuk-list govuk-error-summary__list"&gt;
+      &lt;li&gt;
+        &lt;a href="#given-name"&gt;Enter your first name&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href="#family-name"&gt;Enter your last name&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+        </li>
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">What's your mobile number?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/mobile-number">mobile-number</a> (previous steps may need to have been completed to access this directly)<br>Page with sample HTML: <a href="mobile-number">mobile-number</a></p>
+          
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Missing <code>&lt;legend&gt;</code> element which is a requirement inside the <code>&lt;fieldset&gt;</code> element. This can be added and made a heading.</li>
+            <li>Incorrect use of the <code>&lt;fieldset&gt;</code> element. Don't need one for each input field. This reduces 'noise' for screen readers</li>
+            <li>There is no <code>&lt;label&gt;</code> association with the <code>&lt;input&gt;</code> fields</li>
+            <li>There are sometimes hidden reCAPTCHA form elements present on this page, which may confuse screen reader users. The elements are listed in the form controls menu when using VoiceOver on iOS and MacOS.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/patterns/telephone-numbers/">https://design-system.service.gov.uk/patterns/telephone-numbers/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/text-input/">https://design-system.service.gov.uk/components/text-input/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;form&gt;
+  &lt;div class="govuk-form-group"&gt;
+    &lt;fieldset class="govuk-fieldset"&gt;
+      &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"&gt;
+        &lt;h1 class="govuk-fieldset__heading"&gt;What's your mobile number?&lt;/h1&gt;
+      &lt;/legend&gt;
+
+      &lt;div class="govuk-form-group"&gt;
+        &lt;label class="govuk-label" for="mobileNumber"&gt;
+          Mobile phone number
+        &lt;/label&gt;
+        &lt;input class="govuk-input govuk-input--width-20" id="mobileNumber" name="mobileNumber" type="tel" autocomplete="tel"&gt;
+      &lt;/div&gt;
+
+      &lt;div class="govuk-form-group"&gt;
+        &lt;label class="govuk-label" for="mobileNumberConfirmation"&gt;
+          Confirm mobile phone number
+        &lt;/label&gt;
+        &lt;input class="govuk-input govuk-input--width-20" id="mobileNumberConfirmation" name="mobileNumberConfirmation" type="tel" autocomplete="tel"&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+          </code></pre>
+        </li> 
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Error - What's your mobile number?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/mobile-number">mobile-number</a> (with forced error)<br>Page with sample HTML: <a href="mobile-number-error">mobile-number-error</a></p>
+          
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Recommend adding "Error:" to the page title</li>
+            <li>Ensure that each error message in the summary box links to the appropriate input field and not to the error message</li>
+            <li>There are sometimes hidden reCAPTCHA form elements present on this page, which may confuse screen reader users. The elements are listed in the form controls menu when using VoiceOver on iOS and MacOS.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/error-message/">https://design-system.service.gov.uk/components/error-message/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-summary/">https://design-system.service.gov.uk/components/error-summary/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary"&gt;
+  &lt;h2 class="govuk-error-summary__title" id="error-summary-title"&gt;
+    There is a problem
+  &lt;/h2&gt;
+  &lt;div class="govuk-error-summary__body"&gt;
+    &lt;ul class="govuk-list govuk-error-summary__list"&gt;
+      &lt;li&gt;
+        &lt;a href="#mobileNumber"&gt;Enter a mobile number&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href="#mobileNumberConfirmation"&gt;Re-enter a matching mobile number&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+        </li>
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Why are you getting tested?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/reason">reason</a> (previous steps may need to have been completed to access this directly)<br>Page with sample HTML: <a href="reason">reason</a></p>
+          
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Missing <code>&lt;legend&gt;</code> element which is a requirement inside the <code>&lt;fieldset&gt;</code> element. This can be added and made a heading.</li>
+            <li>There is no <code>&lt;label&gt;</code> association with the <code>&lt;select&gt;</code> field</li>
+            <li>There are sometimes hidden reCAPTCHA form elements present on this page, which may confuse screen reader users. The elements are listed in the form controls menu when using VoiceOver on iOS and MacOS.</li>
+
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/patterns/telephone-numbers/">https://design-system.service.gov.uk/patterns/telephone-numbers/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/text-input/">https://design-system.service.gov.uk/components/text-input/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;form&gt;
+  &lt;div class="govuk-form-group"&gt;
+    &lt;fieldset class="govuk-fieldset"&gt;
+      &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"&gt;
+        &lt;h1 class="govuk-fieldset__heading"&gt;Why are you getting tested?&lt;/h1&gt;
+      &lt;/legend&gt;
+      &lt;div class="govuk-form-group"&gt;
+        &lt;label class="govuk-label" for="testCentre"&gt;
+          Reason for getting tested
+        &lt;/label&gt;
+        &lt;select class="govuk-select" id="testCentre" name="testCentre"&gt;
+          &lt;!-- options --&gt;
+        &lt;/select&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+  &lt;/div&gt;
+
+  &lt;!-- body text --&gt;
+
+&lt;/form&gt;
+          </code></pre>
+        </li>
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Error - Why are you getting tested?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/reason">reason</a> (with forced error)<br>Page with sample HTML: <a href="reason-error">reason-error</a></p>
+          
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Recommend adding "Error:" to the page title</li>
+            <li>Ensure that each error message in the summary box links to the <code>&lt;select&gt;</code> field and not to the error message</li>
+            <li>There are hidden sometimes reCAPTCHA form elements present on this page, which may confuse screen reader users. The elements are listed in the form controls menu when using VoiceOver on iOS and MacOS.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/error-message/">https://design-system.service.gov.uk/components/error-message/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-summary/">https://design-system.service.gov.uk/components/error-summary/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary"&gt;
+  &lt;h2 class="govuk-error-summary__title" id="error-summary-title"&gt;
+    There is a problem
+  &lt;/h2&gt;
+  &lt;div class="govuk-error-summary__body"&gt;
+    &lt;ul class="govuk-list govuk-error-summary__list"&gt;
+      &lt;li&gt;
+        &lt;a href="#testCentre"&gt;Select a reason for getting tested&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+        </li>
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Check your answers</h2>
+          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/check-answers">check-answers</a> (previous steps may need to have been completed to access this directly)<br>Page with sample HTML: <a href="check-answers">check-answers</a></p>
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>The hidden change text for the "Reason for getting tested" reads "Employer change". This needs to be changed to "reason for getting tested".</li>
+            <li>There are sometimes hidden reCAPTCHA form elements present on this page, which may confuse screen reader users. The elements are listed in the form controls menu when using VoiceOver on iOS and MacOS.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;div class="govuk-summary-list__row"&gt;
+  &lt;dt class="govuk-summary-list__key"&gt;
+    Reason for getting tested
+  &lt;/dt&gt;
+  &lt;dd class="govuk-summary-list__value"&gt;
+    Clinical referral from NHS 111 online
+  &lt;/dd&gt;
+  &lt;dd class="govuk-summary-list__actions"&gt;
+      &lt;a class="govuk-link" href="profession"&gt;
+        Change&lt;span class="govuk-visually-hidden"&gt; reason for getting tested&lt;/span&gt;
+      &lt;/a&gt;
+  &lt;/dd&gt;
+&lt;/div&gt;
+          </code></pre>
+
+        </li>
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Application submitted</h2>
+          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/application-submitted">application-submitted</a> (previous steps may need to have been completed to access this directly)<br>Page with sample HTML: <a href="application-submitted">application-submitted</a></p>
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>No <code>&lt;main&gt;</code> element on the page. This landmark would help screen reader users with navigation.</li>
+          </ol>
+        </li>
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Submission error</h2>
+          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/submission-error">submission-error</a> (previous steps may need to have been completed to access this directly)<br>Page with sample HTML: <a href="submission-error">submission-error</a></p>
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>The "Try again" button on the submission error page does nothing.</li>
+          </ol>
+        </li>
+
+      </ol>
+
+    </div>
+  </div>
+
+{% endblock %}
