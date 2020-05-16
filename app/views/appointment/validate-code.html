@@ -1,0 +1,48 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What's your invitation code?  - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="start">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What's your invitation code?</h1>
+
+      <form>
+        <div class="govuk-form-group" id="validate-code">
+          <fieldset class="govuk-fieldset" aria-describedby="code-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Enter your invitation code</legend>
+            <span class="govuk-hint" id="code-hint">This is the 16 digit code you received in the text message we sent you.</span>
+            <div class="govuk-form-group govuk-!-display-inline-block govuk-!-margin-top-5 uppercase">
+              <label for="validate-code-1" class="govuk-label govuk-visually-hidden">Invitation code field 1</label>
+              <input id="validate-code-1" maxlength="4" spellcheck="false" class="govuk-input govuk-input--width-4">
+            </div>-
+              <div class="govuk-form-group govuk-!-display-inline-block uppercase">
+                <label for="validate-code-2" class="govuk-label govuk-visually-hidden">Invitation code field 2</label>
+                <input id="validate-code-2" maxlength="4" spellcheck="false" class="govuk-input govuk-input--width-4">
+              </div>-
+              <div class="govuk-form-group govuk-!-display-inline-block uppercase">
+                <label for="validate-code-3" class="govuk-label govuk-visually-hidden">Invitation code field 3</label>
+                <input id="validate-code-3" maxlength="4" spellcheck="false" class="govuk-input govuk-input--width-4">
+              </div>-
+              <div class="govuk-form-group govuk-!-display-inline-block uppercase">
+                <label for="validate-code-4" class="govuk-label govuk-visually-hidden">Invitation code field 4</label>
+                <input id="validate-code-4" maxlength="4" spellcheck="false" class="govuk-input govuk-input--width-4">
+              </div>
+          </fieldset>
+        </div>
+        <button class="govuk-button">Continue</button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

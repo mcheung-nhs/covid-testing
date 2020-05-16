@@ -1,0 +1,97 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Accessibility testing notes - Book a drive-through test  - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Accessibility testing notes</span>
+        Book a drive-through test
+      </h1>
+
+      <p>URL tested: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/appointment">https://npd-int-1-sr.int.bluesquirrelproject.net/appointment</a></p>
+    
+      <ol class="govuk-list govuk-list--number">
+        
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Start page</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/appointment">appointment</a><br>Page with sample HTML: <a href="start">start</a></p> 
+
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>Incorrect heading structure - the headings below the  <code>&lt;h1&gt;</code> are <code>&lt;h4&gt;</code> when they should be <code>&lt;h2&gt;</code>. Screen reader users often rely on navigating by heading so if the structure isn’t hierarchical they may not understand the relationship.</li>
+          </ol>
+        </li>
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">What's your invitation code?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/appointment/validate-code">validate-code</a><br>Page with sample HTML: <a href="validate-code">validate-code</a></p> 
+
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>Hint text is not correctly associated with the <code>&lt;fieldset&gt;</code>. Correcting this improves the screen reader experience.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;fieldset class="govuk-fieldset" aria-describedby="code-hint"&gt;
+  &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--s"&gt;Enter your invitation code&lt;/legend&gt;
+  &lt;span class="govuk-hint" id="code-hint"&gt;This is the 16 digit code you received in the text message we sent you.&lt;/span&gt;
+  
+  &lt;!-- input fields --&gt;
+
+&lt;/fieldset&gt;
+          </code></pre>
+
+        </li>
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">What's your vehicle registration number?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/appointment/vehicle-registration">vehicle-registration</a><br>Page with sample HTML: <a href="vehicle-registration">vehicle-registration</a></p> 
+
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>Incorrect use of <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> elements. There is only 1 input field so there is no need to use a <code>&lt;fieldset&gt;</code></li>
+            <li>There are 2 <code>&lt;label&gt;</code> elements to describe the 1 input field.</li>
+            <li>Hint text is not correctly associated with the input field. However, it could be argued that because there is a lot of hint text, then this creates extra 'noise' that screen readers will read out so there isn't a need to link it to the input. This may need user testing.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/fieldset/">https://design-system.service.gov.uk/components/fieldset/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/text-input/">https://design-system.service.gov.uk/components/text-input/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;form&gt;
+  &lt;div class="govuk-form-group"&gt;
+    &lt;label class="govuk-label" for="vehicle-registration"&gt;
+      Vehicle registration number (number plate). For example, CU57ABC
+    &lt;/label&gt;
+    &lt;div id="vehicle-registration-hint"&gt;
+      &lt;p class="govuk-hint"&gt;This must be the number plate of the vehicle you’ll use to visit the test site. It does not have to be registered in your name, just as long as it’s the vehicle you turn up in. This can be a car or a small van.&lt;/p&gt;
+      &lt;p class="govuk-hint"&gt;You cannot turn up on foot or in a taxi.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;input class="govuk-input" id="vehicle-registration" name="vehicle-registration" type="text" aria-describedby="vehicle-registration-hint"&gt;
+  &lt;/div&gt;
+  &lt;button class="govuk-button"&gt;Continue&lt;/button&gt;
+&lt;/form&gt;
+          </code></pre>
+
+        </li>
+
+      </ol>
+
+    </div>
+  </div>
+
+{% endblock %}

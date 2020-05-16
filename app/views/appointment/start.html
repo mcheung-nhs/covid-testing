@@ -1,0 +1,87 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Book a drive-through test  - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Book a drive-through test</h1>
+      <p class="govuk-body-l">You can now have a coronavirus (COVID-19) test.</p>
+      
+      <p class="govuk-body">The test is only for people who have <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/check-if-you-have-coronavirus-symptoms/" target="_blank" class="govuk-link"> symptoms of coronavirus </a> – whether that’s you, or someone you live with. It involves taking a swab sample from your nose and throat.</p>
+      
+      <p class="govuk-body">While you wait for your results, you (and anyone you live with) must continue to self-isolate. Read <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/self-isolation-advice/" target="_blank" class="govuk-link">NHS advice about how long to self-isolate.</a></p>
+      
+      <p class="govuk-body">If your test result turns out to be negative, you can safely return to work, as long as:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>you are well enough</li>
+        <li>you have not had a high temperature for 48 hours</li>
+        <li>anyone you live with also tests negative</li>
+      </ul>
+      
+      <p class="govuk-body">If you test positive, or someone you live with tests positive, you cannot return to work. You’ll need to continue to self-isolate.</p>
+      
+      <p class="govuk-body">You need to get the test done in the first 5 days of having symptoms. It's best to ask for the test in the first 3 days as it may take a day or two to arrange.</p>
+      
+      <p class="govuk-body">If your condition gets worse, or you do not get better after 7 days, use the <a target="_blank" href="https://111.nhs.uk/covid-19/ " class="govuk-link"> NHS 111 online coronavirus service</a>. Only call 111 if you cannot get help online. For a medical emergency, dial 999.</p>
+      
+      <p class="govuk-body">Call 111 if you're worried about a baby or child. If they seem very unwell, are getting worse, or you think there's something seriously wrong, call 999. Do not delay getting help if you're worried. Trust your instincts. <a target="_blank" href="https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-in-children/" class="govuk-link"> Get more advice about coronavirus in children. </a></p>
+      
+      <p class="govuk-body">You’ll have the test at a drive-through test site. This means you’ll need to drive there (someone you live with can drive you, if necessary).</p>
+      
+      <p class="govuk-body">If you live with other people who also have coronavirus symptoms, they should join you for testing. You'll need to include their details on this form.</p><h4 class="govuk-heading-m"> Check if people you live with can book a test </h4>
+      
+      <p class="govuk-body">If people you live with have symptoms, they can be registered for testing. But you can only include a maximum of 3 other people for testing.</p>
+      
+      <p class="govuk-body govuk-!-margin-bottom-1"> They must all:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>be aged 5 and over</li>
+        <li>arrive in the same vehicle</li>
+        <li>sit next to a window in the vehicle</li>
+      </ul>
+      
+      <h2 class="govuk-heading-m"> What happens at the test site</h2>
+      
+      <p class="govuk-body">You can use a car or a small van to drive to the test site (motorcycles are not suitable).</p>
+      
+      <p class="govuk-body">You’ll stay in your vehicle during your visit.</p>
+      
+      <p class="govuk-body">Some test sites offer a choice: either an assistant can do the swab test for you, or you can choose to do it yourself (instructions will be given).</p>
+      
+      <p class="govuk-body">In other sites, there will only be one way to have the test.</p>
+      
+      <p class="govuk-body">You’ll receive your test results by text message. Most people get their results within 48 hours, but it could take up to 5 days.</p>
+      
+      <h2 class="govuk-heading-m">What you need to complete this form</h2>
+      
+      <p class="govuk-body">To complete this form to book your visit, you’ll need:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your invitation code – it’s in the text message we sent you</li>
+        <li>your email address</li>
+        <li>your mobile phone number</li>
+        <li> the registration number of the vehicle you’ll use to visit the test site </li>
+        <li> the name, email address and mobile number of any other people you live with who will be tested </li>
+      </ul>
+      
+      <h2 class="govuk-heading-m">How we use your data</h2>
+      
+      <p class="govuk-body">To find out how we use your personal data when you register for a coronavirus test, <a href="https://www.gov.uk/government/publications/coronavirus-covid-19-testing-privacy-information" target="_blank" class="govuk-link"> read the coronavirus privacy note. </a></p>
+      
+
+      {{ govukButton({
+        text: "Start now",
+        href: "validate-code",
+        isStartButton: true
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
