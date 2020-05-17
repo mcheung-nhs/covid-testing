@@ -54,8 +54,19 @@
 
 
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Error - What's your invitation code?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/appointment/validate-code">validate-code</a> (with forced error)<br>Page with sample HTML: <a href="validate-code-error">validate-code-error</a></p> 
+
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>It is recommended that the error message in the summary box should link directly to the input field. However in this case this may cause confusion as there are 4 fields and focussing on the first one might suggest that the text entered here is incorrect. As there is no pattern for this 4-field value, this requires more testing so is best to wait for the audit.</li>
+          </ol>
+        </li>
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m">What's your vehicle registration number?</h2>
-          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/appointment/vehicle-registration">vehicle-registration</a><br>Page with sample HTML: <a href="vehicle-registration">vehicle-registration</a></p> 
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/appointment/vehicle-registration">vehicle-registration</a><br>Page with sample HTML: <a href="vehicle-registration">vehicle-registration</a></p>
 
           <h3 class="govuk-heading-s">Comments</h3>
           <ol class="govuk-list govuk-list--number">
@@ -82,6 +93,41 @@
       &lt;p class="govuk-hint"&gt;You cannot turn up on foot or in a taxi.&lt;/p&gt;
     &lt;/div&gt;
     &lt;input class="govuk-input" id="vehicle-registration" name="vehicle-registration" type="text" aria-describedby="vehicle-registration-hint"&gt;
+  &lt;/div&gt;
+  &lt;button class="govuk-button"&gt;Continue&lt;/button&gt;
+&lt;/form&gt;
+          </code></pre>
+
+        </li>
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Error - What's your vehicle registration number?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/appointment/vehicle-registration">vehicle-registration</a> (with forced error)<br>Page with sample HTML: <a href="vehicle-registration-error">vehicle-registration-error</a></p>
+
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>Recommend adding "Error:" to the page title</li>
+            <li>Ensure that the error message in the summary box links to the input field and not to the error message</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;form&gt;
+  &lt;div class="govuk-form-group govuk-form-group--error"&gt;
+    &lt;label class="govuk-label" for="vehicle-registration"&gt;
+      Vehicle registration number (number plate). For example, CU57ABC
+    &lt;/label&gt;
+    &lt;div id="vehicle-registration-hint"&gt;
+      &lt;p class="govuk-hint"&gt;This must be the number plate of the vehicle you’ll use to visit the test site. It does not have to be registered in your name, just as long as it’s the vehicle you turn up in. This can be a car or a small van.&lt;/p&gt;
+      &lt;p class="govuk-hint"&gt;You cannot turn up on foot or in a taxi.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;span id="vehicle-registration-error" class="govuk-error-message"&gt;
+      &lt;span class="govuk-visually-hidden"&gt;Error:&lt;/span&gt; Enter a vehicle registration number
+    &lt;/span&gt;
+
+    &lt;input class="govuk-input govuk-input--error" id="vehicle-registration" name="vehicle-registration" type="text" aria-describedby="vehicle-registration-error"&gt;
   &lt;/div&gt;
   &lt;button class="govuk-button"&gt;Continue&lt;/button&gt;
 &lt;/form&gt;
