@@ -49,7 +49,6 @@
 
 &lt;/fieldset&gt;
           </code></pre>
-
         </li>
 
 
@@ -97,7 +96,6 @@
   &lt;button class="govuk-button"&gt;Continue&lt;/button&gt;
 &lt;/form&gt;
           </code></pre>
-
         </li>
 
 
@@ -132,8 +130,72 @@
   &lt;button class="govuk-button"&gt;Continue&lt;/button&gt;
 &lt;/form&gt;
           </code></pre>
-
         </li>
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">What's your date of birth?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/appointment/4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/age">age</a><br>Page with sample HTML: <a href="age">age</a></p>
+          
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Empty <code>&lt;legend&gt;</code> element which is a requirement inside the <code>&lt;fieldset&gt;</code> element. This can be added and made a heading.</li>
+            <li>Hint text is not correctly associated with the <code>&lt;fieldset&gt;</code>. Correcting this improves the screen reader experience.</li>
+            <li>Recommend adding the <code>autocomplete</code> attribute to the input fields. This lets browsers autofill the information on a user’s behalf if they’ve entered it previously. See reference link below.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/date-input/">https://design-system.service.gov.uk/components/date-input/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;form&gt;
+  &lt;div class="govuk-form-group"&gt;
+    &lt;fieldset class="govuk-fieldset" role="group" aria-describedby="dob-hint"&gt;
+      &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"&gt;
+        &lt;h1 class="govuk-fieldset__heading"&gt;
+          What's your date of birth?
+        &lt;/h1&gt;
+      &lt;/legend&gt;
+      &lt;span id="dob-hint" class="govuk-hint"&gt;
+        For example, 31 3 1980
+      &lt;/span&gt;
+      &lt;div class="govuk-date-input" id="dob"&gt;
+        &lt;div class="govuk-date-input__item"&gt;
+          &lt;div class="govuk-form-group"&gt;
+            &lt;label class="govuk-label govuk-date-input__label" for="date-day"&gt;
+              Day
+            &lt;/label&gt;
+            &lt;input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-day" name="day" type="text" autocomplete="bday-day" pattern="[0-9]*" inputmode="numeric"&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="govuk-date-input__item"&gt;
+          &lt;div class="govuk-form-group"&gt;
+            &lt;label class="govuk-label govuk-date-input__label" for="date-month"&gt;
+              Month
+            &lt;/label&gt;
+            &lt;input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-month" name="month" type="text" autocomplete="bday-month" pattern="[0-9]*" inputmode="numeric"&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="govuk-date-input__item"&gt;
+          &lt;div class="govuk-form-group"&gt;
+            &lt;label class="govuk-label govuk-date-input__label" for="date-year"&gt;
+              Year
+            &lt;/label&gt;
+            &lt;input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-year" name="year" type="text" autocomplete="bday-year" pattern="[0-9]*" inputmode="numeric"&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+  &lt;/div&gt;
+  &lt;button class="govuk-button"&gt;Continue&lt;/button&gt;
+&lt;/form&gt;
+          </code></pre>
+        </li> 
+
 
       </ol>
 
