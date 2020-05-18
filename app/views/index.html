@@ -2,7 +2,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+  Accessibility testing
 {% endblock %}
 
 {% block content %}
@@ -27,23 +27,30 @@
 
       <p><a href="self-referral/accessibility-notes">Accessibility testing notes</a></p>
 
-      <h3 class="govuk-heading-s">Pages with recommended HTML</h3>
-
-      <ol class="govuk-list govuk-list--number">
-        <li><a href="self-referral/start">Start page</a></li>
-        <li><a href="self-referral/eligibility">Eligibility page</a></li>
-        <li><a href="self-referral/test-type">How do you want to take the coronavirus test?</a></li>
-        <li><a href="self-referral/test-type-error">Error - How do you want to take the coronavirus test?</a></li>
-        <li><a href="self-referral/name">What's your name?</a></li>
-        <li><a href="self-referral/name-error">Error - What's your name?</a></li>
-        <li><a href="self-referral/mobile-number">What's your mobile number?</a></li>
-        <li><a href="self-referral/mobile-number-error">Error - What's your mobile number?</a></li>
-        <li><a href="self-referral/reason">Why are you getting tested?</a></li>
-        <li><a href="self-referral/reason-error">Error - Why are you getting tested?</a></li>
-        <li><a href="self-referral/check-answers">Check your answers</a></li>
-        <li><a href="self-referral/application-submitted">Application submitted</a></li>
-        <li><a href="self-referral/submission-error">Submission error</a></li>
-      </ol>
+      <details class="govuk-details govuk-!-margin-top-6" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Pages with recommended HTML
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <ol class="govuk-list govuk-list--number">
+            <li><a href="self-referral/start">Start page</a></li>
+            <li><a href="self-referral/eligibility">Eligibility page</a></li>
+            <li><a href="self-referral/test-type">How do you want to take the coronavirus test?</a></li>
+            <li><a href="self-referral/test-type-error">Error: How do you want to take the coronavirus test?</a></li>
+            <li><a href="self-referral/name">What's your name?</a></li>
+            <li><a href="self-referral/name-error">Error: What's your name?</a></li>
+            <li><a href="self-referral/mobile-number">What's your mobile number?</a></li>
+            <li><a href="self-referral/mobile-number-error">Error: What's your mobile number?</a></li>
+            <li><a href="self-referral/reason">Why are you getting tested?</a></li>
+            <li><a href="self-referral/reason-error">Error: Why are you getting tested?</a></li>
+            <li><a href="self-referral/check-answers">Check your answers</a></li>
+            <li><a href="self-referral/application-submitted">Application submitted</a></li>
+            <li><a href="self-referral/submission-error">Submission error</a></li>
+          </ol>
+        </div>
+      </details>
 
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
@@ -53,19 +60,28 @@
 
       <p><a href="appointment/accessibility-notes">Accessibility testing notes</a></p>
 
-      <ol class="govuk-list govuk-list--number">
-        <li><a href="appointment/start">Start page</a></li>
-        <li><a href="appointment/validate-code">What's your invitation code?</a></li>
-        <li><a href="appointment/validate-code-error">Error - What's your invitation code?</a></li>
-        <li><a href="appointment/vehicle-registration">What's your vehicle registration number?</a></li>
-        <li><a href="appointment/vehicle-registration-error">Error - What's your vehicle registration number?</a></li>
-        <li><a href="appointment/age">What's your date of birth?</a></li>
-        <li><a href="appointment/age-error">Error - What's your date of birth?</a></li>
-        <li><a href="appointment/name">What's your name?</a></li>
-        <li><a href="appointment/name-error">Error - What's your name?</a></li>
-        <li><a href="appointment/gender">What's your gender?</a></li>
-        <li><a href="appointment/gender-error">Error - What's your gender?</a></li>
-      </ol>
+      <details class="govuk-details govuk-!-margin-top-6" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Pages with recommended HTML
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <ol class="govuk-list govuk-list--number">
+            <li><a href="appointment/start">Start page</a></li>
+            <li><a href="appointment/validate-code">What's your invitation code?</a></li>
+            <li><a href="appointment/validate-code-error">Error: What's your invitation code?</a></li>
+            <li><a href="appointment/vehicle-registration">What's your vehicle registration number?</a></li>
+            <li><a href="appointment/vehicle-registration-error">Error: What's your vehicle registration number?</a></li>
+            <li><a href="appointment/age">What's your date of birth?</a></li>
+            <li><a href="appointment/age-error">Error: What's your date of birth?</a></li>
+            <li><a href="appointment/name">What's your name?</a></li>
+            <li><a href="appointment/name-error">Error: What's your name?</a></li>
+            <li><a href="appointment/gender">What's your gender?</a></li>
+            <li><a href="appointment/gender-error">Error: What's your gender?</a></li>
+          </ol>
+        </div>
+      </details>
 
     </div>
   </div>
