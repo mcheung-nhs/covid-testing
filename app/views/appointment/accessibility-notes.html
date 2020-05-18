@@ -29,6 +29,10 @@
           <li><a href="#name-error">Error: What's your name?</a></li>
           <li><a href="#gender">What's your gender?</a></li>
           <li><a href="#gender-error">Error: What's your gender?</a></li>
+          <li><a href="#email-address">What's your email address?</a></li>
+          <li><a href="#email-address-error">Error: What's your email address?</a></li>
+          <li><a href="#contact-mobile-number">What's your mobile number?</a></li>
+          <li><a href="#contact-mobile-number-error">Error: What's your mobile number?</a></li>
         </ol>
       </nav>
 
@@ -286,28 +290,23 @@
 &lt;form&gt;
   &lt;div class="govuk-form-group"&gt;
     &lt;fieldset class="govuk-fieldset"&gt;
-      
       &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"&gt;
         &lt;h1 class="govuk-fieldset__heading"&gt;What's your name?&lt;/h1&gt;
       &lt;/legend&gt;
-
       &lt;div class="govuk-form-group"&gt;
         &lt;label class="govuk-label" for="given-name"&gt;
           First name
         &lt;/label&gt;
         &lt;input class="govuk-input" id="given-name" name="given-name" type="text" autocomplete="given-name" spellcheck="false"&gt;
       &lt;/div&gt;
-
       &lt;div class="govuk-form-group"&gt;
         &lt;label class="govuk-label" for="family-name"&gt;
           Last name
         &lt;/label&gt;
         &lt;input class="govuk-input" id="family-name" name="family-name" type="text" autocomplete="family-name" spellcheck="false"&gt;
       &lt;/div&gt;
-    
     &lt;/fieldset&gt;
   &lt;/div&gt;
-
 &lt;/form&gt;
           </code></pre>
         </li>
@@ -433,6 +432,183 @@
           </code></pre>
         </li>
 
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="email-address">What's your email address?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/email">email</a><br>Page with sample HTML: <a href="email-address">email-address</a></p>
+          
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Consider using a <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> element to group the two input fields</li>
+            <li>Consider whether the text should be used as hint text to describe the email address field.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/fieldset/">https://design-system.service.gov.uk/components/fieldset/</a></li>
+            <li><a href="https://design-system.service.gov.uk/patterns/email-addresses/">https://design-system.service.gov.uk/patterns/email-addresses/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;form&gt;
+  &lt;div class="govuk-form-group"&gt;
+    &lt;fieldset class="govuk-fieldset"&gt;
+      &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"&gt;
+        &lt;h1 class="govuk-fieldset__heading"&gt;
+          What's your email address?
+        &lt;/h1&gt;
+      &lt;/legend&gt;
+      &lt;p class="govuk-body"&gt;We'll email your test site pass and test results to this email address. You can print this out or bring a copy of it on your mobile phone.&lt;/p&gt;
+      &lt;p class="govuk-body"&gt;Make sure you're happy for your test results to go to this email address. Do not use a work or shared email address unless you're comfortable with others seeing your results.&lt;/p&gt;
+      &lt;div class="govuk-form-group"&gt;
+        &lt;label class="govuk-label" for="email"&gt;
+          Email address
+        &lt;/label&gt;
+        &lt;input class="govuk-input" id="email" name="email" type="email" autocomplete="email" spellcheck="false"&gt;
+      &lt;/div&gt;
+      &lt;div class="govuk-form-group"&gt;
+        &lt;label class="govuk-label" for="email-confirmation"&gt;
+          Confirm email address
+        &lt;/label&gt;
+        &lt;input class="govuk-input" id="email-confirmation" name="email-confirmation" type="email" autocomplete="email" spellcheck="false"&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+  &lt;/div&gt;
+  &lt;button class="govuk-button"&gt;Continue&lt;/button&gt;
+&lt;/form&gt;
+          </code></pre>
+        </li>
+
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="email-address-error">Error: What's your email address?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/name">email</a> (with forced error)<br>Page with sample HTML: <a href="email-address-error">email-address-error</a></p>
+          
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Recommend adding "Error:" to the page title</li>
+            <li>Ensure that each error message in the summary box links to the appropriate input field and not to the error message</li>
+            <li>Recommend not having the same error message for both input fields</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/error-message/">https://design-system.service.gov.uk/components/error-message/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-summary/">https://design-system.service.gov.uk/components/error-summary/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary"&gt;
+  &lt;h2 class="govuk-error-summary__title" id="error-summary-title"&gt;
+    There is a problem
+  &lt;/h2&gt;
+  &lt;div class="govuk-error-summary__body"&gt;
+    &lt;ul class="govuk-list govuk-error-summary__list"&gt;
+      &lt;li&gt;
+        &lt;a href="#email"&gt;Email address is required&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href="#email-confirmation"&gt;Confirmation email address is required&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+        </li>
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="contact-mobile-number">What's your mobile number?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/contact-mobile-number">contact-mobile-number</a><br>Page with sample HTML: <a href="contact-mobile-number">contact-mobile-number</a></p>
+          
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Consider using a <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> element to group the two input fields</li>
+            <li>Consider whether the text should be used as hint text to describe the mobile phone number field.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/fieldset/">https://design-system.service.gov.uk/components/fieldset/</a></li>
+            <li><a href="https://design-system.service.gov.uk/patterns/telephone-numbers/">https://design-system.service.gov.uk/patterns/telephone-numbers/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;form&gt;
+  &lt;div class="govuk-form-group"&gt;
+    &lt;fieldset class="govuk-fieldset"&gt;
+      &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"&gt;
+        &lt;h1 class="govuk-fieldset__heading"&gt;
+          What's your mobile number?
+        &lt;/h1&gt;
+      &lt;/legend&gt;
+      &lt;p class="govuk-body"&gt;We'll text your test site pass and your test results to this number.&lt;/p&gt;
+      &lt;p class="govuk-body"&gt;Make sure you’re happy for your test results to go to this mobile phone number. Do not use a work or shared mobile phone number unless you’re comfortable with others seeing your results.&lt;/p&gt;
+      &lt;div class="govuk-form-group"&gt;
+        &lt;label class="govuk-label" for="mobile"&gt;
+          Mobile phone number
+        &lt;/label&gt;
+        &lt;input class="govuk-input" id="mobile" name="mobile" type="tel" autocomplete="tel"&gt;
+      &lt;/div&gt;
+      &lt;div class="govuk-form-group"&gt;
+        &lt;label class="govuk-label" for="mobileConfirmation"&gt;
+          Confirm mobile phone number
+        &lt;/label&gt;
+        &lt;input class="govuk-input" id="mobileConfirmation" name="mobileConfirmation" type="tel" autocomplete="tel"&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+  &lt;/div&gt;
+  &lt;button class="govuk-button"&gt;Continue&lt;/button&gt;
+&lt;/form&gt;
+          </code></pre>
+        </li>
+
+
+
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="contact-mobile-number-error">Error: What's your mobile number?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/contact-mobile-number">contact-mobile-number</a> (with forced error)<br>Page with sample HTML: <a href="contact-mobile-number-error">contact-mobile-number-error</a></p>
+          
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Recommend adding "Error:" to the page title</li>
+            <li>Ensure that each error message in the summary box links to the appropriate input field and not to the error message</li>
+            <li>Recommend looking at the error message text and make it consistent in style with the confirmation email address error message</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/error-message/">https://design-system.service.gov.uk/components/error-message/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-summary/">https://design-system.service.gov.uk/components/error-summary/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary"&gt;
+  &lt;h2 class="govuk-error-summary__title" id="error-summary-title"&gt;
+    There is a problem
+  &lt;/h2&gt;
+  &lt;div class="govuk-error-summary__body"&gt;
+    &lt;ul class="govuk-list govuk-error-summary__list"&gt;
+      &lt;li&gt;
+        &lt;a href="#mobile"&gt;Enter a mobile number&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href="#mobileConfirmation"&gt;Re-enter a matching mobile number&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+        </li>
 
       </ol>
 

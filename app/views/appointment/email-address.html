@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What's your email address? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="gender-error">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="email-address-error" method="post">
+
+        <div class="govuk-form-group">
+
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                What's your email address?
+              </h1>
+            </legend>
+            
+            <p class="govuk-body">We'll email your test site pass and test results to this email address. You can print this out or bring a copy of it on your mobile phone.</p>
+
+            <p class="govuk-body">Make sure you're happy for your test results to go to this email address. Do not use a work or shared email address unless you're comfortable with others seeing your results.</p>
+
+            {{ govukInput({
+              label: {
+                text: "Email address"
+              },
+              id: "email",
+              name: "email",
+              type: "email",
+              autocomplete: "email",
+              attributes: {
+                spellcheck: "false"
+              }
+            }) }}
+          
+            {{ govukInput({
+              label: {
+                text: "Confirm email address"
+              },
+              id: "email-confirmation",
+              name: "email-confirmation",
+              type: "email",
+              autocomplete: "email",
+              attributes: {
+                spellcheck: "false"
+              }
+            }) }}
+              
+          </fieldset>
+
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}

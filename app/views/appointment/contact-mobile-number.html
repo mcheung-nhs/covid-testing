@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What's your mobile number? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="email-address-error">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="contact-mobile-number-error" method="post">
+
+        <div class="govuk-form-group">
+
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                What's your mobile number?
+              </h1>
+            </legend>
+            
+            <p class="govuk-body">We'll text your test site pass and your test results to this number.</p>
+
+            <p class="govuk-body">Make sure you’re happy for your test results to go to this mobile phone number. Do not use a work or shared mobile phone number unless you’re comfortable with others seeing your results.</p>
+
+            {{ govukInput({
+              label: {
+                text: "Mobile phone number"
+              },
+              id: "mobile",
+              name: "mobile",
+              type: "tel",
+              autocomplete: "tel"
+            }) }}
+          
+            {{ govukInput({
+              label: {
+                text: "Confirm mobile phone number"
+              },
+              id: "mobileConfirmation",
+              name: "mobileConfirmation",
+              type: "tel",
+              autocomplete: "tel"
+            }) }}
+              
+          </fieldset>
+
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}
