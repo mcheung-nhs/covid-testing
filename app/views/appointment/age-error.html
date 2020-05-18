@@ -1,0 +1,70 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: What's your date of birth? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="age">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Please enter a valid DOB",
+            href: "#date-day"
+          }
+        ]
+      }) }}
+
+      <form class="form" action="name" method="post">
+        {{ govukDateInput({
+          id: "dob",
+          fieldset: {
+            legend: {
+              text: "What's your date of birth?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "For example, 31 3 1980"
+          },
+          errorMessage: {
+            text: "Please enter a valid DOB"
+          },
+          items: [
+            {
+              name: "day",
+              classes: "govuk-input--width-2 govuk-input--error",
+              autocomplete: "bday-day",
+              id: "date-day"
+            },
+            {
+              name: "month",
+              classes: "govuk-input--width-2 govuk-input--error",
+              autocomplete: "bday-month",
+              id: "date-month"
+            },
+            {
+              name: "year",
+              classes: "govuk-input--width-4 govuk-input--error",
+              autocomplete: "bday-year",
+              id: "date-year"
+            }
+          ]
+        }) }}
+        <button class="govuk-button">Continue</button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
