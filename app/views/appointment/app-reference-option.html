@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Do you have the NHS COVID-19 app? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="nhs-number-error">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="app-reference-option-error" method="post">
+
+        {{ govukRadios({
+          fieldset: {
+            legend: {
+              text: "Do you have the NHS COVID-19 app? ",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          name: "appReferenceOption",
+          hint: {
+            html: '<img src="/public/images/nhs-app-logo.png" class="govuk-!-margin-bottom-4 govuk-!-margin-right-4" height="75" width="75" style="float:left;" alt="NHS COVID-19 app"> If you have the app, you should be able to see it on your phone with this logo.',
+            attributes: {
+              style: "color:#0b0c0c"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, I have the app",
+              id: "yes"
+            },
+            {
+              value: "no",
+              text: "No, I do not have the app",
+              id: "no"
+            }
+          ]
+        }) }}
+        
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
