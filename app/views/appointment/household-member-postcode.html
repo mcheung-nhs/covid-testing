@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What's John Smith's home postcode? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="household-member-email-address-error">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="household-member-postcode-error" method="post" novalidate>
+
+        {% set postcodeHtml %}
+        {{ govukInput({
+          id: "postcode",
+          name: "postcode",
+          label: {
+            text: "Postcode"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "postcodeOptions",
+          fieldset: {
+            legend: {
+              text: "What's John Smith's home postcode",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            html: '<span class="govuk-body govuk-!-margin-top-6" style="display:block">Enter their home postcode (ideally the one they used to register with their GP).</span>'
+          },
+          items: [
+            {
+              id: "same",
+              value: "same",
+              text: "ls17bj (the same as fname lname)"
+            },
+            {
+              id: "different",
+              value: "different",
+              text: "Somewhere else",
+              conditional: {
+                html: postcodeHtml
+              }
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What's John Smith's mobile number? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="household-member-email-address-error">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="household-member-contact-mobile-number-error" method="post">
+
+        <div class="govuk-form-group">
+
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                What's John Smith's mobile number?
+              </h1>
+            </legend>
+            
+            <p class="govuk-body">We'll text their test site pass and their test results to this number.</p>
+
+            <p class="govuk-body">Get their permission before you enter their mobile number.</p>
+
+            <p class="govuk-body">Make sure they’re happy for their test results to go to this mobile phone number. Do not use a work or shared mobile phone number unless they’re comfortable with others seeing their results.</p>
+
+            {{ govukInput({
+              label: {
+                text: "Mobile phone number"
+              },
+              id: "mobile",
+              name: "mobile",
+              type: "tel",
+              autocomplete: "tel"
+            }) }}
+          
+            {{ govukInput({
+              label: {
+                text: "Confirm mobile phone number"
+              },
+              id: "mobileConfirmation",
+              name: "mobileConfirmation",
+              type: "tel",
+              autocomplete: "tel"
+            }) }}
+              
+          </fieldset>
+
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}

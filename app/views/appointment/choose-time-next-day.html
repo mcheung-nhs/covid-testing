@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Choose a time - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="choose-test-centre">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Choose a time</h1>
+
+      <form action="choose-time-next-day-error" method="post">
+        
+        <p class="govuk-body">Manchester (Manchester Airport)<br>
+Airport Staff Parking South Carpark<br>
+Manchester<br>
+M90 1QX</p>
+       
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<h2 class="govuk-body-l">Available test times for your household</h2>
+
+<p class="govuk-body">When booking a test, please be aware that:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+<li>you can only book an appointment for tomorrow or the day after</li>
+<li>you must turn up at the start time of your appointment. Do not arrive early or late</li>
+<li>it usually takes no more than 10 minutes to test each person</li>
+<li>if there is more than one of you to be tested, you'll have to wait a bit longer so that each person can be tested</li>
+<li>you may have to wait to be tested, but you should not expect to be at the test site for any more than an hour</li>
+</ul>
+
+<p class="govuk-body govuk-!-margin-bottom-6"><a href="choose-time" class="govuk-link">See previous day</a></p>
+
+<fieldset class="govuk-fieldset">
+
+  <script>
+    var objToday = new Date(),
+        weekday = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
+        dayOfWeek = weekday[objToday.getDay() + 1],
+        dayOfMonth = objToday.getDate() + 1,
+        months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'),
+        curMonth = months[objToday.getMonth()];
+
+    var today = dayOfWeek + ' ' + dayOfMonth + ' ' + curMonth;
+    
+    document.write('<legend class="govuk-fieldset__legend govuk-!-font-weight-bold">' + today + '</legend>')
+  </script>
+
+  <div class="govuk-form-group" id="time" aria-live="polite">
+    <div class="govuk-radios__item">
+      <input id="0" type="radio" name="time" class="govuk-radios__input" value="0">
+      <label for="0" class="govuk-label govuk-radios__label">10:00am to 10:30am</label>
+    </div>
+    <div class="govuk-radios__item">
+      <input id="1" type="radio" name="time" class="govuk-radios__input" value="1">
+      <label for="1" class="govuk-label govuk-radios__label">10:30am to 11:00am</label>
+    </div>
+    <div class="govuk-radios__item">
+      <input id="2" type="radio" name="time" class="govuk-radios__input" value="2">
+      <label for="2" class="govuk-label govuk-radios__label">11:00am to 11:30am</label>
+    </div>
+    <div class="govuk-radios__item">
+      <input id="3" type="radio" name="time" class="govuk-radios__input" value="3">
+      <label for="3" class="govuk-label govuk-radios__label">11:30am to 12:00pm</label>
+    </div>
+    <div class="govuk-radios__item">
+      <input id="4" type="radio" name="time" class="govuk-radios__input" value="4">
+      <label for="4" class="govuk-label govuk-radios__label">12:00pm to 12:30pm</label>
+    </div>
+    <div class="govuk-radios__item">
+      <input id="5" type="radio" name="time" class="govuk-radios__input" value="5">
+      <label for="5" class="govuk-label govuk-radios__label">12:30pm to 1:00pm</label>
+    </div>
+    <div class="govuk-radios__item">
+      <input id="6" type="radio" name="time" class="govuk-radios__input" value="6">
+      <label for="6" class="govuk-label govuk-radios__label">1:30pm to 2:00pm</label>
+    </div>
+    <div class="govuk-radios__item">
+      <input id="7" type="radio" name="time" class="govuk-radios__input" value="7">
+      <label for="7" class="govuk-label govuk-radios__label">2:00pm to 2:30pm</label>
+    </div>
+    <div class="govuk-radios__item">
+      <input id="8" type="radio" name="time" class="govuk-radios__input" value="8">
+      <label for="8" class="govuk-label govuk-radios__label">2:30pm to 3:00pm</label>
+    </div>
+    <div class="govuk-radios__item">
+      <input id="9" type="radio" name="time" class="govuk-radios__input" value="9">
+      <label for="9" class="govuk-label govuk-radios__label">3:00pm to 3:30pm</label>
+    </div>
+    <div class="govuk-radios__item">
+      <input id="10" type="radio" name="time" class="govuk-radios__input" value="10">
+      <label for="10" class="govuk-label govuk-radios__label">3:30pm to 4:00pm</label>
+    </div>
+    <div class="govuk-radios__item">
+      <input id="11" type="radio" name="time" class="govuk-radios__input" value="11">
+      <label for="11" class="govuk-label govuk-radios__label">4:00pm to 4:30pm</label>
+    </div>
+  </div>
+
+</fieldset>
+<!-- <p class="govuk-body govuk-!-margin-bottom-8"><a href="choose-time-next-day" class="govuk-link">See next day</a></p> -->
+
+        <button class="govuk-button govuk-!-margin-right-5" data-module="govuk-button">
+          Continue
+        </button>
+        <a class="govuk-button govuk-button--secondary" href="find-test-centre" role="button" draggable="false">Change search area</a>
+
+      </form>
+      
+    </div>
+  </div>
+
+{% endblock %}

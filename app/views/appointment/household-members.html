@@ -1,0 +1,73 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  People confirmed for testing - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="check-answers">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">People confirmed for testing</h1>
+
+      <p class="govuk-body"> You can add up to 3 people you live with to join you for testing. They must:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>be aged 5 and over</li>
+        <li>also have symptoms</li>
+        <li>arrive in the same vehicle</li>
+        <li>sit next to a window that opens</li>
+        <li>bring their test site pass and photo ID</li>
+      </ul>
+
+      <p class="govuk-body"> Once you’ve confirmed all people for testing, you can book your appointment. </p>
+
+      <hr class="govuk-section-break govuk-section-break--visible">
+
+      <!-- inline style overrides! -->
+      <style>
+        .govuk-summary-list__actions-list-item {border:0 !important; display:block; margin-right:0; padding-right:0;}
+        
+        @media only screen and (max-width: 641px) {
+          .govuk-summary-list {
+            padding-top: 15px;
+          }
+        }
+      </style>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "John Smith"
+            },
+            value: {
+              html: '<p>johnsmith@gmail.com</p><p>+447777777777</p><p>Vehicle Registration: CU57ABC</p>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "check-answers",
+                  text: "Edit details",
+                  visuallyHiddenText: "for John Smith"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <a href="find-test-centre" class="govuk-!-margin-right-4 govuk-button">Book appointment</a>
+      <a href="household-member-age" class="govuk-button govuk-button--secondary">Add person you live with</a>
+
+    </div>
+  </div>
+
+{% endblock %}

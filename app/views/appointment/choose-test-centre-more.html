@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Test sites near LS27BJ - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="find-test-centre">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Test sites near LS27BJ</h1>
+
+      <form action="choose-test-centre-more-error" method="post">
+        
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend">
+            <span class="govuk-body-l">Choose a test site</span>
+          </legend>
+
+          {{ govukWarningText({
+            text: "Some test sites are for over 12s only",
+            iconFallbackText: "Warning"
+          }) }}
+
+          <p class="govuk-body-l">
+            Your nearest test site is:
+          </p>
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="MCM" name="chosenTestCentre" type="radio" value="MCM" aria-describedby="nearest-hint">
+              <label class="govuk-label govuk-radios__label govuk-label--s" for="MCM">
+                Manchester (Manchester Airport) (41.9 miles away)
+              </label>
+              <div id="nearest-hint" class="govuk-hint govuk-radios__hint">
+                <p class="govuk-body">Airport Staff Parking South Carpark<br>
+                Manchester<br>
+                M90 1QX</p>
+                <p class="govuk-body">
+                538 slots available in the next 5 days.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="govuk-radios" aria-live="polite">
+
+            <p class="govuk-body-l">
+              Other test sites:
+            </p>
+  
+            <p class="govuk-body govuk-!-margin-top-4 govuk-!-margin-bottom-4"><a class="govuk-link" href="choose-test-centre">See closer test sites</a></p>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="SDM" name="chosenTestCentre" type="radio" value="SDM" aria-describedby="other1-hint">
+              <label class="govuk-label govuk-radios__label govuk-label--s" for="SDM">
+                Sandwell (Sandwell General Hospital) (89.5 miles away)
+              </label>
+              <div id="other1-hint" class="govuk-hint govuk-radios__hint">
+                <p class="govuk-body">C/o little lane car park, Lyndon<br>
+                  West Bromwich<br>
+                  B71 4HJ</p>
+                <p class="govuk-body">
+                540 slots available in the next 5 days.</p>
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="BRM" name="chosenTestCentre" type="radio" value="BRM" aria-describedby="other2-hint">
+              <label class="govuk-label govuk-radios__label govuk-label--s" for="BRM">
+                Birmingham (Edgbaston Cricket Ground) (93.9 miles away)
+              </label>
+              <div id="other2-hint" class="govuk-hint govuk-radios__hint">
+                <p class="govuk-body">Edgbaston Stadium, Edgbaston Rd<br>
+                  Birmingham<br>
+                  B5 7QU </p>
+                <p class="govuk-body">
+                536 slots available in the next 5 days.</p>
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="M01_01" name="chosenTestCentre" type="radio" value="M01_01" aria-describedby="other3-hint">
+              <label class="govuk-label govuk-radios__label govuk-label--s" for="M01_01">
+                Van01-Location-1 (121.1 miles away)
+              </label>
+              <div id="other3-hint" class="govuk-hint govuk-radios__hint">
+                <p class="govuk-body">Edgbaston Stadium, Edgbaston Rd<br>
+                  Birmingham<br>
+                  B5 7QU </p>
+                <p class="govuk-body">
+                536 slots available in the next 5 days.</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="govuk-body govuk-!-margin-top-8 govuk-!-margin-bottom-8"><a class="govuk-link" href="choose-test-centre-more">See further away test sites</a></p>
+
+        </fieldset>
+
+        <button class="govuk-button govuk-!-margin-right-5" data-module="govuk-button">
+          Continue
+        </button>
+        <a class="govuk-button govuk-button--secondary" href="find-test-centre">Change search area</a>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

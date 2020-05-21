@@ -1,0 +1,58 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Confirm your appointment - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="choose-time">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Confirm your appointment</h1>
+
+      <h2 class="govuk-heading-m">Appointment details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key"> Test site </dt>
+          <dd class="govuk-summary-list__value"> Manchester (Manchester Airport)<br> Airport Staff Parking South Carpark<br> Manchester<br> M90 1QX </dd>
+          <dd class="govuk-summary-list__actions"><a href="choose-test-centre" class="govuk-link"> Change <span class="govuk-visually-hidden">test site</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key"> Date and time </dt>
+          <dd class="govuk-summary-list__value"> 21 May 2020<br> 10:00am to 10:30am </dd>
+          <dd class="govuk-summary-list__actions"><a href="choose-time-next-day" class="govuk-link"> Change <span class="govuk-visually-hidden">time</span></a></dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-2"> People confirmed for testing </h2>
+      <dl class="govuk-summary-list household-members">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Joe Smith</dt>
+          <dd class="govuk-summary-list__value">joesmith@gmail.com</dd>
+          <dd class="govuk-summary-list__actions">+447777777777</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">John Smith</dt>
+          <dd class="govuk-summary-list__value">johnsmith@gmail.com</dd>
+          <dd class="govuk-summary-list__actions">+447777777777</dd>
+        </div>
+      </dl>
+
+      {{ govukInsetText({
+        text: "Check these details carefully before you confirm your appointment. You cannot change the appointment once it’s been confirmed."
+      }) }}
+
+      <a href="appointment-confirmed" class="govuk-button">Save and continue</a>
+
+    </div>
+  </div>
+
+{% endblock %}

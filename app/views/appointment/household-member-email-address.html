@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  What's your email address? - GOV.UK
+  What's John Smith's email address? - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="ethnicity-group-error">Back</a>
+  <a class="govuk-back-link" href="household-member-gender-error">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -13,20 +13,22 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="email-address-error" method="post">
+      <form class="form" action="household-member-email-address-error" method="post">
 
         <div class="govuk-form-group">
 
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
               <h1 class="govuk-fieldset__heading">
-                What's your email address?
+                What's John Smith's email address?
               </h1>
             </legend>
             
-            <p class="govuk-body">We'll email your test site pass and test results to this email address. You can print this out or bring a copy of it on your mobile phone.</p>
+            <p class="govuk-body">We'll email their test site pass and test results to this email address. They can print this out or bring a copy of it on their mobile phone.</p>
 
-            <p class="govuk-body">Make sure you're happy for your test results to go to this email address. Do not use a work or shared email address unless you're comfortable with others seeing your results.</p>
+            <p class="govuk-body">Get their permission before you enter their email address. </p>
+
+            <p class="govuk-body">Make sure they're happy for their test results to go to this email address. Do not use a work or shared email address unless they're comfortable with others seeing their results.</p>
 
             {{ govukInput({
               label: {

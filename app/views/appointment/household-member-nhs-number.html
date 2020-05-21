@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What's John Smith's NHS number? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="household-member-nhs-number-option-error">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What's John Smith's NHS number?</h1>
+
+      <form action="household-member-nhs-number-error" method="post">
+        <p class="govuk-body" id="nhsnumber-hint">Their NHS number is a 10 digit number. Please enter the number with no spaces, for example 4857773456. </p>
+        
+        {{ govukInput({
+          label: {
+            text: "NHS number"
+          },
+          id: "nhs-number",
+          name: "nhsNumber",
+          type: "number",
+          describedBy: "nhsnumber-hint"
+        }) }}
+        
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

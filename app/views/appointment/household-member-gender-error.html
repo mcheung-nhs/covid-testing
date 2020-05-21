@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Error: What's your gender? - GOV.UK
+  Error: What's John Smith's gender? - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -23,13 +23,13 @@
         ]
       }) }}
 
-      <form class="form" action="ethnicity-group" method="post">
+      <form class="form" action="household-member-email-address" method="post">
 
         {{ govukRadios({
           name: "sex",
           fieldset: {
             legend: {
-              text: "What's your gender?",
+              text: "What's John Smith's gender?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
