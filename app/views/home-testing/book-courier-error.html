@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: Have you booked your courier? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="book-courier">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukErrorSummary({
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Select if you have booked your courier",
+            "href": "#yes"
+          }
+        ]
+      }) }}
+
+      <form action="barcode" method="post">
+        <fieldset class="govuk-fieldset" aria-describedby="courier-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              Have you booked your courier?
+            </h1>
+          </legend>
+
+          <div id="courier-hint">
+            <p class="govuk-body">You must <a href="https://nhs-ecourier.azurewebsites.net/" target="_blank" class="govuk-link"> book a courier </a> to collect all the swab samples in your household. Do this before you register the test or take the test.</p>
+            <p class="govuk-body">If you haven't booked a courier yet, you must do it now.</p>
+          </div>
+
+          {{ govukRadios({
+            name: "courierBooked",
+            errorMessage: {
+              "text": "Select if you have booked your courier"
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes",
+                id: "yes"
+              },
+              {
+                value: "No",
+                text: "no",
+                id: "no"
+              }
+            ]
+          }) }}
+
+        </fieldset>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

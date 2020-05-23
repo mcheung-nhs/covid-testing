@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Scan your home test barcode - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="barcode">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="barcode" method="post">
+
+        <h1 class="govuk-heading-xl"> Scan your home test barcode </h1>
+
+        <p class="govuk-body"> Hold your barcode up to your webcam and fit it inside the square.</p>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Cancel
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

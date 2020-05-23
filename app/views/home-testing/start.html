@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Register a home test kit - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Register a home test kit</h1>
+    <p class="govuk-body-l">You can register a coronavirus (COVID-19) test for you or someone else</p>
+    <h2 class="govuk-heading-m">Check if you can register a home test</h2>
+    <p class="govuk-body">You should only register a home test kit if:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>you've already received it</li>
+      <li>you’ve already <a href="https://nhs-ecourier.azurewebsites.net/" class="govuk-link">booked a courier</a>
+        to collect your test sample</li>
+    </ul>
+    <h2 class="govuk-heading-m">To complete this form, you’ll need</h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the test kit you're registering</li>
+      <li>your email address, or an email address for the person you're registering it for</li>
+      <li>your mobile number, or a mobile number for the person you're registering it for</li>
+    </ul>
+    <h2 class="govuk-heading-m">If people you live with have received a test kit</h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>you should register their kits, too (you can register up to 4 other kits once you’ve registered your own)
+      </li>
+      <li>it is very important that each person takes the test registered to them to make sure they receive the
+        correct results</li>
+    </ul>
+    <p class="govuk-body"><a
+        href="https://www.gov.uk/government/publications/coronavirus-covid-19-testing-privacy-information" target="_blank"
+        class="govuk-link">Read the coronavirus privacy information</a></p>
+    <h2 class="govuk-heading-m">How we use your data</h2>
+    <p class="govuk-body">To find out how we use your personal data when you register for a coronavirus test, <a
+        href="https://www.gov.uk/government/publications/coronavirus-covid-19-testing-privacy-information" target="_blank"
+        class="govuk-link">read the coronavirus privacy note.</a></p>
+
+    {{ govukButton({
+        text: "Start now",
+        href: "book-courier",
+        isStartButton: true
+      }) }}
+
+  </div>
+</div>
+
+{% endblock %}

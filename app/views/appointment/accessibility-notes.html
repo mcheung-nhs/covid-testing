@@ -8,7 +8,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      
+
       <h1 class="govuk-heading-xl">
         <span class="govuk-caption-xl">Accessibility testing notes</span>
         Book a drive-through test
@@ -30,6 +30,16 @@
           <li><a href="#gender-error">Error: What's your gender?</a></li>
           <li><a href="#ethnicity-group">What is your ethnic group?</a></li>
           <li><a href="#ethnicity-group-error">Error: What's your ethnic group?</a></li>
+          <li>Ethnicity group - Asian: <a href="#ethnicity-group-asian">Which one best describes your Asian or Asian British background?</a></li>
+          <li>Ethnicity group - Asian: <a href="#ethnicity-group-asian-error">Error: Which one best describes your Asian or Asian British background?</a></li>
+          <li>Ethnicity group - Black: <a href="#ethnicity-group-black">Which one best describes your Black, African, Black British or Caribbean background?</a></li>
+          <li>Ethnicity group - Black: <a href="#ethnicity-group-black-error">Error: Which one best describes your Black, African, Black British or Caribbean background?</a></li>
+          <li>Ethnicity group - Mixed: <a href="#ethnicity-group-mixed">Which one best describes your Mixed or Multiple ethnic groups background?</a></li>
+          <li>Ethnicity group - Mixed: <a href="#ethnicity-group-mixed-error">Error: Which one best describes your Mixed or Multiple ethnic groups background?</a></li>
+          <li>Ethnicity group - White: <a href="#ethnicity-group-white">Which one best describes your White background?</a></li>
+          <li>Ethnicity group - White: <a href="#ethnicity-group-white-error">Error: Which one best describes your White background?</a></li>
+          <li>Ethnicity group - Other: <a href="#ethnicity-group-other">Which one best describes your background?</a></li>
+          <li>Ethnicity group - Other: <a href="#ethnicity-group-other-error">Error: Which one best describes your background?</a></li>
           <li><a href="#email-address">What's your email address?</a></li>
           <li><a href="#email-address-error">Error: What's your email address?</a></li>
           <li><a href="#contact-mobile-number">What's your mobile number?</a></li>
@@ -69,13 +79,13 @@
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
       <p>Please note the tested links may not work due to the GUID that is generated per session for the URL.</p>
-    
+
       <ol class="govuk-list govuk-list--number govuk-!-margin-top-8">
-        
+
         <!-- Start page -->
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="start">Start page</h2>
-          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/appointment">appointment</a><br>Page with sample HTML: <a href="start">start</a></p> 
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/appointment">appointment</a><br>Page with sample HTML: <a href="start">start</a></p>
 
           <h3 class="govuk-heading-s">Comments</h3>
           <ol class="govuk-list govuk-list--number">
@@ -99,7 +109,7 @@
 &lt;fieldset class="govuk-fieldset" aria-describedby="code-hint"&gt;
   &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--s"&gt;Enter your invitation code&lt;/legend&gt;
   &lt;span class="govuk-hint" id="code-hint"&gt;This is the 16 digit code you received in the text message we sent you.&lt;/span&gt;
-  
+
   &lt;!-- input fields --&gt;
 
 &lt;/fieldset&gt;
@@ -206,7 +216,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="age">What's your date of birth?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/age">age</a><br>Page with sample HTML: <a href="age">age</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -264,7 +274,7 @@
   &lt;button class="govuk-button"&gt;Continue&lt;/button&gt;
 &lt;/form&gt;
           </code></pre>
-        </li> 
+        </li>
 
         <!-- Error: what's your date of birth -->
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
@@ -303,7 +313,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="name">What's your name?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/name">name</a><br>Page with sample HTML: <a href="name">name</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -346,7 +356,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="name-error">Error: What's your name?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/name">name</a> (with forced error)<br>Page with sample HTML: <a href="name-error">name-error</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -384,11 +394,11 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="gender">What's your gender?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/gender">name</a><br>Page with sample HTML: <a href="gender">gender</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
-            <li>Consider using a <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> element to group the two input fields</li>
+            <li>Consider using a <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> element to group the two radio options</li>
           </ol>
 
           <h3 class="govuk-heading-s">References</h3>
@@ -431,7 +441,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="gender-error">Error: What's your gender?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/gender">gender</a> (with forced error)<br>Page with sample HTML: <a href="gender-error">gender-error</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -467,7 +477,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="ethnicity-group">What is your ethnic group?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/ethnicity-group">ethnicity-group</a><br>Page with sample HTML: <a href="ethnicity-group">ethnicity-group</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -478,6 +488,7 @@
 
           <h3 class="govuk-heading-s">References</h3>
           <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/patterns/ethnic-group/">https://design-system.service.gov.uk/patterns/ethnic-group/</a></li>
             <li><a href="https://design-system.service.gov.uk/components/fieldset/">https://design-system.service.gov.uk/components/fieldset/</a></li>
             <li><a href="https://design-system.service.gov.uk/components/radios/">https://design-system.service.gov.uk/components/radios/</a></li>
           </ul>
@@ -493,7 +504,7 @@
         &lt;/h1&gt;
       &lt;/legend&gt;
       &lt;span id="ethnic-hint" class="govuk-hint"&gt;
-        This will help us understand how coronavirus is affecting people of different ethnic backgrounds. 
+        This will help us understand how coronavirus is affecting people of different ethnic backgrounds.
       &lt;/span&gt;
       &lt;div class="govuk-form-group"&gt;
         &lt;div class="govuk-radios"&gt;
@@ -545,7 +556,7 @@
   &lt;/div&gt;
   &lt;button class="govuk-button"&gt;Continue&lt;/button&gt;
 &lt;/form&gt;
-          
+
           </code></pre>
         </li>
 
@@ -553,7 +564,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="ethnicity-group-error">Error: What is your ethnic group?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/ethnicity-group">ethnicity-group</a> (with forced error)<br>Page with sample HTML: <a href="ethnicity-group-error">ethnicity-group-error</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -578,7 +589,7 @@
     &lt;ul class="govuk-list govuk-error-summary__list"&gt;
       &lt;li&gt;
         &lt;a href="#asian"&gt;Select an ethnic group or 'Prefer not to say'&lt;/a&gt;
-      &lt;/li&gt; 
+      &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -589,7 +600,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="email-address">What's your email address?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/email">email</a><br>Page with sample HTML: <a href="email-address">email-address</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -638,7 +649,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="email-address-error">Error: What's your email address?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/name">email</a> (with forced error)<br>Page with sample HTML: <a href="email-address-error">email-address-error</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -677,7 +688,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="contact-mobile-number">What's your mobile number?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/contact-mobile-number">contact-mobile-number</a><br>Page with sample HTML: <a href="contact-mobile-number">contact-mobile-number</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -726,7 +737,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="contact-mobile-number-error">Error: What's your mobile number?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/contact-mobile-number">contact-mobile-number</a> (with forced error)<br>Page with sample HTML: <a href="contact-mobile-number-error">contact-mobile-number-error</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -765,7 +776,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="postcode">What's your home postcode?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/postcode">postcode</a><br>Page with sample HTML: <a href="postcode">postcode</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -795,7 +806,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="postcode-error">Error: What's your home postcode?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/postcode">postcode</a> (with forced error)<br>Page with sample HTML: <a href="postcode-error">postcode-error</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -830,7 +841,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="nhs-number-option">Do you know your NHS number?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/nhs-number-option">nhs-number-option</a><br>Page with sample HTML: <a href="nhs-number-option">nhs-number-option</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -883,7 +894,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="nhs-number-option-error">Error: Do you know your NHS number?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/nhs-number-option">nhs-number-option</a> (with forced error)<br>Page with sample HTML: <a href="nhs-number-option-error">nhs-number-option-error</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -918,7 +929,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="nhs-number">What is your NHS number?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/nhs-number">nhs-number</a><br>Page with sample HTML: <a href="nhs-number">nhs-number</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -953,7 +964,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="nhs-number-error">Error: What is your NHS number?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/nhs-number">nhs-number</a> (with forced error)<br>Page with sample HTML: <a href="nhs-number-error">nhs-number-error</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -988,7 +999,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="app-reference-option">Do you have the NHS COVID-19 app?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/app-reference-option">app-reference-option</a><br>Page with sample HTML: <a href="app-reference-option">app-reference-option</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -1009,7 +1020,7 @@
     &lt;fieldset class="govuk-fieldset" aria-describedby="appReferenceOption-hint"&gt;
       &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"&gt;
         &lt;h1 class="govuk-fieldset__heading"&gt;
-          Do you have the NHS COVID-19 app? 
+          Do you have the NHS COVID-19 app?
         &lt;/h1&gt;
       &lt;/legend&gt;
       &lt;span id="appReferenceOption-hint" class="govuk-body"&gt;
@@ -1042,7 +1053,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="app-reference-option-error">Error: Do you have the NHS COVID-19 app?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/app-reference-option">app-reference-option</a> (with forced error)<br>Page with sample HTML: <a href="app-reference-option-error">app-reference-option-error</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -1078,7 +1089,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="app-reference">What's your app reference code?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/app-reference">app-reference</a><br>Page with sample HTML: <a href="app-reference">app-reference</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -1091,9 +1102,9 @@
 &lt;form&gt;
   &lt;p class="govuk-body" id="appref-hint"&gt;This is the 8-character code which you'll be given in the app. It looks like this: d23f-gre4&lt;/p&gt;
   &lt;p class="govuk-body"&gt;Your app reference code is unique to you, and you can only use your code once. If other people who live with you have the app, you can give us their app reference codes on the next pages.&lt;/p&gt;
-  
+
   &lt;!-- details --&gt;
-  
+
   &lt;div class="govuk-form-group"&gt;
     &lt;label class="govuk-label" for="app-reference"&gt;
       Tracing app reference code
@@ -1111,7 +1122,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="app-reference-error">Error: What's your app reference code?</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/app-reference">app-reference</a> (with forced error)<br>Page with sample HTML: <a href="app-reference-error">app-reference-error</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -1146,7 +1157,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="check-answers">Check your answers</h2>
           <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/check-answers">check-answers</a><br>Page with sample HTML: <a href="check-answers">check-answers</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -1293,14 +1304,14 @@
             <li>Consider moving the warning message to below the header. This is relevant information that should be given to the user before the "Continue" button</li>
             <li>Check the error message for consistency - it mentions the button text as "Find a site" whereas it is actually "Continue"
             <li>Consider associating the hint text with the input field to improve the screen reader experience.</li>
-              <li>For the error page:
+            <li>For the error page:
               <ol class="govuk-list govuk-list--number">
                 <li>Recommend adding "Error:" to the page title</li>
                 <li>Ensure that the error message in the summary box links to the postcode input field and not to the error message</li>
               </ol>
             </li>
           </ol>
-        
+
           <h3 class="govuk-heading-s">References</h3>
           <ul class="govuk-list govuk-list--bullet">
             <li><a href="https://design-system.service.gov.uk/components/error-message/">https://design-system.service.gov.uk/components/error-message/</a></li>
@@ -1347,7 +1358,7 @@
               </ol>
             </li>
           </ol>
-        
+
           <h3 class="govuk-heading-s">References</h3>
           <ul class="govuk-list govuk-list--bullet">
             <li><a href="https://design-system.service.gov.uk/components/error-message/">https://design-system.service.gov.uk/components/error-message/</a></li>
@@ -1406,7 +1417,7 @@
               </ol>
             </li>
           </ol>
-        
+
           <h3 class="govuk-heading-s">References</h3>
           <ul class="govuk-list govuk-list--bullet">
             <li><a href="https://design-system.service.gov.uk/components/error-message/">https://design-system.service.gov.uk/components/error-message/</a></li>

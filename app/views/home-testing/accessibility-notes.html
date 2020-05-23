@@ -1,0 +1,529 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Accessibility testing notes - Register a home test kit - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Accessibility testing notes</span>
+        Register a home test kit
+      </h1>
+
+      <nav aria-labelledby="page-content">
+        <h2 class="govuk-heading-s" id="page-content">Contents</h2>
+        <ol class="govuk-list govuk-list--number">
+          <li><a href="#start">Start page</a></li>
+          <li><a href="#book-courier">Have you booked your courier?</a></li>
+          <li><a href="#book-courier-none-selected">You must book a courier before you register your test</a></li>
+          <li><a href="#barcode">Enter your home test barcode</a></li>
+          <li><a href="#scan">Scan your home test barcode</a></li>
+          <li><a href="#name">What's your name?</a></li>
+          <li><a href="#gender">What's your gender?</a></li>
+          <li><a href="#ethnicity-group">What is your ethnic group?</a>
+            <ul>
+              <li>Ethnicity group - Asian: <a href="#ethnicity-group-asian">Which one best describes your Asian or Asian British background?</a></li>
+              <li>Ethnicity group - Black: <a href="#ethnicity-group-black">Which one best describes your Black, African, Black British or Caribbean background?</a></li>
+              <li>Ethnicity group - Mixed: <a href="#ethnicity-group-mixed">Which one best describes your Mixed or Multiple ethnic groups background?</a></li>
+              <li>Ethnicity group - White: <a href="#ethnicity-group-white">Which one best describes your White background?</a></li>
+              <li>Ethnicity group - Other: <a href="#ethnicity-group-other">Which one best describes your background?</a></li>
+            </ul>
+          </li>
+          <li><a href="#age">What's your date of birth?</a></li>
+        </ol>
+      </nav>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <ol class="govuk-list govuk-list--number govuk-!-margin-top-8">
+
+        <!-- Start page -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="start">Start page</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/home-testing/">start</a><br>Page with sample HTML: <a href="start">start</a></p>
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>Incorrect heading structure - the heading "How we use your data" is a <code>&lt;h4&gt;</code> when it should be a <code>&lt;h2&gt;</code>. Screen reader users often rely on navigating by heading so if the structure isn’t hierarchical they may not understand the relationship.</li>
+          </ol>
+        </li>
+
+        <!-- Have you booked your courier? -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="book-courier">Have you booked your courier?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/home-testing/book-courier/">book-courier</a><br>Page with sample HTML: <a href="book-courier">book-courier</a><br>Error page: <a href="book-courier-error">book-courier-error</a></p>
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>Missing <code>&lt;legend&gt;</code> element which is a requirement inside the <code>&lt;fieldset&gt;</code> element. This can be added and made a heading.</li>
+            <li>Consider associating the hint text with the <code>&lt;fieldset&gt;</code> to better describe it for screen readers</li>
+            <li>For the error page:
+              <ol class="govuk-list govuk-list--number">
+                <li>Recommend adding "Error:" to the page title</li>
+                <li>Ensure that the error message in the summary box links to the first radio button and not to the error message</li>
+                <li>Recommend the error message be more relevant e.g. "Select if you have booked your courier"</li>
+              </ol>
+            </li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/fieldset/">https://design-system.service.gov.uk/components/fieldset/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/radios/">https://design-system.service.gov.uk/components/radios/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-message/">https://design-system.service.gov.uk/components/error-message/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-summary/">https://design-system.service.gov.uk/components/error-summary/</a></li>
+          </ul>
+
+        <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;fieldset class="govuk-fieldset" aria-describedby="courier-hint"&gt;
+  &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"&gt;
+    &lt;h1 class="govuk-fieldset__heading"&gt;
+      Have you booked your courier?
+    &lt;/h1&gt;
+  &lt;/legend&gt;
+  &lt;div id="courier-hint"&gt;
+    &lt;p class="govuk-body"&gt;You must &lt;a href="https://nhs-ecourier.azurewebsites.net/" target="_blank" class="govuk-link"&gt; book a courier &lt;/a&gt; to collect all the swab samples in your household. Do this before you register the test or take the test.&lt;/p&gt;
+    &lt;p class="govuk-body"&gt;If you haven't booked a courier yet, you must do it now.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;!-- radio buttons --&gt;
+
+&lt;/fieldset&gt;
+
+&lt;!-- error message --&gt;
+&lt;div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary"&gt;
+  &lt;h2 class="govuk-error-summary__title" id="error-summary-title"&gt;
+    There is a problem
+  &lt;/h2&gt;
+  &lt;div class="govuk-error-summary__body"&gt;
+    &lt;ul class="govuk-list govuk-error-summary__list"&gt;
+      &lt;li&gt;
+        &lt;a href="#yes"&gt;Select if you have booked your courier&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+        </li>
+
+        <!-- You must book a courier before you register your test -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="book-courier-none-selected">You must book a courier before you register your test</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/home-testing/book-courier-error/">book-courier</a><br>Page with sample HTML: <a href="book-courier-none-selected">book-courier-none-selected</a></p>
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>No issues found</li>
+          </ol>
+        </li>
+
+        <!-- Enter your home test barcode -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="barcode">Enter your home test barcode</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/home-testing/barcode/">barcode</a><br>Page with sample HTML: <a href="barcode">barcode</a><br>Error page: <a href="barcode-error">barcode-error</a></p>
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>Consider using a <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> element to group the two input fields</li>
+            <li>For the error page:
+              <ol class="govuk-list govuk-list--number">
+                <li>Recommend adding "Error:" to the page title</li>
+                <li>Missing vertical red line alongside the input field that has the error</li>
+                <li>Ensure that the error messages in the summary box links to the appropriate input and not to the error message</li>
+                <li>Recommend the error message be more relevant e.g. "Enter your test kit barcode reference"</li>
+              </ol>
+            </li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/fieldset/">https://design-system.service.gov.uk/components/fieldset/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-message/">https://design-system.service.gov.uk/components/error-message/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-summary/">https://design-system.service.gov.uk/components/error-summary/</a></li>
+          </ul>
+
+        <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;fieldset class="govuk-fieldset"&gt;
+  &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"&gt;
+    &lt;h1 class="govuk-fieldset__heading"&gt;
+      Enter your home test barcode
+    &lt;/h1&gt;
+  &lt;/legend&gt;
+  &lt;!-- content --&gt;
+&lt;/fieldset&gt;
+
+&lt;!-- error message --&gt;
+&lt;div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary"&gt;
+  &lt;h2 class="govuk-error-summary__title" id="error-summary-title"&gt;
+    There is a problem
+  &lt;/h2&gt;
+  &lt;div class="govuk-error-summary__body"&gt;
+    &lt;ul class="govuk-list govuk-error-summary__list"&gt;
+      &lt;li&gt;
+        &lt;a href="#sampleId"&gt;Enter your test kit barcode reference&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href="#sampleId-confirm"&gt;Re-confirm your test kit barcode reference&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+        </li>
+
+        <!-- Scan your home test barcode -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="scan">Scan your home test barcode</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/home-testing/barcode/scan">scan</a><br>Page with sample HTML: <a href="scan">scan</a></p>
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>Recommend user testing the scan barcode functionality as this may be difficult for users who have visual or motor impairments</li>
+          </ol>
+        </li>
+
+        <!-- What's your name? -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="name">What's your name?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/home-testing/228808f5-bd2a-4b56-90a7-686ac8c3989c/name">name</a><br>Page with sample HTML: <a href="name">name</a><br>Error page: <a href="name-error">name-error</a></p>
+
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Consider using a <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> element to group the two input fields</li>
+            <li>Consider associating the hint text with the fieldset to better describe it for screen readers</li>
+            <li>For the error page:
+              <ol class="govuk-list govuk-list--number">
+                <li>Recommend adding "Error:" to the page title</li>
+                <li>Ensure that each error message in the summary box links to the appropriate input field and not to the error message</li>
+              </ol>
+            </li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/fieldset/">https://design-system.service.gov.uk/components/fieldset/</a></li>
+            <li><a href="https://design-system.service.gov.uk/patterns/names/">https://design-system.service.gov.uk/patterns/names/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/text-input/">https://design-system.service.gov.uk/components/text-input/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-message/">https://design-system.service.gov.uk/components/error-message/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-summary/">https://design-system.service.gov.uk/components/error-summary/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;form&gt;
+  &lt;div class="govuk-form-group"&gt;
+    &lt;fieldset class="govuk-fieldset" aria-describedby="name-hint"&gt;
+      &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"&gt;
+        &lt;h1 class="govuk-fieldset__heading"&gt;What's your name?&lt;/h1&gt;
+      &lt;/legend&gt;
+      &lt;p class="govuk-body" id="name-hint">&gt;f you're registering a test kit for someone else, enter their name.&lt;/p&gt;
+      &lt;div class="govuk-form-group"&gt;
+        &lt;label class="govuk-label" for="given-name"&gt;
+          First name
+        &lt;/label&gt;
+        &lt;input class="govuk-input" id="given-name" name="given-name" type="text" autocomplete="given-name" spellcheck="false"&gt;
+      &lt;/div&gt;
+      &lt;div class="govuk-form-group"&gt;
+        &lt;label class="govuk-label" for="family-name"&gt;
+          Last name
+        &lt;/label&gt;
+        &lt;input class="govuk-input" id="family-name" name="family-name" type="text" autocomplete="family-name" spellcheck="false"&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+
+&lt;!-- error message --&gt;
+&lt;div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary"&gt;
+  &lt;h2 class="govuk-error-summary__title" id="error-summary-title"&gt;
+    There is a problem
+  &lt;/h2&gt;
+  &lt;div class="govuk-error-summary__body"&gt;
+    &lt;ul class="govuk-list govuk-error-summary__list"&gt;
+      &lt;li&gt;
+        &lt;a href="#given-name"&gt;Enter your first name&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href="#family-name"&gt;Enter your last name&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+        </li>
+
+        <!-- What's your gender? -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="gender">What's your gender?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/home-testing/228808f5-bd2a-4b56-90a7-686ac8c3989c/gender">gender</a><br>Page with sample HTML: <a href="gender">gender</a><br>Error page: <a href="gender-error">gender-error</a></p>
+
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Consider using a <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> element to group the two radio options</li>
+            <li>Consider associating the hint text with the fieldset to better describe it for screen readers</li>
+            <li>For the error page:
+              <ol class="govuk-list govuk-list--number">
+                <li>Recommend adding "Error:" to the page title</li>
+                <li>Ensure that the error message in the summary box links to the first radio option and not to the error message</li>
+              </ol>
+            </li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/radios/">https://design-system.service.gov.uk/components/radios/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-message/">https://design-system.service.gov.uk/components/error-message/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-summary/">https://design-system.service.gov.uk/components/error-summary/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;form&gt;
+  &lt;div class="govuk-form-group"&gt;
+    &lt;fieldset class="govuk-fieldset" aria-describedby="sex-hint"&gt;
+      &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"&gt;
+        &lt;h1 class="govuk-fieldset__heading"&gt;
+          What&#39;s your gender?
+        &lt;/h1&gt;
+      &lt;/legend&gt;
+      &lt;span id="sex-hint" class="govuk-hint"&gt;
+        If you're registering a test kit for someone else, select their gender.
+        &lt;/span&gt;
+      &lt;div class="govuk-radios"&gt;
+        &lt;div class="govuk-radios__item"&gt;
+          &lt;input class="govuk-radios__input" id="male" name="sex" type="radio" value="male"&gt;
+          &lt;label class="govuk-label govuk-radios__label" for="male"&gt;
+            Male
+          &lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div class="govuk-radios__item"&gt;
+          &lt;input class="govuk-radios__input" id="female" name="sex" type="radio" value="female"&gt;
+          &lt;label class="govuk-label govuk-radios__label" for="female"&gt;
+            Female
+          &lt;/label&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+  &lt;/div&gt;
+  &lt;button class="govuk-button"&gt;Continue&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- error message --&gt;
+&lt;div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary"&gt;
+  &lt;h2 class="govuk-error-summary__title" id="error-summary-title"&gt;
+    There is a problem
+  &lt;/h2&gt;
+  &lt;div class="govuk-error-summary__body"&gt;
+    &lt;ul class="govuk-list govuk-error-summary__list"&gt;
+      &lt;li&gt;
+        &lt;a href="#male"&gt;Select a gender&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                  </code></pre>
+        </li>
+
+        <!-- What is your ethnic group? -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="ethnicity-group">What is your ethnic group?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/home-testing/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/ethnicity-group">ethnicity-group</a><br>Page with sample HTML: <a href="ethnicity-group">ethnicity-group</a><br>Error page: <a href="ethnicity-group-error">ethnicity-group-error</a></p>
+
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Using a <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> element to group the radio buttons</li>
+            <li>Consider associating the hint text with the <code>&lt;fieldset&gt;</code> to improve the screen reader experience.</li>
+            <li>Associate the hint text with the relevant radio button to improve the screen reader experience</li>
+            <li>For the error page:
+              <ol class="govuk-list govuk-list--number">
+                <li>Recommend adding "Error:" to the page title</li>
+                <li>Ensure that the error message in the summary box links to the first radio option and not to the error message</li>
+              </ol>
+            </li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/patterns/ethnic-group/">https://design-system.service.gov.uk/patterns/ethnic-group/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/fieldset/">https://design-system.service.gov.uk/components/fieldset/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/radios/">https://design-system.service.gov.uk/components/radios/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-message/">https://design-system.service.gov.uk/components/error-message/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-summary/">https://design-system.service.gov.uk/components/error-summary/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;form&gt;
+  &lt;div class="govuk-form-group"&gt;
+    &lt;fieldset class="govuk-fieldset" aria-describedby="ethnic-hint"&gt;
+      &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"&gt;
+        &lt;h1 class="govuk-fieldset__heading"&gt;
+          What is your ethnic group?
+        &lt;/h1&gt;
+      &lt;/legend&gt;
+      &lt;span id="ethnic-hint" class="govuk-hint"&gt;
+        This will help us understand how coronavirus is affecting people of different ethnic backgrounds.
+      &lt;/span&gt;
+      &lt;div class="govuk-form-group"&gt;
+        &lt;div class="govuk-radios"&gt;
+          &lt;div class="govuk-radios__item"&gt;
+            &lt;input class="govuk-radios__input" id="asian" name="ethnicity-group" type="radio" value="asian" aria-describedby="asian-hint"&gt;
+            &lt;label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="asian"&gt;Asian or Asian British&lt;/label&gt;
+            &lt;span id="home-hint" class="govuk-hint govuk-radios__hint"&gt;
+              Includes any Asian background, for example, Bangladeshi, Chinese, Indian, Pakistani
+            &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class="govuk-radios__item"&gt;
+            &lt;input class="govuk-radios__input" id="black" name="ethnicity-group" type="radio" value="black" aria-describedby="black-hint"&gt;
+            &lt;label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="black"&gt;Black, African, Black British or Caribbean&lt;/label&gt;
+            &lt;span id="black-hint" class="govuk-hint govuk-radios__hint"&gt;
+              Includes any Black background
+            &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class="govuk-radios__item"&gt;
+            &lt;input class="govuk-radios__input" id="mixed" name="ethnicity-group" type="radio" value="mixed" aria-describedby="mixed-hint"&gt;
+            &lt;label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="mixed"&gt;Mixed or multiple ethnic groups&lt;/label&gt;
+            &lt;span id="mixed-hint" class="govuk-hint govuk-radios__hint"&gt;
+              Includes any Mixed background
+            &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class="govuk-radios__item"&gt;
+            &lt;input class="govuk-radios__input" id="white" name="ethnicity-group" type="radio" value="white" aria-describedby="white-hint"&gt;
+            &lt;label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="white"&gt;White&lt;/label&gt;
+            &lt;span id="white-hint" class="govuk-hint govuk-radios__hint"&gt;
+              Includes any White background
+            &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class="govuk-radios__item"&gt;
+            &lt;input class="govuk-radios__input" id="other" name="ethnicity-group" type="radio" value="other" aria-describedby="other-hint"&gt;
+            &lt;label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="other"&gt;Another ethnic group&lt;/label&gt;
+            &lt;span id="other-hint" class="govuk-hint govuk-radios__hint"&gt;
+              Includes any other ethnic group, for example, Arab
+            &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class="govuk-radios__divider"&gt;or&lt;/div&gt;
+          &lt;div class="govuk-radios__item"&gt;
+            &lt;input class="govuk-radios__input" id="prefer-not-to-say" name="ethnicity-group" type="radio" value="prefer-not-to-say"&gt;
+            &lt;label class="govuk-label govuk-radios__label" for="prefer-not-to-say"&gt;
+              Prefer not to say
+            &lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+  &lt;/div&gt;
+  &lt;button class="govuk-button"&gt;Continue&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- error message --&gt;
+&lt;div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary"&gt;
+  &lt;h2 class="govuk-error-summary__title" id="error-summary-title"&gt;
+    There is a problem
+  &lt;/h2&gt;
+  &lt;div class="govuk-error-summary__body"&gt;
+    &lt;ul class="govuk-list govuk-error-summary__list"&gt;
+      &lt;li&gt;
+        &lt;a href="#asian"&gt;Select an ethnic group or 'Prefer not to say'&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+        </li>
+
+
+
+
+
+
+
+
+        <!-- What's your date of birth -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="age">What's your date of birth?</h2>
+          <p>Tested link: <a href="https://npd-int-1-sp.int.bluesquirrelproject.net/home-testing/#4a601eb7-ae44-4dd8-bcca-b7d96979e4a6/age">age</a><br>Page with sample HTML: <a href="age">age</a><br>Error page: <a href="age-error">age-error</a></p>
+
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Empty <code>&lt;legend&gt;</code> element which is a requirement inside the <code>&lt;fieldset&gt;</code> element. This can be added and made a heading.</li>
+            <li>Consider associating the hint text with the <code>&lt;fieldset&gt;</code> to improve the screen reader experience.</li>
+            <li>Recommend adding the <code>autocomplete</code> attribute to the input fields. This lets browsers autofill the information on a user’s behalf if they’ve entered it previously. See reference link below.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/date-input/">https://design-system.service.gov.uk/components/date-input/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-summary/">https://design-system.service.gov.uk/components/error-summary/</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Example code</h3>
+          <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
+&lt;form&gt;
+  &lt;div class="govuk-form-group"&gt;
+    &lt;fieldset class="govuk-fieldset" role="group" aria-describedby="dob-hint"&gt;
+      &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"&gt;
+        &lt;h1 class="govuk-fieldset__heading"&gt;
+          What's your date of birth?
+        &lt;/h1&gt;
+      &lt;/legend&gt;
+      &lt;span id="dob-hint" class="govuk-hint"&gt;
+        For example, 31 3 1980
+      &lt;/span&gt;
+      &lt;div class="govuk-date-input" id="dob"&gt;
+        &lt;div class="govuk-date-input__item"&gt;
+          &lt;div class="govuk-form-group"&gt;
+            &lt;label class="govuk-label govuk-date-input__label" for="date-day"&gt;
+              Day
+            &lt;/label&gt;
+            &lt;input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-day" name="day" type="text" autocomplete="bday-day" pattern="[0-9]*" inputmode="numeric"&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="govuk-date-input__item"&gt;
+          &lt;div class="govuk-form-group"&gt;
+            &lt;label class="govuk-label govuk-date-input__label" for="date-month"&gt;
+              Month
+            &lt;/label&gt;
+            &lt;input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-month" name="month" type="text" autocomplete="bday-month" pattern="[0-9]*" inputmode="numeric"&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="govuk-date-input__item"&gt;
+          &lt;div class="govuk-form-group"&gt;
+            &lt;label class="govuk-label govuk-date-input__label" for="date-year"&gt;
+              Year
+            &lt;/label&gt;
+            &lt;input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-year" name="year" type="text" autocomplete="bday-year" pattern="[0-9]*" inputmode="numeric"&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+  &lt;/div&gt;
+  &lt;button class="govuk-button"&gt;Continue&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- error message --&gt;
+&lt;div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary"&gt;
+  &lt;h2 class="govuk-error-summary__title" id="error-summary-title"&gt;
+    There is a problem
+  &lt;/h2&gt;
+  &lt;div class="govuk-error-summary__body"&gt;
+    &lt;ul class="govuk-list govuk-error-summary__list"&gt;
+      &lt;li&gt;
+      &lt;a href="#date-day"&gt;Please enter a valid DOB&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+        </li>
+
+      </ol>
+
+    </div>
+  </div>
+
+{% endblock %}

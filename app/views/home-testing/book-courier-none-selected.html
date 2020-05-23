@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Have you booked your courier? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="book-courier">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">You must book a courier before you register your test</h1>
+      <p class="govuk-body">You must <a href="https://nhs-ecourier.azurewebsites.net/" target="_blank" class="govuk-link">
+        book a courier</a> to collect all the swab samples in your household. Do this before you register the test or take
+        the test.</p>
+      <p class="govuk-body">If you haven't booked a courier yet, you must do it now.</p>
+
+    </div>
+  </div>
+
+{% endblock %}
