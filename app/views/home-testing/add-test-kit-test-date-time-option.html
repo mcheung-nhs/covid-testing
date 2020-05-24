@@ -1,0 +1,45 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  When will John Smith take the swab test? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="add-test-kit-age-error">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="add-test-kit-test-date-time-option-error" method="post">
+
+        {{ govukRadios({
+          name: "dateSameAsLead",
+          fieldset: {
+            legend: {
+              text: "When will John Smith take the swab test?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "24 May 2020: 6pm (the same as Joe Smith"
+            },
+            {
+              value: "no",
+              text: "A different date and time"
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button">Continue</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

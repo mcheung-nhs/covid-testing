@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Enter: Enter your home test barcode - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="add-test-kit-barcode">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukErrorSummary({
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Enter your test kit barcode reference",
+            "href": "#sampleId"
+          },
+          {
+            "text": "Re-confirm your test kit barcode reference",
+            "href": "#sampleId-confirm"
+          }
+        ]
+      }) }}
+
+      <form action="add-test-kit-name" method="post">
+
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              Enter the home test barcode for the person you live with
+            </h1>
+          </legend>
+
+          <p class="govuk-body">Use the camera on your phone or computer to scan one of the 4 identical barcodes inside your home test kit.</p>
+
+          <p class="govuk-body">These are different from your pre-paid Royal Mail return package barcode.</p>
+
+          <p class="govuk-body">There is an 11 character reference below the barcode which you can enter manually, instead.</p>
+
+          <details data-module="govuk-details" class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text"> What does the barcode look like? </span>
+            </summary>
+            <div class="govuk-details__text">
+              <img alt="Example barcode" src="/public/images/example-barcode.png">
+            </div>
+          </details>
+
+          <a href="scan" class="govuk-button govuk-button--secondary">Scan my barcode</a>
+
+          {{ govukInput({
+            label: {
+              text: "Test kit barcode reference"
+            },
+            errorMessage: {
+              "text": "Enter your test kit barcode reference"
+            },
+            id: "sampleId",
+            name: "sampleId"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Confirm test kit barcode reference"
+            },
+            errorMessage: {
+              "text": "Re-confirm your test kit barcode reference"
+            },
+            id: "sampleId-confirm",
+            name: "sampleIdConfirm"
+          }) }}
+
+        </fieldset>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

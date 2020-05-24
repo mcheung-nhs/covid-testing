@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Do you know your NHS number? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="postcode-error">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="nhs-number-option-error" method="post">
+
+        <fieldset class="govuk-fieldset" aria-describedby="nhs-number-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              Do you know your NHS number?
+            </h1>
+          </legend>
+
+          <p class="govuk-body govuk-!-font-weight-bold">It's OK if you do not, you can still register your home test kit.</p>
+
+          <p class="govuk-body" id="nhs-number-hint">Your NHS number is a 10 digit number, like 485 777 3456. You can find it on any letter the NHS has sent you, on a prescription, or by logging in to some GP online services.</p>
+
+          <p class="govuk-body"><a href="https://www.nhs.uk/using-the-nhs/about-the-nhs/what-is-an-nhs-number/" target="_blank" class="govuk-link">How to find your NHS number</a></p>
+
+          {{ govukRadios({
+            name: "nhsNumberOption",
+            items: [
+              {
+                value: "Yes",
+                text: "Yes, I know my NHS number",
+                id: "Yes"
+              },
+              {
+                value: "No",
+                text: "No, I do not know my NHS number",
+                id: "No"
+              }
+            ]
+          }) }}
+
+        </fieldset>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}

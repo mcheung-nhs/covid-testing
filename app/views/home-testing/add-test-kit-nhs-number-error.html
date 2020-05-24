@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: What is John Smith's NHS number? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="add-test-kit-nhs-number">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukErrorSummary({
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Enter a valid NHS number",
+            "href": "#nhs-number"
+          }
+        ]
+      }) }}
+
+      <h1 class="govuk-heading-xl">What is John Smith's NHS number?</h1>
+
+      <form action="add-test-kit-app-reference-option" method="post">
+        <p class="govuk-body" id="postcode-hint">Their NHS number is a 10 digit number. Please enter the number with no spaces, for example 4857773456.</p>
+
+        {{ govukInput({
+          label: {
+            text: "NHS number"
+          },
+          id: "nhs-number",
+          name: "nhsNumber",
+          type: "number",
+          describedBy: "nhsnumber-hint",
+          errorMessage: {
+            "text": "Enter a valid NHS number"
+          }
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

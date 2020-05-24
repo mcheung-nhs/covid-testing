@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: What's your name? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="add-test-kit-name">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukErrorSummary({
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Enter a first name",
+            "href": "#given-name"
+          },
+          {
+            "text": "Enter a last name",
+            "href": "#family-name"
+          }
+        ]
+      }) }}
+
+      <form action="add-test-kit-gender" method="post">
+
+        <div class="govuk-form-group">
+
+          {% call govukFieldset({
+            legend: {
+              text: "What's your name?",
+              classes: "govuk-fieldset__legend--xl",
+              isPageHeading: true
+            }
+          }) %}
+
+          <p class="govuk-body">If you're registering a test kit for someone else, enter their name.</p>
+
+            {{ govukInput({
+              label: {
+                text: "First name"
+              },
+              id: "given-name",
+              name: "given-name",
+              autocomplete: "given-name",
+              errorMessage: {
+                "text": "Enter a first name"
+              },
+              attributes: {
+                spellcheck: "false"
+              }
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Last name"
+              },
+              id: "family-name",
+              name: "family-name",
+              autocomplete: "family-name",
+              errorMessage: {
+                "text": "Enter a last name"
+              },
+              attributes: {
+                spellcheck: "false"
+              }
+            }) }}
+
+          {% endcall %}
+
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

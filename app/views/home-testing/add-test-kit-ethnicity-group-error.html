@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: What is John Smith's ethnic group? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="add-test-kit-ethnicity-group">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukErrorSummary({
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Select an ethnic group or ‘Prefer not to say’",
+            "href": "#asian"
+          }
+        ]
+      }) }}
+
+      <form action="add-test-kit-ethnicity-group-answer" method="post">
+
+        <div class="govuk-form-group govuk-form-group--error">
+          <fieldset class="govuk-fieldset" aria-describedby="ethnic-hint ethnic-group-error">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                What is John Smith's ethnic group?
+              </h1>
+            </legend>
+            <span id="ethnic-hint" class="govuk-hint">
+              This will help us understand how coronavirus is affecting people of different ethnic backgrounds.
+            </span>
+            <span id="ethnic-group-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select an ethnic group or ‘Prefer not to say’
+            </span>
+            <div class="govuk-form-group">
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="asian" name="ethnicity-group" type="radio" value="asian" aria-describedby="asian-hint">
+                  <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="asian">Asian or Asian British</label>
+                  <span id="home-hint" class="govuk-hint govuk-radios__hint">
+                    Includes any Asian background, for example, Bangladeshi, Chinese, Indian, Pakistani
+                  </span>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="black" name="ethnicity-group" type="radio" value="black" aria-describedby="black-hint">
+                  <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="black">Black, African, Black British or Caribbean</label>
+                  <span id="black-hint" class="govuk-hint govuk-radios__hint">
+                    Includes any Black background
+                  </span>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="mixed" name="ethnicity-group" type="radio" value="mixed" aria-describedby="mixed-hint">
+                  <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="mixed">Mixed or multiple ethnic groups</label>
+                  <span id="mixed-hint" class="govuk-hint govuk-radios__hint">
+                    Includes any Mixed background
+                  </span>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="white" name="ethnicity-group" type="radio" value="white" aria-describedby="white-hint">
+                  <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="white">White</label>
+                  <span id="white-hint" class="govuk-hint govuk-radios__hint">
+                    Includes any White background
+                  </span>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="other" name="ethnicity-group" type="radio" value="other" aria-describedby="other-hint">
+                  <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="other">Another ethnic group</label>
+                  <span id="other-hint" class="govuk-hint govuk-radios__hint">
+                    Includes any other ethnic group, for example, Arab
+                  </span>
+                </div>
+                <div class="govuk-radios__divider">or</div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="prefer-not-to-say" name="ethnicity-group" type="radio" value="prefer-not-to-say">
+                  <label class="govuk-label govuk-radios__label" for="prefer-not-to-say">
+                    Prefer not to say
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

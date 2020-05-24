@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: What's John Smith's mobile number? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="add-test-kit-contact-mobile-number">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukErrorSummary({
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Enter a mobile number",
+            "href": "#mobile"
+          },
+          {
+            "text": "Re-enter a matching mobile number",
+            "href": "#mobileConfirmation"
+          }
+        ]
+      }) }}
+
+      <form class="form" action="add-test-kit-postcode" method="post">
+
+        <div class="govuk-form-group">
+
+          <fieldset class="govuk-fieldset" aria-describedby="phone-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                What's John Smith's mobile number?
+              </h1>
+            </legend>
+
+            <p class="govuk-body" id="phone-hint">We'll text their test results to this number.</p>
+
+            {{ govukInput({
+              label: {
+                text: "Mobile phone number"
+              },
+              id: "mobile",
+              name: "mobile",
+              type: "tel",
+              autocomplete: "tel",
+              errorMessage: {
+                "text": "Enter a mobile number"
+              }
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Confirm mobile phone number"
+              },
+              id: "mobileConfirmation",
+              name: "mobileConfirmation",
+              type: "tel",
+              autocomplete: "tel",
+              errorMessage: {
+                "text": "Re-enter a matching mobile number"
+              }
+            }) }}
+
+          </fieldset>
+
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}

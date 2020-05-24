@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: What's your email address? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="email-address">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukErrorSummary({
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Email address is required",
+            "href": "#email"
+          },
+          {
+            "text": "Confirmation email address is required",
+            "href": "#email-confirmation"
+          }
+        ]
+      }) }}
+
+      <form class="form" action="contact-mobile-number" method="post">
+
+        <div class="govuk-form-group">
+
+          <fieldset class="govuk-fieldset" aria-describedby="email-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                What's your email address?
+              </h1>
+            </legend>
+
+            <p class="govuk-body" id="email-hint">We'll email your registration confirmation and test results to this email address.</p>
+
+            {{ govukInput({
+              label: {
+                text: "Email address"
+              },
+              id: "email",
+              name: "email",
+              type: "email",
+              autocomplete: "email",
+              errorMessage: {
+                "text": "Email address is required"
+              },
+              attributes: {
+                spellcheck: "false"
+              }
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Confirm email address"
+              },
+              id: "email-confirmation",
+              name: "email-confirmation",
+              type: "email",
+              autocomplete: "email",
+              errorMessage: {
+                "text": "Confirmation email address is required"
+              },
+              attributes: {
+                spellcheck: "false"
+              }
+            }) }}
+
+          </fieldset>
+
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}

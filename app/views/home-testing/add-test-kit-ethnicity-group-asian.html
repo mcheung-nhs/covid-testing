@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Which one best describes John Smith's Asian or Asian British background? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="add-test-kit-ethnicity-group">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="add-test-kit-ethnicity-group-asian-error" method="post">
+
+        {{ govukRadios({
+          idPrefix: "ethnic-group",
+          name: "ethnic-group",
+          fieldset: {
+            legend: {
+              text: "Which one best describes John Smith's Asian or Asian British background?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "This will help us understand how coronavirus is affecting people of different ethnic backgrounds."
+          },
+          items: [
+            {
+              id: "bangladeshi",
+              value: "bangladeshi",
+              text: "Bangladeshi"
+            },
+            {
+              id: "chinese",
+              value: "chinese",
+              text: "Chinese"
+            },
+            {
+              id: "indian",
+              value: "indian",
+              text: "Indian"
+            },
+            {
+              id: "pakistani",
+              value: "pakistani",
+              text: "Pakistani"
+            },
+            {
+              id: "another-asian-background",
+              value: "another-asian-background",
+              text: "Another Asian background"
+            },
+            {
+              divider: "or"
+            },
+            {
+              id: "prefer-not-to-say",
+              value: "prefer-not-to-say",
+              text: "Prefer not to say",
+              label: {
+                classes: 'govuk-label'
+              }
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

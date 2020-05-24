@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What's John Smith's gender? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="add-test-kit-name-error">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form action="add-test-kit-gender-error" method="post">
+
+        {{ govukRadios({
+          name: "sex",
+          fieldset: {
+            legend: {
+              text: "What's John Smith's gender?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "If you're registering a test kit for someone else, select their gender."
+          },
+          items: [
+            {
+              id: "male",
+              value: "male",
+              text: "Male"
+            },
+            {
+              id: "female",
+              value: "female",
+              text: "Female"
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}

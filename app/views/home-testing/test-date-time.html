@@ -1,0 +1,236 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  When will you take the swab test? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="age-error">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="test-date-time-error" method="post">
+
+        <h1 class="govuk-heading-xl">When will you take the swab test?</h1>
+
+        <p class="govuk-body">Select the date and time you will take your swab test. If you've already taken the swab test, tell us the date and time you took it.</p>
+
+        <p class="govuk-body">We need to know this so the lab can work out when the test is due to expire. If you select the wrong date and time, it could mean you receive an incorrect result.</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>You can take your swab sample the night before the courier is due to arrive - <strong>anytime after 9pm.</strong></li>
+          <li>Or you can take it on the day the courier arrives - <strong>in the morning, before 7am.</strong></li>
+        </ul>
+
+<!--
+        {% set textHtml %}
+        {{ govukDateInput({
+          fieldset: {
+            legend: {
+              text: "When was your sample taken?",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "For example, 26 03 2020"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "testDateRadioOption",
+          fieldset: {
+            legend: {
+              text: "Select a date",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              id: "today",
+              value: "today",
+              text: "Today, 23 May 2020"
+            },
+            {
+              id: "tomorrow",
+              value: "tomorrow",
+              text: "Tomorrow, 24 May 2020"
+            },
+            {
+              id: "other",
+              value: "other",
+              text: "A different date",
+              conditional: {
+                html: textHtml
+              }
+            }
+          ]
+        }) }}
+
+
+        {% call govukFieldset({
+          legend: {
+            text: "Enter a time",
+            classes: "govuk-fieldset__legend--s"
+          },
+          describedBy: "time-hint"
+        }) %}
+
+          <p class="govuk-hint" id="time-hint">For example, 9pm</p>
+
+          {{ govukInput({
+            label: {
+              html: 'Hour'
+            },
+            id: "testTimeInput",
+            name: "hour",
+            classes: "govuk-input--width-2",
+            inputmode: "numeric",
+            attributes: {
+              maxlength: "2"
+            }
+          }) }}
+
+          {{ govukRadios({
+            name: "stamp",
+            items: [
+              {
+                id: "am",
+                value: "am",
+                text: "am"
+              },
+              {
+                id: "pm",
+                value: "pm",
+                text: "pm"
+              }
+            ]
+          }) }}
+
+        {% endcall %}
+-->
+
+        <script>
+          var objToday = new Date(),
+              dayOfMonth = objToday.getDate(),
+              months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'),
+              curMonth = months[objToday.getMonth()],
+              year = objToday.getFullYear()
+          var today = dayOfMonth + ' ' + curMonth + ' ' + year
+          var objTomorrow = new Date(objToday)
+          objTomorrow.setDate(objToday.getDate() + 1)
+          var tomDay = objTomorrow.getDate(),
+              tomCurMonth = months[objTomorrow.getMonth()],
+              tomYear = objTomorrow.getFullYear()
+          var tomorrow = tomDay + ' ' + tomCurMonth + ' ' + tomYear
+        </script>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Select a date
+            </legend>
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="today" name="testDateRadioOption" type="radio" value="today">
+                <label class="govuk-label govuk-radios__label" for="today">
+                  Today, <script>document.write(today)</script>
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="tomorrow" name="testDateRadioOption" type="radio" value="tomorrow">
+                <label class="govuk-label govuk-radios__label" for="tomorrow">
+                  Tomorrow, <script>document.write(tomorrow)</script>
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="other" name="testDateRadioOption" type="radio" value="other"
+                  data-aria-controls="conditional-other">
+                <label class="govuk-label govuk-radios__label" for="other">
+                  A different date
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-other">
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" role="group" aria-describedby="undefined-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      When was your sample taken?
+                    </legend>
+                    <span id="undefined-hint" class="govuk-hint">
+                      For example, 26 03 2020
+                    </span>
+                    <div class="govuk-date-input">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="undefined-day">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="undefined-day" name="day"
+                            type="text" pattern="[0-9]*" inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="undefined-month">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="undefined-month"
+                            name="month" type="text" pattern="[0-9]*" inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="undefined-year">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="undefined-year"
+                            name="year" type="text" pattern="[0-9]*" inputmode="numeric">
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <fieldset class="govuk-fieldset" aria-describedby="time-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            Enter a time
+          </legend>
+          <p class="govuk-hint" id="time-hint">For example, 9pm</p>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="testTimeInput">
+              Hour
+            </label>
+            <input class="govuk-input govuk-input--width-2" id="testTimeInput" name="hour" type="text" inputmode="numeric"
+              maxlength="2">
+          </div>
+          <div class="govuk-form-group">
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="am" name="stamp" type="radio" value="am">
+                <label class="govuk-label govuk-radios__label" for="am">
+                  am
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="pm" name="stamp" type="radio" value="pm">
+                <label class="govuk-label govuk-radios__label" for="pm">
+                  pm
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <button class="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

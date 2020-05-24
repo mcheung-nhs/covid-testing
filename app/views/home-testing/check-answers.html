@@ -1,0 +1,201 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your answers - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="app-reference-error">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+        {
+          key: {
+            text: "Courier booked"
+          },
+          value: {
+            text: "Yes"
+          },
+          actions: {
+            items: [
+              {
+                href: "book-courier",
+                text: "Change",
+                visuallyHiddenText: "if you have booked a courier"
+              }
+            ]
+          }
+        },
+          {
+            key: {
+              text: "Test kit barcode reference"
+            },
+            value: {
+              text: "CHE00001516"
+            },
+            actions: {
+              items: [
+                {
+                  href: "barcode",
+                  text: "Change",
+                  visuallyHiddenText: "test kit barcode reference"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "John Smith"
+            },
+            actions: {
+              items: [
+                {
+                  href: "name",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Gender"
+            },
+            value: {
+              text: "Male"
+            },
+            actions: {
+              items: [
+                {
+                  href: "gender",
+                  text: "Change",
+                  visuallyHiddenText: "gender"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Email address"
+            },
+            value: {
+              text: "johnsmith@gmail.com"
+            },
+            actions: {
+              items: [
+                {
+                  href: "email-address",
+                  text: "Change",
+                  visuallyHiddenText: "email address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Phone number"
+            },
+            value: {
+              text: "07777 777777"
+            },
+            actions: {
+              items: [
+                {
+                  href: "contact-mobile-number",
+                  text: "Change",
+                  visuallyHiddenText: "phone number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Postcode"
+            },
+            value: {
+              html: "AA11AA"
+            },
+            actions: {
+              items: [
+                {
+                  href: "postcode",
+                  text: "Change",
+                  visuallyHiddenText: "postcode"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "NHS number known"
+            },
+            value: {
+              html: "Yes"
+            },
+            actions: {
+              items: [
+                {
+                  href: "nhs-number-option",
+                  text: "Change",
+                  visuallyHiddenText: "NHS number known"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "NHS number"
+            },
+            value: {
+              html: "4857773456"
+            },
+            actions: {
+              items: [
+                {
+                  href: "nhs-number",
+                  text: "Change",
+                  visuallyHiddenText: "NHS number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Do they have the NHS app"
+            },
+            value: {
+              html: "Yes"
+            },
+            actions: {
+              items: [
+                {
+                  href: "app-reference-option",
+                  text: "Change",
+                  visuallyHiddenText: "do they have the NHS app"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <a href="add-test-kits" class="govuk-button">Save and continue</a>
+
+    </div>
+  </div>
+
+{% endblock %}

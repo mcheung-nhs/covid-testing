@@ -41,9 +41,30 @@ router.post('/appointment/ethnicity-group-answer', function (req, res) {
   } else if (ethnicityGroup === 'other') {
     res.redirect('/appointment/ethnicity-group-other')
   } else if (ethnicityGroup === 'prefer-not-to-say') {
-    res.redirect('/appointment/age')
+    res.redirect('/appointment/email-address')
   } else {
     res.redirect('/appointment/ethnicity-group-error')
+  }
+})
+
+router.post('/home-testing/add-test-kit-ethnicity-group-answer', function (req, res) {
+
+  const ethnicityGroup = req.session.data['ethnicity-group']
+
+  if (ethnicityGroup === 'asian') {
+    res.redirect('/home-testing/add-test-kit-ethnicity-group-asian')
+  } else if (ethnicityGroup === 'black') {
+    res.redirect('/home-testing/add-test-kit-ethnicity-group-black')
+  } else if (ethnicityGroup === 'mixed') {
+    res.redirect('/home-testing/add-test-kit-ethnicity-group-mixed')
+  } else if (ethnicityGroup === 'white') {
+    res.redirect('/home-testing/add-test-kit-ethnicity-group-white')
+  } else if (ethnicityGroup === 'other') {
+    res.redirect('/home-testing/add-test-kit-ethnicity-group-other')
+  } else if (ethnicityGroup === 'prefer-not-to-say') {
+    res.redirect('/home-testing/add-test-kit-age')
+  } else {
+    res.redirect('/home-testing/add-test-kit-ethnicity-group-error')
   }
 })
 
