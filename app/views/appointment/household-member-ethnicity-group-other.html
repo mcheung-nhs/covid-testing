@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Which one best describes John Smith's background? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="household-member-ethnicity-group">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="household-member-ethnicity-group-other-error" method="post">
+
+        {{ govukRadios({
+          idPrefix: "ethnic-group",
+          name: "ethnic-group",
+          fieldset: {
+            legend: {
+              text: "Which one best describes John Smith's background?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "This will help us understand how coronavirus is affecting people of different ethnic backgrounds."
+          },
+          items: [
+            {
+              id: "arab",
+              value: "arab",
+              text: "Arab"
+            },
+            {
+              id: "another-ethnic-background",
+              value: "another-ethnic-background",
+              text: "Another ethnic background",
+              conditional: {
+                html: otherOtherHtml
+              }
+            },
+            {
+              divider: "or"
+            },
+            {
+              id: "prefer-not-to-say",
+              value: "prefer-not-to-say",
+              text: "Prefer not to say",
+              label: {
+                classes: 'govuk-label'
+              }
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

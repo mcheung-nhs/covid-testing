@@ -26,6 +26,27 @@ router.post('/home-testing/ethnicity-group-answer', function (req, res) {
   }
 })
 
+router.post('/appointment/household-member-ethnicity-group-answer', function (req, res) {
+
+  const ethnicityGroup = req.session.data['ethnicity-group']
+
+  if (ethnicityGroup === 'asian') {
+    res.redirect('/appointment/household-member-ethnicity-group-asian')
+  } else if (ethnicityGroup === 'black') {
+    res.redirect('/appointment/household-member-ethnicity-group-black')
+  } else if (ethnicityGroup === 'mixed') {
+    res.redirect('/appointment/household-member-ethnicity-group-mixed')
+  } else if (ethnicityGroup === 'white') {
+    res.redirect('/appointment/household-member-ethnicity-group-white')
+  } else if (ethnicityGroup === 'other') {
+    res.redirect('/appointment/household-member-ethnicity-group-other')
+  } else if (ethnicityGroup === 'prefer-not-to-say') {
+    res.redirect('/appointment/household-member-email-address')
+  } else {
+    res.redirect('/appointment/household-member-ethnicity-group-error')
+  }
+})
+
 router.post('/appointment/ethnicity-group-answer', function (req, res) {
 
   const ethnicityGroup = req.session.data['ethnicity-group']

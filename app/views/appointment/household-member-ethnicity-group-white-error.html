@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: Which one best describes John Smith's White background? - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="household-member-ethnicity-group">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukErrorSummary({
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Select the option that best describes John Smith's White background",
+            "href": "#british-english-northern-irish-scottish-or-welsh"
+          }
+        ]
+      }) }}
+
+      <form action="household-member-email-address-error" method="post">
+
+        {{ govukRadios({
+          idPrefix: "ethnic-group",
+          name: "ethnic-group",
+          fieldset: {
+            legend: {
+              text: "Which one best describes John Smith's White background?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "This will help us understand how coronavirus is affecting people of different ethnic backgrounds."
+          },
+          errorMessage: {
+            text: "Select the option that best describes John Smith's White background"
+          },
+          items: [
+            {
+              id: "british-english-northern-irish-scottish-or-welsh",
+              value: "british-english-northern-irish-scottish-or-welsh",
+              text: "British, English, Northern Irish, Scottish, or Welsh"
+            },
+            {
+              id: "irish",
+              value: "irish",
+              text: "Irish"
+            },
+            {
+              id: "irish-traveller-or-gypsy",
+              value: "irish-traveller-or-gypsy",
+              text: "Irish Traveller or Gypsy"
+            },
+            {
+              id: "another-white-background",
+              value: "another-white-background",
+              text: "Another White background",
+              conditional: {
+                html: whiteOtherHtml
+              }
+            },
+            {
+              divider: "or"
+            },
+            {
+              id: "prefer-not-to-say",
+              value: "prefer-not-to-say",
+              text: "Prefer not to say",
+              label: {
+                classes: 'govuk-label'
+              }
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
