@@ -1,0 +1,68 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home test kit registration confirmed - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Home test kit registration confirmed</h1>
+      </div>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Joe Smith</dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list">
+              <li>joesmith@gmail.com</li>
+              <li>+447777777777</li>
+              <li>Test kit ID: che00001520</li>
+              <li>Test date and time: 25 May 2020: 6pm</li>
+            </ul>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">John Smith</dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list">
+              <li>johnsmith@gmail.com</li>
+              <li>+447777777777</li>
+              <li>Test kit ID: che00001521</li>
+              <li>Test date and time: 25 May 2020: 6pm</li>
+            </ul>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Next steps</h2>
+
+      <p class="govuk-body govuk-!-font-weight-bold">Take your swab sample between 9pm the night before and 7am on the day of your collection</p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+        <li> only take your swab sample once you have <a href="https://nhs-ecourier.azurewebsites.net/" target="_blank" class="govuk-link"> booked a courier collection
+          </a></li>
+        <li>follow the paper instructions in your home test kit for taking your sample</li>
+        <li>if you have registered multiple test kits, it is very important that each person takes the test registered to them to make sure they receive the correct results.</li>
+        <li>you can find further <a href="https://youtu.be/8lo6g-TYZ-c" target="_blank" class="govuk-link"> instructional videos here </a></li>
+      </ul>
+
+      {{ govukWarningText({
+        text: "Do not take your swab sample until you have booked your collection.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      <h2 class="govuk-heading-m">We want to hear from you</h2>
+
+      <p class="govuk-body"><a href="https://nhsdigital.eu.qualtrics.com/jfe/form/SV_9nlBZPMlvhP4wSx" target="_blank" class="govuk-link"><span>What did you think of our service?</span></a>(takes 3 minutes)</p>
+
+
+    </div>
+  </div>
+
+{% endblock %}
