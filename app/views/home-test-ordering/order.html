@@ -1,0 +1,96 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Order a home test kit - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Order a home test kit</h1>
+
+      <p class="govuk-body">You can now order a coronavirus (COVID-19) home test kit.</p>
+
+      <h2 class="govuk-heading-m">Who can have the test</h2>
+
+      <p class="govuk-body">The test is only for people who have <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/check-if-you-have-coronavirus-symptoms/">symptoms of coronavirus</a> – whether that’s you, or someone you live with. It
+        cannot be given to children aged under 5.</p>
+
+      <h2 class="govuk-heading-m">What is the test</h2>
+
+      <p class="govuk-body">The test is an ‘antigen test’. It tests if you currently have coronavirus. It usually involves taking a swab of the
+        inside of your nose and the back of your throat, using a long cotton bud.</p>
+
+      <h2 class="govuk-heading-m">What the results mean</h2>
+
+      <p class="govuk-body">If your test result is negative it means you no longer need to self-isolate, as long as:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>you are well enough</li>
+        <li>you have not had a high temperature for 48 hours</li>
+        <li>everyone in your home who has symptoms also tests negative</li>
+      </ul>
+
+      <p class="govuk-body">If you work and you cannot do your job from home, you can return to work as long as you check with your employer.</p>
+
+      <p class="govuk-body">While you wait for your results, you (and anyone you live with) must continue to self-isolate. <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/what-to-do-if-you-or-someone-you-live-with-has-coronavirus-symptoms/staying-at-home-if-you-or-someone-you-live-with-has-coronavirus-symptoms/">Read NHS advice about how long to self-isolate</a>.</p>
+
+      <p class="govuk-body">If your test result is positive, or someone you live with tests positive, you'll need to continue to self-isolate.
+      </p>
+
+      <h2 class="govuk-heading-m">If you're worried</h2>
+
+      <p class="govuk-body">If your condition gets worse, or you do not get better after 7 days, use the <a href="https://111.nhs.uk/covid-19/">NHS 111 online coronavirus service</a>. Only call 111 if you cannot get help online. For a medical emergency, dial 999.</p>
+
+      <p class="govuk-body">Call 111 if you're worried about a baby or child. If they seem very unwell, are getting worse, or you think there's
+        something seriously wrong, call 999.</p>
+
+      <p class="govuk-body">Do not delay getting help if you're worried. Trust your instincts.</p>
+
+      <p class="govuk-body">Get more advice about <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-in-children/">coronavirus in children</a>.</p>
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+
+      <p class="govuk-body">You'll need an email account that you can check regularly. If you do not have an email account, you'll need to create one to order a home test.</p>
+
+      {{ govukWarningText({
+        text: "Make sure you’re happy for your test results to go to this email address. Do not use a shared email address
+      unless you're comfortable with others possibly seeing your results.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      <p class="govuk-body">The home test kit is free. We will not ask you to give any bank details or credit card information.</p>
+
+      <h2 class="govuk-heading-m">If you're an essential worker</h2>
+
+      <p class="govuk-body">If you're an essential worker, it would help if you could give us your work email address. This would help us to
+        easily identify you.</p>
+
+      <p class="govuk-body">If you do not have your work email address, your personal email should be fine.</p>
+
+      <p class="govuk-body">It would also help us identify you if you could give us your National Insurance number. If you don’t have it, you can
+        still order a home test.</p>
+
+      <h2 class="govuk-heading-m">Help requesting a kit</h2>
+
+      <p class="govuk-body">Call the customer contact centre for assistance with ordering a test kit:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>England and Wales: call 119 (free from mobiles and landlines)</li>
+        <li>Scotland or Northern Ireland: call 0300 303 2713 (charged at your standard network rate)</li>
+      </ul>
+
+      <p class="govuk-body">This helpline is open from 7am to 11pm.</p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "user-details",
+        isStartButton: true
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

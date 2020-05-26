@@ -1,0 +1,244 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Accessibility testing notes - Order a home test kit - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Accessibility testing notes</span>
+        Order a home test kit
+      </h1>
+
+      <h2 class="govuk-heading-s">Summary</h2>
+
+      <ol class="govuk-list govuk-list--number">
+        <li>The site does not closely follow the GOV.UK Design System example code and styling. Thus there are minor inconsistencies in look compared to other government services that use the Design System patterns.</li>
+        <li>The screens contain no <code>&lt;header&gt;</code> or <code>&lt;main&gt;</code> elements. These landmarks would help screen reader users with navigation.</li>
+        <li>The URL does not change when moving from screen to screen. Therefore if you refresh the screen at any time, you will be sent back to the start. This could be confusing to the user. Another consequence of this is that the browser 'Back' button would not work as expected. It would take the user back to the last site they had been on (if any) and not to the previous screen. This would again cause confusion.</li>
+        <li>Check the use of the "Start" style of buttons. According to the Design System, the start button should only be used "for the main call to action on your service's start page". The default button should be used for all other screens.</li>
+        <li>Use of the reCAPTCHA functionality produces extra "privacy policy" and "terms and conditions" links on the page, with no differentiation between the page links and the reCAPTCHA links. This may cause confusion for screen reader users.</li>
+      </ol>
+
+      <nav aria-labelledby="page-content">
+        <h2 class="govuk-heading-s" id="page-content">Contents</h2>
+        <ol class="govuk-list govuk-list--number">
+          <li><a href="#start">Start page</a></li>
+          <li><a href="#order">Order a home test kit</a></li>
+          <li><a href="#enter-details">Enter your details</a></li>
+          <li><a href="#confirm-email">Confirm your email</a></li>
+          <li><a href="#confirm-email-code">Confirm your email - code</a></li>
+          <li><a href="#confirm-identity">We need to confirm your identity</a></li>
+          <li><a href="#there-is-a-problem">There is a problem</a></li>
+          <li><a href="#order-kits">Order home test kits</a></li>
+          <li><a href="#order-summary">Order summary</a></li>
+          <li><a href="#order-confirmed">We’ve received your order</a></li>
+        </ol>
+      </nav>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <ol class="govuk-list govuk-list--number govuk-!-margin-top-8">
+
+        <!-- Start page -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="start">Start page</h2>
+
+          <ul class="govuk-list">
+            <li>Page with sample HTML: <a href="start">start</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>No <code>&lt;header&gt;</code> or <code>&lt;main&gt;</code> elements on the page. These landmarks would help screen reader users with navigation.</li>
+            <li>Incorrect use of heading - the text "Use this test as instructed. Only order the number of kits you need - do not order extras." is a <code>&lt;h3&gt;</code>. It is not a header as it does not have any related content beneath it. Screen reader users often rely on navigating by heading so if the structure isn’t hierarchical they may not understand the relationship. It should be marked up as a paragraph or use the warning text component.</li>
+            <li>Disabled buttons are not recommended by the GOV.UK Design System. Consider changing this to displaying an error if the checkbox is not checked.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/components/warning-text/">https://design-system.service.gov.uk/components/warning-text/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/button/#disabled-buttons">https://design-system.service.gov.uk/components/button/#disabled-buttons</a></li>
+          </ul>
+
+        </li>
+
+        <!-- Order a home test kit -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="order">Order a home test kit</h2>
+
+          <ul class="govuk-list">
+            <li>Page with sample HTML: <a href="order">order</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>Incorrect heading structure - the headings below the  <code>&lt;h1&gt;</code> are <code>&lt;h3&gt;</code> when they should be <code>&lt;h2&gt;</code>. Screen reader users often rely on navigating by heading so if the structure isn’t hierarchical they may not understand the relationship.</li>
+          </ol>
+
+        </li>
+
+        <!-- Enter your details -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+
+          <h2 class="govuk-heading-m" id="enter-details">Enter your details</h2>
+
+          <ul class="govuk-list">
+            <li>Page with sample HTML: <a href="user-details">user-details</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Comments</h3>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>There is no <code>&lt;h1&gt;</code> explaining what the page is about</li>
+            <li>It is recommended that you ask one question per page</li>
+            <li><code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> elements should be used to group input fields together to improve the screen reader experience</li>
+            <li>The second input field for "Building and street" has no <code>&lt;label&gt;</code> so is not described correctly by screen readers</li>
+            <li>On VoiceOver when using the form controls menu, the labels for the National Insurance Number and email address fields are not read out as expected. The form fields are described by the text contained in the (invalid) "placeholder" attribute of the <code>&lt;label&gt;</code> element. This may cause confusion to screen reader users.</li>
+            <li>When clicking on the 'Continue' button, if there are any errors, then screen readers user are not told. As the page is not reloaded, focus does jump to the top of the page but this is not conveyed to the user. Therefore this would probably cause confusion. Adding and <code>aria-live</code> attribute with a value of "polite" to the error summary box or surrounding container may improve this.</li>
+            <li>Each of the error messages in the error summary box do not link to anywhere. They should link to the input field that has the error.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/patterns/question-pages/#start-by-asking-one-question-per-page">https://design-system.service.gov.uk/patterns/question-pages/#start-by-asking-one-question-per-page</a></li>
+            <li><a href="https://www.gov.uk/service-manual/design/form-structure#start-with-one-thing-per-page">https://www.gov.uk/service-manual/design/form-structure#start-with-one-thing-per-page</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/fieldset/">https://design-system.service.gov.uk/components/fieldset/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/text-input/">https://design-system.service.gov.uk/components/text-input/</a></li>
+            <li><a href="https://design-system.service.gov.uk/patterns/dates/">https://design-system.service.gov.uk/patterns/dates/</a></li>
+            <li><a href="https://design-system.service.gov.uk/patterns/addresses/">https://design-system.service.gov.uk/patterns/addresses/</a></li>
+            <li><a href="https://design-system.service.gov.uk/patterns/email-addresses/">https://design-system.service.gov.uk/patterns/email-addresses/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-message/">https://design-system.service.gov.uk/components/error-message/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/error-summary/">https://design-system.service.gov.uk/components/error-summary/</a></li>
+          </ul>
+
+        </li>
+
+        <!-- Confirm your email -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="confirm-email">Confirm your email</h2>
+
+          <ul class="govuk-list">
+            <li>Page with sample HTML: <a href="confirm-email">confirm-email</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>The heading of this page is a h2 when it should be a h1</li>
+            <li>Unknown why this is using the inset text styling.</li>
+          </ol>
+        </li>
+
+        <!-- Confirm your email code -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="confirm-email-code">Confirm your email - confirmation code</h2>
+
+          <ul class="govuk-list">
+            <li>Page with sample HTML: <a href="confirm-email-code">confirm-email-code</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>The heading of this page is the same as the previous page but is asking a different thing. Consider changing the heading to make it more relevant.</li>
+            <li>The heading is a h2 when it should be a h1</li>
+            <li>Disabled buttons are not recommended by the GOV.UK Design System. Consider changing this to displaying an error if a code is not entered.</li>
+          </ol>
+        </li>
+
+        <!-- We need to confirm your identity -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="confirm-identity">We need to confirm your identity</h2>
+
+          <ul class="govuk-list">
+            <li>Page with sample HTML: <a href="confirm-identity">confirm-email</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>The heading of this page is a h2 when it should be a h1</li>
+            <li>Missing legend element in the fieldset</li>
+          </ol>
+        </li>
+
+        <!-- There is a problem -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="there-is-a-problem">There is a problem</h2>
+
+          <ul class="govuk-list">
+            <li>Page with sample HTML: <a href="there-is-a-problem">there-is-a-problem</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>The heading of this page is a h3 when it should be a h1</li>
+            <li>Use of a start button styling</li>
+          </ol>
+        </li>
+
+        <!-- Order home test kits -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="order-kits">Order home test kits</h2>
+
+          <ul class="govuk-list">
+            <li>Page with sample HTML: <a href="order-kits">order-kits</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>The heading of this page is a h2 when it should be a h1</li>
+            <li>The subsequent headings should be h2 and not h3</li>
+            <li>Misisng hidden text for the the warning component</li>
+            <li>When adding another household memebr, there is no feedback to screen reader users that anything has happened. Similarly with the "Remove person" button. This would cause confusion.</li>
+          </ol>
+        </li>
+
+        <!-- Order summary -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="order-summary">Order summary</h2>
+
+          <ul class="govuk-list">
+            <li>Page with sample HTML: <a href="order-summary">order-summary</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>The heading of this page is a h2 when it should be a h1</li>
+            <li>The "Disclaimer" heading shoud be a h2</li>
+            <li>The order summary is marked up as a <code>&lt;table&gt;</code> which does not scale well on smaller screen sizes as it causes horizontal scrolling. Consider using a <code>&lt;dl&gt;</code> element to mark up it up.</li>
+            <li>Recommend adding visibly hidden text for the "Change" links to give more context for screen reader users</li>
+            <li>The "Change" links do not appear on the links web item rotor on VoiceOver. This is used by screen reader users to find all the links on a page for easier navigation. This is probably due to the links not having a "href" atttribute.</li>
+            <li>Disabled buttons are not recommended by the GOV.UK Design System. Consider changing this to displaying an error if the checkbox is not checked.</li>
+            <li>The links in the reCAPTCHA widget are being navigated to sometime after the order summary which may be confusing to screen reader users. Where they are read seems to depend on the size of the browser window.</li>
+          </ol>
+
+          <h3 class="govuk-heading-s">References</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://design-system.service.gov.uk/patterns/check-answers/">https://design-system.service.gov.uk/patterns/check-answers/</a></li>
+            <li><a href="https://design-system.service.gov.uk/components/table/">https://design-system.service.gov.uk/components/table/</a></li>
+          </ul>
+        </li>
+
+        <!-- We’ve received your order -->
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="order-confirmed">We’ve received your order</h2>
+
+          <ul class="govuk-list">
+            <li>Page with sample HTML: <a href="order-confirmed">order-confirmed</a></li>
+          </ul>
+
+          <h3 class="govuk-heading-s">Comments</h3>
+          <ol class="govuk-list govuk-list--number">
+            <li>The headings underneath the main green panel are h3 when they should be h2</li>
+          </ol>
+        </li>
+
+      </ol>
+
+    </div>
+  </div>
+
+{% endblock %}

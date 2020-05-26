@@ -1,0 +1,54 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  We need to confirm your identity - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="user-details">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="order-kits" method="post">
+
+        <h1 class="govuk-heading-xl">We need to confirm your identity</h1>
+
+        <p class="govuk-body">To confirm your identity, we need to share the information you’ve given us with an organisation called TransUnion.</p>
+
+        <p class="govuk-body">This information will be used to check your credit information from one of the main credit reference agencies.</p>
+
+        <p class="govuk-body">It will help us to confirm your identity and help prevent fraudulent use of testing services.</p>
+
+        <p class="govuk-body govuk-!-font-weight-bold">This is not a credit check and does not affect your credit rating.</p>
+
+        <p class="govuk-body">If you do not want us to check your details with TransUnion, you can start again and choose to get tested at a drive-through test site.</p>
+
+        {{ govukRadios({
+          name: "confirm-identity",
+          items: [
+            {
+              id: "yes",
+              value: "yes",
+              text: "Yes, confirm my identity using TransUnion"
+            },
+            {
+              id: "no",
+              value: "no",
+              text: "No, let me start again and choose to visit a drive-through test site"
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button">Confirm and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

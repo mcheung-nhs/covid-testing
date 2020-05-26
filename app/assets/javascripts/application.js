@@ -7,4 +7,18 @@ if (window.console && window.console.info) {
 
 $(document).ready(function () {
   window.GOVUKFrontend.initAll()
+
+
+
+  // home test ordering journey, dirty code to add/remove another household member
+  $( ".add-member" ).on( "click", function(e) {
+    e.preventDefault();
+    $( ".totoggle" ).show();
+  });
+
+  $( ".remove-member" ).on( "click", function(e) {
+    e.preventDefault();
+    $( ".totoggle" ).hide();
+  });
+
 })

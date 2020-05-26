@@ -1,0 +1,161 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Order summary - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="order-kits">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="order-kits" method="post">
+
+        <h1 class="govuk-heading-xl">Order Summary</h1>
+
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "John Smith"
+            },
+            actions: {
+              items: [
+                {
+                  href: "user-details#name",
+                  text: "Change",
+                  visuallyHiddenText: "your name"
+                }
+              ]
+            }
+          },
+            {
+              key: {
+                text: "Date of birth"
+              },
+              value: {
+                text: "01/01/1980"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "user-details#dob",
+                    text: "Change",
+                    visuallyHiddenText: "your date of birth"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Home address"
+              },
+              value: {
+                html: "1 Street<br>Leeds<br>LS2 7BJ"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "user-details#name",
+                    text: "Change",
+                    visuallyHiddenText: "address"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "National Insurance number"
+              },
+              value: {
+                text: ""
+              },
+              actions: {
+                items: [
+                  {
+                    href: "user-details#nino",
+                    text: "Change",
+                    visuallyHiddenText: "National Insurance number"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Contact details"
+              },
+              value: {
+                html: "07711234567<br>johnsmith@gmail.com"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "user-details#mobile",
+                    text: "Change",
+                    visuallyHiddenText: "contact details"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Number of kits"
+              },
+              value: {
+                text: "1"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "order-kits",
+                    text: "Change",
+                    visuallyHiddenText: "number of kits"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+
+
+        <h2 class="govuk-heading-m">Disclaimer</h2>
+        {{ govukWarningText({
+          text: "By ordering a home testing kit, I confirm that:",
+          iconFallbackText: "Warning"
+        }) }}
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>The information I’ve provided is up to date and correct</li>
+          <li>I agree with the <a href="https://www.gov.uk/help/terms-conditions" target="_blank">Terms and Conditions</a> and <a href="https://www.gov.uk/help/privacy-notice" target="_blank">Privacy Policy</a> of this service</li>
+          <li>I am happy to be contacted about my order</li>
+        </ul>
+
+        {{ govukCheckboxes({
+          id: "understand",
+          name: "understand",
+          items: [
+            {
+              value: "true",
+              text: "Yes, I confirm that all the above apply
+              "
+            }
+          ]
+        }) }}
+
+        <a class="govuk-button" href="order-confirmed">Place order</a></p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

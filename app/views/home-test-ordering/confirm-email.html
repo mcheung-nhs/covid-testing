@@ -1,0 +1,28 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Confirm your email - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="user-details">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Confirm your email</h1>
+
+      <div class="govuk-inset-text">
+        <p>To continue, you must confirm your email address.</p>
+        <p>We'll send a confirmation code to mememe@test.com</p>
+      </div>
+
+      <p><a class="govuk-button" href="confirm-email-code">Continue</a></p>
+    </div>
+  </div>
+
+{% endblock %}

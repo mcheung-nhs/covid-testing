@@ -1,0 +1,186 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Enter your details - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="order">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="confirm-email" method="post">
+
+        <h1 class="govuk-heading-xl">Enter your details</h1>
+
+        <!--- Name ------------------------------------------------------------------------------------------------ -->
+        {% call govukFieldset({
+          legend: {
+            text: "What is your name?",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+          {{ govukInput({
+            label: {
+              text: "First name"
+            },
+            id: "first-name",
+            name: "first-name"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Last name"
+            },
+            id: "last-name",
+            name: "last-name"
+          }) }}
+
+        {% endcall %}
+
+
+        <!--- Date of birth ------------------------------------------------------------------------------------------------ -->
+        {{ govukDateInput({
+          id: "passport-issued",
+          namePrefix: "passport-issued",
+          fieldset: {
+            legend: {
+              text: "What is your date of birth?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l govuk-!-margin-top-6"
+            }
+          },
+          hint: {
+            text: "For example, 12 11 2007"
+          }
+        }) }}
+
+
+        <!--- Address ------------------------------------------------------------------------------------------------ -->
+        {% call govukFieldset({
+          legend: {
+            text: "What is your address?",
+            classes: "govuk-fieldset__legend--l govuk-!-margin-top-6",
+            isPageHeading: true
+          },
+          describedBy: "address-hint"
+        }) %}
+
+        <p class="govuk-body govuk-hint">This should be the place where you are self-isolating, where you'd like us to send the home test kit. It may not necessarily be your home address.</p>
+
+          {{ govukInput({
+            label: {
+              html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+            },
+            id: "address-line-1",
+            name: "address-line-1",
+            autocomplete: "address-line1"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+            },
+            id: "address-line-2",
+            name: "address-line-2",
+            autocomplete: "address-line2"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Town or city"
+            },
+            classes: "govuk-!-width-two-thirds",
+            id: "address-town",
+            name: "address-town",
+            autocomplete: "address-level2"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "County"
+            },
+            classes: "govuk-!-width-two-thirds",
+            id: "address-county",
+            name: "address-county"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Postcode"
+            },
+            classes: "govuk-input--width-10",
+            id: "address-postcode",
+            name: "address-postcode",
+            autocomplete: "postal-code"
+          }) }}
+
+        {% endcall %}
+
+
+        <!--- Mobile number------------------------------------------------------------------------------------------------ -->
+        <div class="govuk-form-group govuk-!-margin-top-6">
+          <h2 class="govuk-heading-l">What's your mobile number?</h2>
+
+          {{ govukInput({
+            label: {
+              text: "Mobile number"
+            },
+            id: "mobile",
+            name: "mobile",
+            type: "tel",
+            autocomplete: "tel"
+          }) }}
+        </div>
+
+
+        <!--- National Insurance number ------------------------------------------------------------------------------------------------ -->
+        <div class="govuk-form-group govuk-!-margin-top-8">
+          <h2 class="govuk-heading-l">What is your National Insurance number?</h2>
+
+          {{ govukInput({
+            label: {
+              text: "National Insurance number"
+            },
+            hint: {
+              text: "It’s on your National Insurance card, benefit letter, payslip or P60. If you do not have it, leave this empty. You can still order a home test."
+            },
+            id: "nino",
+            name: "nino"
+          }) }}
+        </div>
+
+
+        <!--- Email address ------------------------------------------------------------------------------------------------ -->
+        <div class="govuk-form-group govuk-!-margin-top-8">
+          <h2 class="govuk-heading-l">What is your email address?</h2>
+
+          {{ govukInput({
+            label: {
+              text: "Email address"
+            },
+            hint: {
+              text: "Enter an email address. If you're an essential worker, it would help us identify you if you entered your work email address (otherwise, a personal email address is fine). We will use this to email you a code to confirm your identity."
+            },
+            id: "email",
+            name: "email"
+          }) }}
+        </div>
+
+
+        <!--- Contine ------------------------------------------------------------------------------------------------ -->
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

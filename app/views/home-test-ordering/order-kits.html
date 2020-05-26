@@ -1,0 +1,102 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Order home test kits - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="user-details">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="order-summary" method="post">
+
+        <h1 class="govuk-heading-xl">Order home test kits</h1>
+
+        <p class="govuk-body">You can request up to 4 test kits for people who you live with.</p>
+
+        {{ govukWarningText({
+          text: "Only order kits for people, aged 5 years and over, who have symptoms of coronavirus",
+          iconFallbackText: "Warning"
+        }) }}
+
+
+        {% call govukFieldset({
+          legend: {
+            text: "First person who needs a test kit",
+            classes: "govuk-fieldset__legend--m",
+            isPageHeading: true
+          },
+          describedBy: "name-hint"
+        }) %}
+
+        <p id="name-hint" class="govuk-hint">Enter the name of the first person who needs a home test kit (this could be you, or someone you live with).
+        </p>
+
+          {{ govukInput({
+            label: {
+              text: "First name"
+            },
+            id: "first-name",
+            name: "first-name"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Last name"
+            },
+            id: "last-name",
+            name: "last-name"
+          }) }}
+
+        {% endcall %}
+
+
+        <!-- second person -->
+        <div id="second" class="totoggle" style="display:none;">
+
+        {% call govukFieldset({
+          legend: {
+            text: "Second person who needs a test kit",
+            classes: "govuk-fieldset__legend--m",
+            isPageHeading: true
+          },
+          describedBy: "name2-hint"
+        }) %}
+
+        <p id="name2-hint" class="govuk-hint">Enter the name of the second person who needs a home test kit.</p>
+
+          {{ govukInput({
+            label: {
+              text: "First name"
+            },
+            id: "first-name-2",
+            name: "first-name-2"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Last name"
+            },
+            id: "last-name-2",
+            name: "last-name-2"
+          }) }}
+
+        {% endcall %}
+        </div>
+
+        <p><button class="govuk-button govuk-button--secondary add-member" data-module="govuk-button">Add another household member</button><br>
+        <button class="govuk-button govuk-button--secondary remove-member totoggle" data-module="govuk-button" style="display:none;">Remove person</button><br class="totoggle" style="display:none">
+        <button class="govuk-button">Continue</button></p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

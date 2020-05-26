@@ -1,0 +1,50 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check if you can have a home test - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Check if you can have a home test</h1>
+
+      <p class="govuk-body">You can only order a coronavirus home test if you have symptoms of coronavirus and you're self-isolating (staying at home).</p>
+
+      <p class="govuk-body">The main symptoms of coronavirus are a high temperature, a new, continuous cough, or a loss or change to your sense of smell or taste.</p>
+
+      <p class="govuk-body">Only order the test kit if you've had symptoms for no longer than 5 days. If possible, order the test in the first 3 days as it may take a day or two to arrive.</p>
+
+      <p class="govuk-body">You can also order a test for someone you live with, aged 5 years and older, who has symptoms.</p>
+
+      <p class="govuk-body">If you're ordering a test for someone else and the person is aged 13 or over, check that they're happy for you to do this.</p>
+
+      {{ govukWarningText({
+        text: "Use this test as instructed. Only order the number of kits you need - do not order extras.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      {{ govukCheckboxes({
+        id: "understand",
+        name: "understand",
+        items: [
+          {
+            value: "true",
+            text: "I have read and understand"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Request a kit",
+        href: "order",
+        isStartButton: true,
+        classes: "govuk-!-font-size-19 govuk-!-font-weight-regular"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
