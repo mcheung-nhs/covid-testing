@@ -5,24 +5,52 @@ const router = express.Router()
 
 
 // Branching
-router.post('/home-testing/ethnicity-group-answer', function (req, res) {
+
+router.post('/appointment/nhs-number-option-answer', function (req, res) {
+
+  const nhsNumberOption = req.session.data['nhsNumberOption']
+
+  if (nhsNumberOption === 'Yes') {
+    res.redirect('/appointment/nhs-number')
+  } else {
+    res.redirect('/appointment/app-reference-option')
+  }
+})
+
+
+router.post('/appointment/app-reference-option-answer', function (req, res) {
+
+  const appReferenceOption = req.session.data['appReferenceOption']
+
+  if (appReferenceOption === 'Yes') {
+    res.redirect('/appointment/app-reference')
+  } else {
+    res.redirect('/appointment/check-answers')
+  }
+})
+
+
+
+
+
+router.post('/appointment/ethnicity-group-answer', function (req, res) {
 
   const ethnicityGroup = req.session.data['ethnicity-group']
 
   if (ethnicityGroup === 'asian') {
-    res.redirect('/home-testing/ethnicity-group-asian')
+    res.redirect('/appointment/ethnicity-group-asian')
   } else if (ethnicityGroup === 'black') {
-    res.redirect('/home-testing/ethnicity-group-black')
+    res.redirect('/appointment/ethnicity-group-black')
   } else if (ethnicityGroup === 'mixed') {
-    res.redirect('/home-testing/ethnicity-group-mixed')
+    res.redirect('/appointment/ethnicity-group-mixed')
   } else if (ethnicityGroup === 'white') {
-    res.redirect('/home-testing/ethnicity-group-white')
+    res.redirect('/appointment/ethnicity-group-white')
   } else if (ethnicityGroup === 'other') {
-    res.redirect('/home-testing/ethnicity-group-other')
+    res.redirect('/appointment/ethnicity-group-other')
   } else if (ethnicityGroup === 'prefer-not-to-say') {
-    res.redirect('/home-testing/age')
+    res.redirect('/appointment/email-address')
   } else {
-    res.redirect('/home-testing/ethnicity-group-error')
+    res.redirect('/appointment/ethnicity-group-error')
   }
 })
 
@@ -47,24 +75,24 @@ router.post('/appointment/household-member-ethnicity-group-answer', function (re
   }
 })
 
-router.post('/appointment/ethnicity-group-answer', function (req, res) {
+router.post('/home-testing/ethnicity-group-answer', function (req, res) {
 
   const ethnicityGroup = req.session.data['ethnicity-group']
 
   if (ethnicityGroup === 'asian') {
-    res.redirect('/appointment/ethnicity-group-asian')
+    res.redirect('/home-testing/ethnicity-group-asian')
   } else if (ethnicityGroup === 'black') {
-    res.redirect('/appointment/ethnicity-group-black')
+    res.redirect('/home-testing/ethnicity-group-black')
   } else if (ethnicityGroup === 'mixed') {
-    res.redirect('/appointment/ethnicity-group-mixed')
+    res.redirect('/home-testing/ethnicity-group-mixed')
   } else if (ethnicityGroup === 'white') {
-    res.redirect('/appointment/ethnicity-group-white')
+    res.redirect('/home-testing/ethnicity-group-white')
   } else if (ethnicityGroup === 'other') {
-    res.redirect('/appointment/ethnicity-group-other')
+    res.redirect('/home-testing/ethnicity-group-other')
   } else if (ethnicityGroup === 'prefer-not-to-say') {
-    res.redirect('/appointment/email-address')
+    res.redirect('/home-testing/age')
   } else {
-    res.redirect('/appointment/ethnicity-group-error')
+    res.redirect('/home-testing/ethnicity-group-error')
   }
 })
 

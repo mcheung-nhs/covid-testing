@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="email-address-error">Back</a>
+  <a class="govuk-back-link" href="email-address">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -13,7 +13,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="contact-mobile-number-error" method="post">
+      <form class="form" action="postcode" method="post">
 
         <div class="govuk-form-group">
 
@@ -23,7 +23,7 @@
                 What's your mobile number?
               </h1>
             </legend>
-            
+
             <p class="govuk-body">We'll text your test site pass and your test results to this number.</p>
 
             <p class="govuk-body">Make sure you’re happy for your test results to go to this mobile phone number. Do not use a work or shared mobile phone number unless you’re comfortable with others seeing your results.</p>
@@ -37,7 +37,7 @@
               type: "tel",
               autocomplete: "tel"
             }) }}
-          
+
             {{ govukInput({
               label: {
                 text: "Confirm mobile phone number"
@@ -47,7 +47,7 @@
               type: "tel",
               autocomplete: "tel"
             }) }}
-              
+
           </fieldset>
 
         </div>

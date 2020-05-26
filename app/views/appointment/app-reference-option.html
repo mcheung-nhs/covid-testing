@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="nhs-number-error">Back</a>
+  <a class="govuk-back-link" href="nhs-number-option">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -13,7 +13,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="app-reference-option-error" method="post">
+      <form action="app-reference-option-answer" method="post">
 
         {{ govukRadios({
           fieldset: {
@@ -43,7 +43,7 @@
             }
           ]
         }) }}
-        
+
         <button class="govuk-button" data-module="govuk-button">
           Continue
         </button>
