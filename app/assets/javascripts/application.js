@@ -18,6 +18,8 @@ $(document).ready(function () {
 
   $( ".remove-member" ).on( "click", function(e) {
     e.preventDefault();
+    $('#first-name-2').val("");
+    $('#last-name-2').val("");
     $( ".totoggle" ).hide();
   });
 

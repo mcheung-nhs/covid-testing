@@ -1,6 +1,12 @@
 
 {% extends "layout.html" %}
 
+{% if data['first-name-2'] %}
+  {% set display = "block" %}
+{% else %}
+  {% set display = "none" %}
+{% endif %}
+
 {% block pageTitle %}
   Order home test kits - GOV.UK
 {% endblock %}
@@ -26,72 +32,57 @@
         }) }}
 
 
-        {% call govukFieldset({
-          legend: {
-            text: "First person who needs a test kit",
-            classes: "govuk-fieldset__legend--m",
-            isPageHeading: true
-          },
-          describedBy: "name-hint"
-        }) %}
-
-        <p id="name-hint" class="govuk-hint">Enter the name of the first person who needs a home test kit (this could be you, or someone you live with).
-        </p>
-
-          {{ govukInput({
-            label: {
-              text: "First name"
-            },
-            id: "first-name",
-            name: "first-name"
-          }) }}
-
-          {{ govukInput({
-            label: {
-              text: "Last name"
-            },
-            id: "last-name",
-            name: "last-name"
-          }) }}
-
-        {% endcall %}
-
+        <fieldset class="govuk-fieldset" aria-describedby="name-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              First person who needs a test kit
+            </h1>
+          </legend>
+          <p id="name-hint" class="govuk-hint">Enter the name of the first person who needs a home test kit (this could be you,
+            or someone you live with).
+          </p>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="first-name-1">
+              First name
+            </label>
+            <input class="govuk-input" id="first-name-1" name="first-name-1" type="text" value="{{ data['first-name-1'] }}">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="last-name-1">
+              Last name
+            </label>
+            <input class="govuk-input" id="last-name-1" name="last-name-1" type="text" value="{{ data['last-name-1'] }}">
+          </div>
+        </fieldset>
 
         <!-- second person -->
-        <div id="second" class="totoggle" style="display:none;">
+        <div id="second" class="totoggle" style="display:{{ display }}">
 
-        {% call govukFieldset({
-          legend: {
-            text: "Second person who needs a test kit",
-            classes: "govuk-fieldset__legend--m",
-            isPageHeading: true
-          },
-          describedBy: "name2-hint"
-        }) %}
+          <fieldset class="govuk-fieldset" aria-describedby="name2-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Second person who needs a test kit
+              </h1>
+            </legend>
+            <p id="name2-hint" class="govuk-hint">Enter the name of the second person who needs a home test kit.</p>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="first-name-2">
+                First name
+              </label>
+              <input class="govuk-input" id="first-name-2" name="first-name-2" type="text" value="{{ data['first-name-2'] }}">
+            </div>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="last-name-2">
+                Last name
+              </label>
+              <input class="govuk-input" id="last-name-2" name="last-name-2" type="text" value="{{ data['last-name-2'] }}">
+            </div>
+          </fieldset>
 
-        <p id="name2-hint" class="govuk-hint">Enter the name of the second person who needs a home test kit.</p>
-
-          {{ govukInput({
-            label: {
-              text: "First name"
-            },
-            id: "first-name-2",
-            name: "first-name-2"
-          }) }}
-
-          {{ govukInput({
-            label: {
-              text: "Last name"
-            },
-            id: "last-name-2",
-            name: "last-name-2"
-          }) }}
-
-        {% endcall %}
         </div>
 
         <p><button class="govuk-button govuk-button--secondary add-member" data-module="govuk-button">Add another household member</button><br>
-        <button class="govuk-button govuk-button--secondary remove-member totoggle" data-module="govuk-button" style="display:none;">Remove person</button><br class="totoggle" style="display:none">
+        <button class="govuk-button govuk-button--secondary remove-member totoggle" data-module="govuk-button" style="display:{{ display }}">Remove person</button><br class="totoggle" style="display:none">
         <button class="govuk-button">Continue</button></p>
 
       </form>

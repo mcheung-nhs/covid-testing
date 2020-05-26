@@ -1,6 +1,12 @@
 
 {% extends "layout.html" %}
 
+{% if data['first-name-2'] %}
+  {% set kits = "2" %}
+{% else %}
+  {% set kits = "1" %}
+{% endif %}
+
 {% block pageTitle %}
   Order summary - GOV.UK
 {% endblock %}
@@ -15,117 +21,98 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form action="order-kits" method="post">
-
         <h1 class="govuk-heading-xl">Order Summary</h1>
 
-        {{ govukSummaryList({
-          rows: [
-          {
-            key: {
-              text: "Name"
-            },
-            value: {
-              text: "John Smith"
-            },
-            actions: {
-              items: [
-                {
-                  href: "user-details#name",
-                  text: "Change",
-                  visuallyHiddenText: "your name"
-                }
-              ]
-            }
-          },
-            {
-              key: {
-                text: "Date of birth"
-              },
-              value: {
-                text: "01/01/1980"
-              },
-              actions: {
-                items: [
-                  {
-                    href: "user-details#dob",
-                    text: "Change",
-                    visuallyHiddenText: "your date of birth"
-                  }
-                ]
-              }
-            },
-            {
-              key: {
-                text: "Home address"
-              },
-              value: {
-                html: "1 Street<br>Leeds<br>LS2 7BJ"
-              },
-              actions: {
-                items: [
-                  {
-                    href: "user-details#name",
-                    text: "Change",
-                    visuallyHiddenText: "address"
-                  }
-                ]
-              }
-            },
-            {
-              key: {
-                text: "National Insurance number"
-              },
-              value: {
-                text: ""
-              },
-              actions: {
-                items: [
-                  {
-                    href: "user-details#nino",
-                    text: "Change",
-                    visuallyHiddenText: "National Insurance number"
-                  }
-                ]
-              }
-            },
-            {
-              key: {
-                text: "Contact details"
-              },
-              value: {
-                html: "07711234567<br>johnsmith@gmail.com"
-              },
-              actions: {
-                items: [
-                  {
-                    href: "user-details#mobile",
-                    text: "Change",
-                    visuallyHiddenText: "contact details"
-                  }
-                ]
-              }
-            },
-            {
-              key: {
-                text: "Number of kits"
-              },
-              value: {
-                text: "1"
-              },
-              actions: {
-                items: [
-                  {
-                    href: "order-kits",
-                    text: "Change",
-                    visuallyHiddenText: "number of kits"
-                  }
-                ]
-              }
-            }
-          ]
-        }) }}
+        <dl class="govuk-summary-list">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['first-name'] }} {{ data['last-name'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="user-details#name">
+                Change<span class="govuk-visually-hidden"> your name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['dob-day'] }}/{{ data['dob-month'] }}/{{ data['dob-year'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="user-details#dob">
+                Change<span class="govuk-visually-hidden"> your date of birth</span>
+              </a>
+            </dd>
+          </div>
 
 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Home address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['address-line-1'] }}<br>{{ data['address-line-2'] }}<br>{{ data['address-town'] }}<br>{{ data['address-county'] }}<br>{{ data['address-postcode'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="user-details#name">
+                Change<span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              National Insurance number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['nino'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="user-details#nino">
+                Change<span class="govuk-visually-hidden"> National Insurance number</span>
+              </a>
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['mobile'] }}<br>{{ data['email'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="user-details#mobile">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Number of kits
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ kits }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="order-kits">
+                Change<span class="govuk-visually-hidden"> number of kits</span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
 
         <h2 class="govuk-heading-m">Disclaimer</h2>
         {{ govukWarningText({

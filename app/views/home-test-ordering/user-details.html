@@ -19,159 +19,157 @@
         <h1 class="govuk-heading-xl">Enter your details</h1>
 
         <!--- Name ------------------------------------------------------------------------------------------------ -->
-        {% call govukFieldset({
-          legend: {
-            text: "What is your name?",
-            classes: "govuk-fieldset__legend--l",
-            isPageHeading: true
-          }
-        }) %}
-
-          {{ govukInput({
-            label: {
-              text: "First name"
-            },
-            id: "first-name",
-            name: "first-name"
-          }) }}
-
-          {{ govukInput({
-            label: {
-              text: "Last name"
-            },
-            id: "last-name",
-            name: "last-name"
-          }) }}
-
-        {% endcall %}
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h2 class="govuk-fieldset__heading">
+              What is your name?
+            </h2>
+          </legend>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="first-name">
+              First name
+            </label>
+            <input class="govuk-input" id="first-name" name="first-name" type="text" value="{{ data['first-name'] }}">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="last-name">
+              Last name
+            </label>
+            <input class="govuk-input" id="last-name" name="last-name" type="text" value="{{ data['last-name'] }}">
+          </div>
+        </fieldset>
 
 
         <!--- Date of birth ------------------------------------------------------------------------------------------------ -->
-        {{ govukDateInput({
-          id: "passport-issued",
-          namePrefix: "passport-issued",
-          fieldset: {
-            legend: {
-              text: "What is your date of birth?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l govuk-!-margin-top-6"
-            }
-          },
-          hint: {
-            text: "For example, 12 11 2007"
-          }
-        }) }}
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="dob-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-top-6">
+              <h2 class="govuk-fieldset__heading">
+                What is your date of birth?
+              </h2>
+            </legend>
+            <span id="dob-hint" class="govuk-hint">
+              For example, 12 11 2007
+            </span>
+            <div class="govuk-date-input" id="passport-issued">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dob-day"
+                    type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob-day'] }}">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dob-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dob-month"
+                    type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob-month'] }}">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dob-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year"
+                    type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob-year'] }}">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
 
 
         <!--- Address ------------------------------------------------------------------------------------------------ -->
-        {% call govukFieldset({
-          legend: {
-            text: "What is your address?",
-            classes: "govuk-fieldset__legend--l govuk-!-margin-top-6",
-            isPageHeading: true
-          },
-          describedBy: "address-hint"
-        }) %}
-
-        <p class="govuk-body govuk-hint">This should be the place where you are self-isolating, where you'd like us to send the home test kit. It may not necessarily be your home address.</p>
-
-          {{ govukInput({
-            label: {
-              html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
-            },
-            id: "address-line-1",
-            name: "address-line-1",
-            autocomplete: "address-line1"
-          }) }}
-
-          {{ govukInput({
-            label: {
-              html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
-            },
-            id: "address-line-2",
-            name: "address-line-2",
-            autocomplete: "address-line2"
-          }) }}
-
-          {{ govukInput({
-            label: {
-              text: "Town or city"
-            },
-            classes: "govuk-!-width-two-thirds",
-            id: "address-town",
-            name: "address-town",
-            autocomplete: "address-level2"
-          }) }}
-
-          {{ govukInput({
-            label: {
-              text: "County"
-            },
-            classes: "govuk-!-width-two-thirds",
-            id: "address-county",
-            name: "address-county"
-          }) }}
-
-          {{ govukInput({
-            label: {
-              text: "Postcode"
-            },
-            classes: "govuk-input--width-10",
-            id: "address-postcode",
-            name: "address-postcode",
-            autocomplete: "postal-code"
-          }) }}
-
-        {% endcall %}
+        <fieldset class="govuk-fieldset" aria-describedby="address-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-top-6">
+            <h2 class="govuk-fieldset__heading">
+              What is your address?
+            </h2>
+          </legend>
+          <p class="govuk-body govuk-hint">This should be the place where you are self-isolating, where you'd like us to send
+            the home test kit. It may not necessarily be your home address.</p>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-line-1">
+              Building and street <span class="govuk-visually-hidden">line 1 of 2</span>
+            </label>
+            <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1" value="{{ data['address-line-1'] }}">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-line-2">
+              <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
+            </label>
+            <input class="govuk-input" id="address-line-2" name="address-line-2" type="text" autocomplete="address-line2" value="{{ data['address-line-2'] }}">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-town">
+              Town or city
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text"
+              autocomplete="address-level2" value="{{ data['address-town'] }}">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-county">
+              County
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="address-county" type="text" value="{{ data['address-county'] }}">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-postcode">
+              Postcode
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text"
+              autocomplete="postal-code" value="{{ data['address-postcode'] }}">
+          </div>
+        </fieldset>
 
 
         <!--- Mobile number------------------------------------------------------------------------------------------------ -->
         <div class="govuk-form-group govuk-!-margin-top-6">
           <h2 class="govuk-heading-l">What's your mobile number?</h2>
-
-          {{ govukInput({
-            label: {
-              text: "Mobile number"
-            },
-            id: "mobile",
-            name: "mobile",
-            type: "tel",
-            autocomplete: "tel"
-          }) }}
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="mobile">
+              Mobile number
+            </label>
+            <input class="govuk-input" id="mobile" name="mobile" type="tel" autocomplete="tel" value="{{ data['mobile'] }}">
+          </div>
         </div>
 
 
         <!--- National Insurance number ------------------------------------------------------------------------------------------------ -->
         <div class="govuk-form-group govuk-!-margin-top-8">
           <h2 class="govuk-heading-l">What is your National Insurance number?</h2>
-
-          {{ govukInput({
-            label: {
-              text: "National Insurance number"
-            },
-            hint: {
-              text: "It’s on your National Insurance card, benefit letter, payslip or P60. If you do not have it, leave this empty. You can still order a home test."
-            },
-            id: "nino",
-            name: "nino"
-          }) }}
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="nino">
+              National Insurance number
+            </label>
+            <span id="nino-hint" class="govuk-hint">
+              It’s on your National Insurance card, benefit letter, payslip or P60. If you do not have it, leave this empty. You
+              can still order a home test.
+            </span>
+            <input class="govuk-input" id="nino" name="nino" type="text" aria-describedby="nino-hint" value="{{ data['nino'] }}">
+          </div>
         </div>
 
 
         <!--- Email address ------------------------------------------------------------------------------------------------ -->
         <div class="govuk-form-group govuk-!-margin-top-8">
           <h2 class="govuk-heading-l">What is your email address?</h2>
-
-          {{ govukInput({
-            label: {
-              text: "Email address"
-            },
-            hint: {
-              text: "Enter an email address. If you're an essential worker, it would help us identify you if you entered your work email address (otherwise, a personal email address is fine). We will use this to email you a code to confirm your identity."
-            },
-            id: "email",
-            name: "email"
-          }) }}
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="email">
+              Email address
+            </label>
+            <span id="email-hint" class="govuk-hint">
+              Enter an email address. If you&#39;re an essential worker, it would help us identify you if you entered your work
+              email address (otherwise, a personal email address is fine). We will use this to email you a code to confirm your
+              identity.
+            </span>
+            <input class="govuk-input" id="email" name="email" type="text" aria-describedby="email-hint" value="{{ data['email'] }}">
+          </div>
         </div>
 
 
