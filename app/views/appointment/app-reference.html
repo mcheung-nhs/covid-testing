@@ -19,7 +19,7 @@
         <p class="govuk-body" id="appref-hint">This is the 8-character code which you'll be given in the app. It looks like this: d23f-gre4</p>
 
         <p class="govuk-body">Your app reference code is unique to you, and you can only use your code once. If other people who live with you have the app, you can give us their app reference codes on the next pages.</p>
-        
+
         <details class="govuk-details" data-module="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">Where is my reference code?</span>
@@ -30,15 +30,13 @@
           </div>
         </details>
 
-        {{ govukInput({
-          label: {
-            text: "Tracing app reference code"
-          },
-          id: "app-reference",
-          name: "appReference",
-          describedBy: "appref-hint"
-        }) }}
-        
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="app-reference">
+            Tracing app reference code
+          </label>
+          <input class="govuk-input" id="app-reference" name="appReference" type="text" aria-describedby="appref-hint" value="{{ data['appReference'] }}">
+        </div>
+
         <button class="govuk-button" data-module="govuk-button">
           Continue
         </button>

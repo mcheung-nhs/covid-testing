@@ -45,10 +45,7 @@
 
       <h1 class="govuk-heading-xl">Check your answers</h1>
 
-
-
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -63,7 +60,6 @@
             </a>
           </dd>
         </div>
-
 
 
         <div class="govuk-summary-list__row">
@@ -81,7 +77,6 @@
         </div>
 
 
-
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Gender
@@ -89,17 +84,12 @@
           <dd class="govuk-summary-list__value">
             {{ data['sex'] }}
           </dd>
-
-            <dd class="govuk-summary-list__actions">
-
-                <a class="govuk-link" href="gender">
-                  Change<span class="govuk-visually-hidden"> gender</span>
-                  </a>
-
-            </dd>
-
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="gender">
+              Change<span class="govuk-visually-hidden"> gender</span>
+            </a>
+          </dd>
         </div>
-
 
 
         <div class="govuk-summary-list__row">
@@ -107,19 +97,14 @@
             Email address
           </dt>
           <dd class="govuk-summary-list__value">
-            johnsmith@gmail.com
+            {{ data['email'] }}
           </dd>
-
-            <dd class="govuk-summary-list__actions">
-
-                <a class="govuk-link" href="email-address">
-                  Change<span class="govuk-visually-hidden"> email address</span>
-                  </a>
-
-            </dd>
-
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="email-address">
+              Change<span class="govuk-visually-hidden"> email address</span>
+            </a>
+          </dd>
         </div>
-
 
 
         <div class="govuk-summary-list__row">
@@ -127,19 +112,14 @@
             Phone number
           </dt>
           <dd class="govuk-summary-list__value">
-            07777 777777
+            {{ data['mobile'] }}
           </dd>
-
-            <dd class="govuk-summary-list__actions">
-
-                <a class="govuk-link" href="contact-mobile-number">
-                  Change<span class="govuk-visually-hidden"> phone number</span>
-                  </a>
-
-            </dd>
-
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="contact-mobile-number">
+              Change<span class="govuk-visually-hidden"> phone number</span>
+            </a>
+          </dd>
         </div>
-
 
 
         <div class="govuk-summary-list__row">
@@ -147,19 +127,14 @@
             Postcode
           </dt>
           <dd class="govuk-summary-list__value">
-            AA11AA
+            {{ data['postcode'] }}
           </dd>
-
-            <dd class="govuk-summary-list__actions">
-
-                <a class="govuk-link" href="postcode">
-                  Change<span class="govuk-visually-hidden"> postcode</span>
-                  </a>
-
-            </dd>
-
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="postcode">
+              Change<span class="govuk-visually-hidden"> postcode</span>
+            </a>
+          </dd>
         </div>
-
 
 
         <div class="govuk-summary-list__row">
@@ -167,61 +142,65 @@
             NHS number known
           </dt>
           <dd class="govuk-summary-list__value">
-            Yes
+            {{ data['nhsNumberOption'] }}
           </dd>
-
-            <dd class="govuk-summary-list__actions">
-
-                <a class="govuk-link" href="nhs-number-option">
-                  Change<span class="govuk-visually-hidden"> NHS number known</span>
-                  </a>
-
-            </dd>
-
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="nhs-number-option">
+              Change<span class="govuk-visually-hidden"> NHS number known</span>
+            </a>
+          </dd>
         </div>
 
 
-
+        {% if (data['nhsNumberOption'] == "Yes") %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             NHS number
           </dt>
           <dd class="govuk-summary-list__value">
-            4857773456
+            {{ data['nhsNumber'] }}
           </dd>
-
-            <dd class="govuk-summary-list__actions">
-
-                <a class="govuk-link" href="nhs-number">
-                  Change<span class="govuk-visually-hidden"> NHS number</span>
-                  </a>
-
-            </dd>
-
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="nhs-number">
+              Change<span class="govuk-visually-hidden"> NHS number</span>
+            </a>
+          </dd>
         </div>
-
+        {% endif %}
 
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Do they have the NHS app
+            Do you have the NHS app
           </dt>
           <dd class="govuk-summary-list__value">
-            Yes
+            {{ data['appReferenceOption'] }}
           </dd>
-
-            <dd class="govuk-summary-list__actions">
-
-                <a class="govuk-link" href="app-reference-option">
-                  Change<span class="govuk-visually-hidden"> do they have the NHS app</span>
-                  </a>
-
-            </dd>
-
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="app-reference-option">
+              Change<span class="govuk-visually-hidden"> if you have the NHS app</span>
+            </a>
+          </dd>
         </div>
 
 
-  </dl>
+        {% if (data['appReferenceOption'] == "Yes") %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            App reference code
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['appReference'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="nhs-number">
+              Change<span class="govuk-visually-hidden"> app reference code</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+
+      </dl>
 
       <a href="household-members" class="govuk-button">Save and continue</a>
 

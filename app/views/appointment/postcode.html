@@ -18,15 +18,12 @@
       <form action="nhs-number-option" method="post" novalidate>
         <p class="govuk-body" id="postcode-hint">Enter your home postcode (ideally the one you used to register with your GP).</p>
 
-        {{ govukInput({
-          label: {
-            text: "Postcode"
-          },
-          classes: "govuk-input--width-10",
-          id: "postcode",
-          name: "postcode",
-          describedBy: "postcode-hint"
-        }) }}
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="postcode">
+            Postcode
+          </label>
+          <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text" aria-describedby="postcode-hint" value="{{ data['postcode'] }}">
+        </div>
 
         <button class="govuk-button" data-module="govuk-button">
           Continue

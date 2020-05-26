@@ -28,21 +28,23 @@
 
           <p class="govuk-body"><a href="https://www.nhs.uk/using-the-nhs/about-the-nhs/what-is-an-nhs-number/" target="_blank" class="govuk-link">How to find your NHS number</a></p>
 
-          {{ govukRadios({
-            name: "nhsNumberOption",
-            items: [
-              {
-                value: "Yes",
-                text: "Yes, I know my NHS number",
-                id: "Yes"
-              },
-              {
-                value: "No",
-                text: "No, I do not know my NHS number",
-                id: "No"
-              }
-            ]
-          }) }}
+          <div class="govuk-form-group">
+
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="Yes" name="nhsNumberOption" type="radio" value="Yes" {{ checked("nhsNumberOption", "Yes") }}>
+                <label class="govuk-label govuk-radios__label" for="Yes">
+                  Yes, I know my NHS number
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="No" name="nhsNumberOption" type="radio" value="No" {{ checked("nhsNumberOption", "No") }}>
+                <label class="govuk-label govuk-radios__label" for="No">
+                  No, I do not know my NHS number
+                </label>
+              </div>
+            </div>
+            </div>
 
         </fieldset>
 
