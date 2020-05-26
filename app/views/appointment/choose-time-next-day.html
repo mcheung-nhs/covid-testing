@@ -15,13 +15,63 @@
 
       <h1 class="govuk-heading-xl">Choose a time</h1>
 
-      <form action="choose-time-next-day-error" method="post">
-        
-        <p class="govuk-body">Manchester (Manchester Airport)<br>
-Airport Staff Parking South Carpark<br>
-Manchester<br>
-M90 1QX</p>
-       
+      <form action="confirm-appointment" method="post">
+
+        <p class="govuk-body">
+          <p class="govuk-body">
+
+            {% if (data['chosenTestCentre']) == "MCM"  %}
+
+            Manchester (Manchester Airport)<br>
+            Airport Staff Parking South Carpark<br>
+            Manchester<br>
+            M90 1QX
+
+            {% elif (data['chosenTestCentre']) == "NTM"  %}
+
+            Nottingham (Boots)<br>
+            D90, Thane Rd<br>
+            Nottingham<br>
+            NG90 1BS
+
+            {% elif (data['chosenTestCentre']) == "GTE"  %}
+
+            Gateshead (IKEA)<br>
+            Metro Park West, Pinetree Way, Swalwell<br>
+            Gateshead<br>
+            NE11 9XS
+
+            {% elif (data['chosenTestCentre']) == "SDM"  %}
+
+            Sandwell (Sandwell General Hospital)<br>
+            C/o little lane car park, Lyndon<br>
+            West Bromwich<br>
+            B71 4HJ
+
+            {% elif (data['chosenTestCentre']) == "BRM"  %}
+
+            Birmingham (Edgbaston Cricket Ground)<br>
+            Edgbaston Stadium, Edgbaston Rd<br>
+            Birmingham<br>
+            B5 7QU
+
+            {% elif (data['chosenTestCentre']) == "M01_01"  %}
+
+            Van01-Location-1,
+            Edgbaston Stadium, Edgbaston Rd,
+            Birmingham,
+            B5 7QU
+
+            {% else  %}
+
+            Manchester (Manchester Airport),
+            Airport Staff Parking South Carpark,
+            Manchester,
+            M90 1QX
+
+            {% endif  %}
+        </p>
+
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 <h2 class="govuk-body-l">Available test times for your household</h2>
@@ -49,57 +99,57 @@ M90 1QX</p>
         curMonth = months[objToday.getMonth()];
 
     var today = dayOfWeek + ' ' + dayOfMonth + ' ' + curMonth;
-    
     document.write('<legend class="govuk-fieldset__legend govuk-!-font-weight-bold">' + today + '</legend>')
+    document.write('<input type="hidden" name="chosenDay" value="' + dayOfMonth + ' ' + curMonth + ' 2020">')
   </script>
 
   <div class="govuk-form-group" id="time" aria-live="polite">
     <div class="govuk-radios__item">
-      <input id="0" type="radio" name="time" class="govuk-radios__input" value="0">
+      <input id="0" type="radio" name="time" class="govuk-radios__input" value="10:00am to 10:30am" {{ checked("time", "10:00am to 10:30am") }}>
       <label for="0" class="govuk-label govuk-radios__label">10:00am to 10:30am</label>
     </div>
     <div class="govuk-radios__item">
-      <input id="1" type="radio" name="time" class="govuk-radios__input" value="1">
+      <input id="1" type="radio" name="time" class="govuk-radios__input" value="10:30am to 11:00am" {{ checked("time", "10:30am to 11:00am") }}>
       <label for="1" class="govuk-label govuk-radios__label">10:30am to 11:00am</label>
     </div>
     <div class="govuk-radios__item">
-      <input id="2" type="radio" name="time" class="govuk-radios__input" value="2">
+      <input id="2" type="radio" name="time" class="govuk-radios__input" value="11:00am to 11:30am" {{ checked("time", "11:00am to 11:30am") }}>
       <label for="2" class="govuk-label govuk-radios__label">11:00am to 11:30am</label>
     </div>
     <div class="govuk-radios__item">
-      <input id="3" type="radio" name="time" class="govuk-radios__input" value="3">
+      <input id="3" type="radio" name="time" class="govuk-radios__input" value="11:30am to 12:00pm" {{ checked("time", "11:30am to 12:00pm") }}>
       <label for="3" class="govuk-label govuk-radios__label">11:30am to 12:00pm</label>
     </div>
     <div class="govuk-radios__item">
-      <input id="4" type="radio" name="time" class="govuk-radios__input" value="4">
+      <input id="4" type="radio" name="time" class="govuk-radios__input" value="12:00pm to 12:30pm" {{ checked("time", "12:00pm to 12:30pm") }}>
       <label for="4" class="govuk-label govuk-radios__label">12:00pm to 12:30pm</label>
     </div>
     <div class="govuk-radios__item">
-      <input id="5" type="radio" name="time" class="govuk-radios__input" value="5">
+      <input id="5" type="radio" name="time" class="govuk-radios__input" value="12:30pm to 1:00pm" {{ checked("time", "12:30pm to 1:00pm") }}>
       <label for="5" class="govuk-label govuk-radios__label">12:30pm to 1:00pm</label>
     </div>
     <div class="govuk-radios__item">
-      <input id="6" type="radio" name="time" class="govuk-radios__input" value="6">
+      <input id="6" type="radio" name="time" class="govuk-radios__input" value="1:30pm to 2:00pm" {{ checked("time", "1:30pm to 2:00pm") }}>
       <label for="6" class="govuk-label govuk-radios__label">1:30pm to 2:00pm</label>
     </div>
     <div class="govuk-radios__item">
-      <input id="7" type="radio" name="time" class="govuk-radios__input" value="7">
+      <input id="7" type="radio" name="time" class="govuk-radios__input" value="2:00pm to 2:30pm" {{ checked("time", "2:00pm to 2:30pm") }}>
       <label for="7" class="govuk-label govuk-radios__label">2:00pm to 2:30pm</label>
     </div>
     <div class="govuk-radios__item">
-      <input id="8" type="radio" name="time" class="govuk-radios__input" value="8">
+      <input id="8" type="radio" name="time" class="govuk-radios__input" value="2:30pm to 3:00pm" {{ checked("time", "2:30pm to 3:00pm") }}>
       <label for="8" class="govuk-label govuk-radios__label">2:30pm to 3:00pm</label>
     </div>
     <div class="govuk-radios__item">
-      <input id="9" type="radio" name="time" class="govuk-radios__input" value="9">
+      <input id="9" type="radio" name="time" class="govuk-radios__input" value="3:00pm to 3:30pm" {{ checked("time", "3:00pm to 3:30pm") }}>
       <label for="9" class="govuk-label govuk-radios__label">3:00pm to 3:30pm</label>
     </div>
     <div class="govuk-radios__item">
-      <input id="10" type="radio" name="time" class="govuk-radios__input" value="10">
+      <input id="10" type="radio" name="time" class="govuk-radios__input" value="3:30pm to 4:00pm" {{ checked("time", "3:30pm to 4:00pm") }}>
       <label for="10" class="govuk-label govuk-radios__label">3:30pm to 4:00pm</label>
     </div>
     <div class="govuk-radios__item">
-      <input id="11" type="radio" name="time" class="govuk-radios__input" value="11">
+      <input id="11" type="radio" name="time" class="govuk-radios__input" value="4:00pm to 4:30pm" {{ checked("time", "4:00pm to 4:30pm") }}>
       <label for="11" class="govuk-label govuk-radios__label">4:00pm to 4:30pm</label>
     </div>
   </div>
@@ -113,7 +163,7 @@ M90 1QX</p>
         <a class="govuk-button govuk-button--secondary" href="find-test-centre" role="button" draggable="false">Change search area</a>
 
       </form>
-      
+
     </div>
   </div>
 

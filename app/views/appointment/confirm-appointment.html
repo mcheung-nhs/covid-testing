@@ -22,12 +22,66 @@
       <dl class="govuk-summary-list govuk-!-margin-bottom-7">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key"> Test site </dt>
-          <dd class="govuk-summary-list__value"> Manchester (Manchester Airport)<br> Airport Staff Parking South Carpark<br> Manchester<br> M90 1QX </dd>
+          <dd class="govuk-summary-list__value">
+
+            <p class="govuk-body">
+
+              {% if (data['chosenTestCentre']) == "MCM"  %}
+
+              Manchester (Manchester Airport)<br>
+              Airport Staff Parking South Carpark<br>
+              Manchester<br>
+              M90 1QX
+
+              {% elif (data['chosenTestCentre']) == "NTM"  %}
+
+              Nottingham (Boots)<br>
+              D90, Thane Rd<br>
+              Nottingham<br>
+              NG90 1BS
+
+              {% elif (data['chosenTestCentre']) == "GTE"  %}
+
+              Gateshead (IKEA)<br>
+              Metro Park West, Pinetree Way, Swalwell<br>
+              Gateshead<br>
+              NE11 9XS
+
+              {% elif (data['chosenTestCentre']) == "SDM"  %}
+
+              Sandwell (Sandwell General Hospital)<br>
+              C/o little lane car park, Lyndon<br>
+              West Bromwich<br>
+              B71 4HJ
+
+              {% elif (data['chosenTestCentre']) == "BRM"  %}
+
+              Birmingham (Edgbaston Cricket Ground)<br>
+              Edgbaston Stadium, Edgbaston Rd<br>
+              Birmingham<br>
+              B5 7QU
+
+              {% elif (data['chosenTestCentre']) == "M01_01"  %}
+
+              Van01-Location-1,
+              Edgbaston Stadium, Edgbaston Rd,
+              Birmingham,
+              B5 7QU
+
+              {% else  %}
+
+              Manchester (Manchester Airport),
+              Airport Staff Parking South Carpark,
+              Manchester,
+              M90 1QX
+              {% endif  %}
+
+          </dd>
           <dd class="govuk-summary-list__actions"><a href="choose-test-centre" class="govuk-link"> Change <span class="govuk-visually-hidden">test site</span></a></dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key"> Date and time </dt>
-          <dd class="govuk-summary-list__value"> 21 May 2020<br> 10:00am to 10:30am </dd>
+          <dd class="govuk-summary-list__value"> {{ data['chosenDay'] }}<br>{{ data['time'] }}</dd>
           <dd class="govuk-summary-list__actions"><a href="choose-time-next-day" class="govuk-link"> Change <span class="govuk-visually-hidden">time</span></a></dd>
         </div>
       </dl>
@@ -35,15 +89,19 @@
       <h2 class="govuk-heading-m govuk-!-margin-top-2"> People confirmed for testing </h2>
       <dl class="govuk-summary-list household-members">
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Joe Smith</dt>
-          <dd class="govuk-summary-list__value">joesmith@gmail.com</dd>
-          <dd class="govuk-summary-list__actions">+447777777777</dd>
+          <dt class="govuk-summary-list__key">{{ data['given-name'] }} {{ data['family-name'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['email'] }}</dd>
+          <dd class="govuk-summary-list__actions">{{ data['mobile'] }}</dd>
         </div>
+
+        {% if (data['hm-given-name'])  %}
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">John Smith</dt>
-          <dd class="govuk-summary-list__value">johnsmith@gmail.com</dd>
-          <dd class="govuk-summary-list__actions">+447777777777</dd>
+          <dt class="govuk-summary-list__key">{{ data['hm-given-name'] }} {{ data['hm-family-name'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['hm-email'] }}</dd>
+          <dd class="govuk-summary-list__actions">{{ data['hm-mobile'] }}</dd>
         </div>
+        {% endif %}
+
       </dl>
 
       {{ govukInsetText({

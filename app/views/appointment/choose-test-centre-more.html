@@ -15,8 +15,8 @@
 
       <h1 class="govuk-heading-xl">Test sites near LS27BJ</h1>
 
-      <form action="choose-test-centre-more-error" method="post">
-        
+      <form action="choose-time" method="post">
+
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend">
             <span class="govuk-body-l">Choose a test site</span>
@@ -33,7 +33,7 @@
 
           <div class="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="MCM" name="chosenTestCentre" type="radio" value="MCM" aria-describedby="nearest-hint">
+              <input class="govuk-radios__input" id="MCM" name="chosenTestCentre" type="radio" value="MCM" aria-describedby="nearest-hint" {{ checked("chosenTestCentre", "MCM") }}>
               <label class="govuk-label govuk-radios__label govuk-label--s" for="MCM">
                 Manchester (Manchester Airport) (41.9 miles away)
               </label>
@@ -52,11 +52,11 @@
             <p class="govuk-body-l">
               Other test sites:
             </p>
-  
+
             <p class="govuk-body govuk-!-margin-top-4 govuk-!-margin-bottom-4"><a class="govuk-link" href="choose-test-centre">See closer test sites</a></p>
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="SDM" name="chosenTestCentre" type="radio" value="SDM" aria-describedby="other1-hint">
+              <input class="govuk-radios__input" id="SDM" name="chosenTestCentre" type="radio" value="SDM" aria-describedby="other1-hint" {{ checked("chosenTestCentre", "SDM") }}>
               <label class="govuk-label govuk-radios__label govuk-label--s" for="SDM">
                 Sandwell (Sandwell General Hospital) (89.5 miles away)
               </label>
@@ -69,7 +69,7 @@
               </div>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="BRM" name="chosenTestCentre" type="radio" value="BRM" aria-describedby="other2-hint">
+              <input class="govuk-radios__input" id="BRM" name="chosenTestCentre" type="radio" value="BRM" aria-describedby="other2-hint" {{ checked("chosenTestCentre", "BRM") }}>
               <label class="govuk-label govuk-radios__label govuk-label--s" for="BRM">
                 Birmingham (Edgbaston Cricket Ground) (93.9 miles away)
               </label>
@@ -82,7 +82,7 @@
               </div>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="M01_01" name="chosenTestCentre" type="radio" value="M01_01" aria-describedby="other3-hint">
+              <input class="govuk-radios__input" id="M01_01" name="chosenTestCentre" type="radio" value="M01_01" aria-describedby="other3-hint" {{ checked("chosenTestCentre", "M01_01") }}>
               <label class="govuk-label govuk-radios__label govuk-label--s" for="M01_01">
                 Van01-Location-1 (121.1 miles away)
               </label>

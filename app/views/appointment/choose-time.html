@@ -16,12 +16,60 @@
       <h1 class="govuk-heading-xl">Choose a time</h1>
 
       <form action="choose-time-next-day" method="post">
-        
-        <p class="govuk-body">Manchester (Manchester Airport)<br>
-Airport Staff Parking South Carpark<br>
-Manchester<br>
-M90 1QX</p>
-       
+
+        <p class="govuk-body">
+          {% if (data['chosenTestCentre']) == "MCM"  %}
+
+          Manchester (Manchester Airport)<br>
+          Airport Staff Parking South Carpark<br>
+          Manchester<br>
+          M90 1QX
+
+          {% elif (data['chosenTestCentre']) == "NTM"  %}
+
+          Nottingham (Boots)<br>
+          D90, Thane Rd<br>
+          Nottingham<br>
+          NG90 1BS
+
+          {% elif (data['chosenTestCentre']) == "GTE"  %}
+
+          Gateshead (IKEA)<br>
+          Metro Park West, Pinetree Way, Swalwell<br>
+          Gateshead<br>
+          NE11 9XS
+
+          {% elif (data['chosenTestCentre']) == "SDM"  %}
+
+          Sandwell (Sandwell General Hospital)<br>
+          C/o little lane car park, Lyndon<br>
+          West Bromwich<br>
+          B71 4HJ
+
+          {% elif (data['chosenTestCentre']) == "BRM"  %}
+
+          Birmingham (Edgbaston Cricket Ground)<br>
+          Edgbaston Stadium, Edgbaston Rd<br>
+          Birmingham<br>
+          B5 7QU
+
+          {% elif (data['chosenTestCentre']) == "M01_01"  %}
+
+          Van01-Location-1,
+          Edgbaston Stadium, Edgbaston Rd,
+          Birmingham,
+          B5 7QU
+
+          {% else  %}
+
+          Manchester (Manchester Airport),
+          Airport Staff Parking South Carpark,
+          Manchester,
+          M90 1QX
+
+          {% endif  %}
+        </p>
+
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 <h2 class="govuk-body-l">Available test times for your household </h2>
@@ -45,7 +93,7 @@ M90 1QX</p>
       curMonth = months[objToday.getMonth()];
 
   var today = dayOfWeek + ' ' + dayOfMonth + ' ' + curMonth;
-  
+
   document.write('<p class="govuk-body govuk-!-font-weight-bold">' + today + '</p>')
 </script>
 

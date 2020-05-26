@@ -14,8 +14,59 @@
       <div class="govuk-panel govuk-panel--confirmation">
         <h1 class="govuk-panel__title">Appointment booked </h1>
         <div class="govuk-panel__body">
-          <p class="govuk-!-font-size-19 govuk-!-font-weight-bold" style="color:#fff">Manchester (Manchester Airport), Airport Staff Parking South Carpark, Manchester, M90 1QX</p>
-          <p class="govuk-!-font-size-19 govuk-!-margin-bottom-0" style="color:#fff">Vehicle: {{ data['vehicle-registration'] }}<br>Date: 21 May 2020<br>Time: 10:00am to 10:30am</p>
+          <p class="govuk-!-font-size-19 govuk-!-font-weight-bold" style="color:#fff">
+            {% if (data['chosenTestCentre']) == "MCM"  %}
+
+            Manchester (Manchester Airport),
+            Airport Staff Parking South Carpark,
+            Manchester,
+            M90 1QX
+
+            {% elif (data['chosenTestCentre']) == "NTM"  %}
+
+            Nottingham (Boots),
+            D90, Thane Rd,
+            Nottingham,
+            NG90 1BS
+
+            {% elif (data['chosenTestCentre']) == "GTE"  %}
+
+            Gateshead (IKEA),
+            Metro Park West, Pinetree Way, Swalwell,
+            Gateshead,
+            NE11 9XS
+
+            {% elif (data['chosenTestCentre']) == "SDM"  %}
+
+            Sandwell (Sandwell General Hospital),
+            C/o little lane car park, Lyndon,
+            West Bromwich,
+            B71 4HJ
+
+            {% elif (data['chosenTestCentre']) == "BRM"  %}
+
+            Birmingham (Edgbaston Cricket Ground),
+            Edgbaston Stadium, Edgbaston Rd,
+            Birmingham,
+            B5 7QU
+
+            {% elif (data['chosenTestCentre']) == "M01_01"  %}
+
+            Van01-Location-1,
+            Edgbaston Stadium, Edgbaston Rd,
+            Birmingham,
+            B5 7QU
+
+            {% else  %}
+
+            Manchester (Manchester Airport),
+            Airport Staff Parking South Carpark,
+            Manchester,
+            M90 1QX
+
+            {% endif  %}
+          </p>
+          <p class="govuk-!-font-size-19 govuk-!-margin-bottom-0" style="color:#fff">Vehicle: {{ data['vehicle-registration'] }}<br>Date: {{ data['chosenDay'] }}<br>Time: {{ data['time'] }}</p>
         </div>
       </div>
 
@@ -31,9 +82,9 @@
 
       <dl class="govuk-summary-list" style="border-top:1px solid #b1b4b6">
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Joe Smith</dt>
-          <dd class="govuk-summary-list__value">joesmith@gmail.com</dd>
-          <dd class="govuk-summary-list__actions">+447777777777</dd>
+          <dt class="govuk-summary-list__key">{{ data['given-name'] }} {{ data['family-name'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['email'] }}</dd>
+          <dd class="govuk-summary-list__actions">{{ data['mobile'] }}</dd>
         </div>
       </dl>
 
