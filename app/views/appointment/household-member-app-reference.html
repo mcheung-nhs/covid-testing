@@ -1,7 +1,13 @@
 {% extends "layout.html" %}
 
+{% if (data['hm-given-name']) %}
+  {% set name = data['hm-given-name'] + ' ' + data['hm-family-name'] %}
+{% else %}
+  {% set name = "John Smith" %}
+{% endif %}
+
 {% block pageTitle %}
-  What's John Smith's app reference code? - GOV.UK
+  What's {{ name }}'s app reference code? - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,13 +19,13 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">What's John Smith's app reference code? </h1>
+      <h1 class="govuk-heading-xl">What's {{ name }}'s app reference code? </h1>
 
-      <form action="household-member-app-reference-error" method="post">
+      <form action="household-member-check-answers" method="post">
         <p class="govuk-body" id="appref-hint">This is the 8-character code which they'll be given in the app. It looks like this: d23f-gre4</p>
 
         <p class="govuk-body">Their app reference code is unique to them, and they can only use their code once.</p>
-        
+
         <details class="govuk-details" data-module="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">Where is their reference code?</span>
@@ -30,15 +36,13 @@
           </div>
         </details>
 
-        {{ govukInput({
-          label: {
-            text: "Tracing app reference code"
-          },
-          id: "app-reference",
-          name: "appReference",
-          describedBy: "appref-hint"
-        }) }}
-        
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="app-reference">
+            Tracing app reference code
+          </label>
+          <input class="govuk-input" id="app-reference" name="hm-appReference" type="text" aria-describedby="appref-hint" value="{{ data['hm-appReference'] }}">
+        </div>
+
         <button class="govuk-button" data-module="govuk-button">
           Continue
         </button>

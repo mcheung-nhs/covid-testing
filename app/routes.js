@@ -17,7 +17,6 @@ router.post('/appointment/nhs-number-option-answer', function (req, res) {
   }
 })
 
-
 router.post('/appointment/app-reference-option-answer', function (req, res) {
 
   const appReferenceOption = req.session.data['appReferenceOption']
@@ -29,9 +28,27 @@ router.post('/appointment/app-reference-option-answer', function (req, res) {
   }
 })
 
+router.post('/appointment/household-member-nhs-number-option-answer', function (req, res) {
 
+  const nhsNumberOption = req.session.data['hm-nhsNumberOption']
 
+  if (nhsNumberOption === 'Yes') {
+    res.redirect('/appointment/household-member-nhs-number')
+  } else {
+    res.redirect('/appointment/household-member-app-reference-option')
+  }
+})
 
+router.post('/appointment/household-member-app-reference-option-answer', function (req, res) {
+
+  const appReferenceOption = req.session.data['hm-appReferenceOption']
+
+  if (appReferenceOption === 'Yes') {
+    res.redirect('/appointment/household-member-app-reference')
+  } else {
+    res.redirect('/appointment/household-member-check-answers')
+  }
+})
 
 router.post('/appointment/ethnicity-group-answer', function (req, res) {
 

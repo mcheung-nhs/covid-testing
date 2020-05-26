@@ -1,11 +1,17 @@
 {% extends "layout.html" %}
 
+{% if (data['hm-given-name']) %}
+  {% set name = data['hm-given-name'] + ' ' + data['hm-family-name'] %}
+{% else %}
+  {% set name = "John Smith" %}
+{% endif %}
+
 {% block pageTitle %}
-  Do you know John Smith's NHS number? - GOV.UK
+  Do you know {{ name }}'s NHS number? - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="household-member-postcode-error">Back</a>
+  <a class="govuk-back-link" href="household-member-postcode">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -13,43 +19,43 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="household-member-nhs-number-option-error" method="post">
+      <form class="form" action="household-member-nhs-number-option-answer" method="post">
 
         <fieldset class="govuk-fieldset" aria-describedby="nhs-number-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
             <h1 class="govuk-fieldset__heading">
-              Do you know John Smith's NHS number?
+              Do you know {{ name }}'s NHS number?
             </h1>
           </legend>
-          
+
           <p class="govuk-body govuk-!-font-weight-bold">It's OK if you do not, you can still continue to book a drive-through test.</p>
 
           <p class="govuk-body" id="nhs-number-hint">Their NHS number is a 10 digit number, like 485 777 3456. They can find it on any letter the NHS has sent them, on a prescription, or by logging in to some GP online services.</p>
 
           <p class="govuk-body"><a href="https://www.nhs.uk/using-the-nhs/about-the-nhs/what-is-an-nhs-number/" target="_blank" class="govuk-link">How to find your NHS number</a></p>
 
-          {{ govukRadios({
-            name: "nhsNumberOption",
-            items: [
-              {
-                value: "Yes",
-                text: "Yes, I know John Smith's NHS number",
-                id: "Yes"
-              },
-              {
-                value: "No",
-                text: "No, I do not know John Smith's NHS number",
-                id: "No"
-              }
-            ]
-          }) }}
-            
+          <div class="govuk-form-group">
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="Yes" name="hm-nhsNumberOption" type="radio" value="Yes" {{ checked("hm-nhsNumberOption", "Yes") }}>
+                <label class="govuk-label govuk-radios__label" for="Yes">
+                  Yes, I know {{ name }}'s NHS number
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="No" name="hm-nhsNumberOption" type="radio" value="No" {{ checked("hm-nhsNumberOption", "No") }}>
+                <label class="govuk-label govuk-radios__label" for="No">
+                  No, I do not know {{ name }}'s NHS number
+                </label>
+              </div>
+            </div>
+          </div>
+
         </fieldset>
 
         <button class="govuk-button">Continue</button>
 
       </form>
-
 
     </div>
   </div>

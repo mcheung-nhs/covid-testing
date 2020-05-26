@@ -1,11 +1,17 @@
 {% extends "layout.html" %}
 
+{% if (data['hm-given-name']) %}
+  {% set name = data['hm-given-name'] + ' ' + data['hm-family-name'] %}
+{% else %}
+  {% set name = "John Smith" %}
+{% endif %}
+
 {% block pageTitle %}
-  Does John Smith have the NHS COVID-19 app? - GOV.UK
+  Does {{ name }} have the NHS COVID-19 app? - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="household-member-nhs-number-error">Back</a>
+  <a class="govuk-back-link" href="household-member-nhs-number-option">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -13,42 +19,45 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="household-member-app-reference-option-error" method="post">
+      <form action="household-member-app-reference-option-answer" method="post">
 
-        {{ govukRadios({
-          fieldset: {
-            legend: {
-              text: "Does John Smith have the NHS COVID-19 app? ",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--xl"
-            }
-          },
-          name: "appReferenceOption",
-          hint: {
-            html: '<img src="/public/images/nhs-app-logo.png" class="govuk-!-margin-bottom-4 govuk-!-margin-right-4" height="75" width="75" style="float:left;" alt="NHS COVID-19 app"> If they have the app, they should be able to see it on your phone with this logo.',
-            attributes: {
-              style: "color:#0b0c0c"
-            }
-          },
-          items: [
-            {
-              value: "yes",
-              text: "Yes, they have the app",
-              id: "yes"
-            },
-            {
-              value: "no",
-              text: "No, they do not have the app",
-              id: "no"
-            },
-            {
-              value: "unknjown",
-              text: "I do not know",
-              id: "unknown"
-            }
-          ]
-        }) }}
-        
+        <div class="govuk-form-group">
+
+          <fieldset class="govuk-fieldset" aria-describedby="appReferenceOption-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                Does {{ name }} have the NHS COVID-19 app?
+              </h1>
+            </legend>
+            <span id="appReferenceOption-hint" class="govuk-hint" style="color:#0b0c0c">
+              <img src="/public/images/nhs-app-logo.png" class="govuk-!-margin-bottom-4 govuk-!-margin-right-4" height="75"
+                width="75" style="float:left;" alt="NHS COVID-19 app"> If they have the app, they should be able to see it on your
+              phone with this logo.
+            </span>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="yes" name="hm-appReferenceOption" type="radio" value="Yes" {{ checked("hm-nhsNumberOption", "Yes") }}>
+                <label class="govuk-label govuk-radios__label" for="yes">
+                  Yes, they have the app
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="no" name="hm-appReferenceOption" type="radio" value="No" {{ checked("hm-nhsNumberOption", "No") }}>
+                <label class="govuk-label govuk-radios__label" for="no">
+                  No, they do not have the app
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="unknown" name="hm-appReferenceOption" type="radio" value="Unknown" {{ checked("hm-nhsNumberOption", "Unknown") }}>
+                <label class="govuk-label govuk-radios__label" for="unknown">
+                  I do not know
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+        </div>
+
         <button class="govuk-button" data-module="govuk-button">
           Continue
         </button>

@@ -33,7 +33,7 @@
       <!-- inline style overrides! -->
       <style>
         .govuk-summary-list__actions-list-item {border:0 !important; display:block; margin-right:0; padding-right:0;}
-        
+
         @media only screen and (max-width: 641px) {
           .govuk-summary-list {
             padding-top: 15px;
@@ -41,28 +41,23 @@
         }
       </style>
 
-      {{ govukSummaryList({
-        classes: 'govuk-!-margin-bottom-9',
-        rows: [
-          {
-            key: {
-              text: "John Smith"
-            },
-            value: {
-              html: '<p>johnsmith@gmail.com</p><p>+447777777777</p><p>Vehicle Registration: CU57ABC</p>'
-            },
-            actions: {
-              items: [
-                {
-                  href: "check-answers",
-                  text: "Edit details",
-                  visuallyHiddenText: "for John Smith"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            {{ data['given-name'] }} {{ data['family-name'] }}
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p>{{ data['email'] }}</p>
+            <p>{{ data['mobile'] }}</p>
+            <p>Vehicle Registration: {{ data['vehicle-registration'] }}</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="check-answers">
+              Edit details<span class="govuk-visually-hidden"> for John Smith</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
 
       <a href="find-test-centre" class="govuk-!-margin-right-4 govuk-button">Book appointment</a>
       <a href="household-member-age" class="govuk-button govuk-button--secondary">Add person you live with</a>

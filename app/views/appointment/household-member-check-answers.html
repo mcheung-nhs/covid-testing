@@ -1,5 +1,33 @@
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
+{% if (data['hm-month'] == "01") or (data['hm-month'] == "1")  %}
+  {% set month = "January" %}
+{% elif (data['hm-month'] == "02") or (data['hm-month'] == "2")  %}
+  {% set month = "February" %}
+{% elif (data['hm-month'] == "03") or (data['hm-month'] == "3")  %}
+  {% set month = "March" %}
+{% elif (data['hm-month'] == "04") or (data['hm-month'] == "4")  %}
+  {% set month = "April" %}
+{% elif (data['hm-month'] == "05") or (data['hm-month'] == "5")  %}
+  {% set month = "May" %}
+{% elif (data['hm-month'] == "06") or (data['hm-month'] == "6")  %}
+  {% set month = "June" %}
+{% elif (data['hm-month'] == "07") or (data['hm-month'] == "7")  %}
+  {% set month = "July" %}
+{% elif (data['hm-month'] == "08") or (data['hm-month'] == "8")  %}
+  {% set month = "August" %}
+{% elif (data['hm-month'] == "09") or (data['hm-month'] == "9")  %}
+  {% set month = "September" %}
+{% elif (data['hm-month'] == "10") or (data['hm-month'] == "10")  %}
+  {% set month = "October" %}
+{% elif (data['hm-month'] == "11") or (data['hm-month'] == "11")  %}
+  {% set month = "November" %}
+{% elif (data['hm-month'] == "12") or (data['hm-month'] == "12")  %}
+  {% set month = "December" %}
+{% else %}
+  {% set month = "Unknown" %}
+{% endif %}
+
 {% extends "layout.html" %}
 
 {% block pageTitle %}
@@ -7,178 +35,182 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="app-reference-error">Back</a>
+  <a class="govuk-back-link" href="household-member-app-reference-option">Back</a>
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Check your answers</h1>
+    <h1 class="govuk-heading-xl">Check your answers</h1>
 
-      {{ govukSummaryList({
-        classes: 'govuk-!-margin-bottom-9',
-        rows: [
-          {
-            key: {
-              text: "Date of birth"
-            },
-            value: {
-              text: "31 March 1980"
-            },
-            actions: {
-              items: [
-                {
-                  href: "age",
-                  text: "Change",
-                  visuallyHiddenText: "date of birth"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Name"
-            },
-            value: {
-              text: "John Smith"
-            },
-            actions: {
-              items: [
-                {
-                  href: "name",
-                  text: "Change",
-                  visuallyHiddenText: "name"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Gender"
-            },
-            value: {
-              text: "Male"
-            },
-            actions: {
-              items: [
-                {
-                  href: "gender",
-                  text: "Change",
-                  visuallyHiddenText: "gender"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Email address"
-            },
-            value: {
-              text: "johnsmith@gmail.com"
-            },
-            actions: {
-              items: [
-                {
-                  href: "email-address",
-                  text: "Change",
-                  visuallyHiddenText: "email address"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Phone number"
-            },
-            value: {
-              text: "07777 777777"
-            },
-            actions: {
-              items: [
-                {
-                  href: "contact-mobile-number",
-                  text: "Change",
-                  visuallyHiddenText: "phone number"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Postcode"
-            },
-            value: {
-              html: "AA11AA"
-            },
-            actions: {
-              items: [
-                {
-                  href: "postcode",
-                  text: "Change",
-                  visuallyHiddenText: "postcode"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "NHS number known"
-            },
-            value: {
-              html: "Yes"
-            },
-            actions: {
-              items: [
-                {
-                  href: "nhs-number-option",
-                  text: "Change",
-                  visuallyHiddenText: "NHS number known"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "NHS number"
-            },
-            value: {
-              html: "4857773456"
-            },
-            actions: {
-              items: [
-                {
-                  href: "nhs-number",
-                  text: "Change",
-                  visuallyHiddenText: "NHS number"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Do they have the NHS app"
-            },
-            value: {
-              html: "Yes"
-            },
-            actions: {
-              items: [
-                {
-                  href: "app-reference-option",
-                  text: "Change",
-                  visuallyHiddenText: "do they have the NHS app"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-      <a href="household-members-extras" class="govuk-button">Save and continue</a>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of birth
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['hm-day'] }} {{ month }} {{ data['hm-year'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="household-member-age">
+            Change<span class="govuk-visually-hidden"> date of birth</span>
+          </a>
+        </dd>
+      </div>
 
-    </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['hm-given-name'] }} {{ data['hm-family-name'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="household-member-name">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Gender
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['hm-sex'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="household-member-gender">
+            Change<span class="govuk-visually-hidden"> gender</span>
+          </a>
+        </dd>
+      </div>
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Email address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['hm-email'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="household-member-email-address">
+            Change<span class="govuk-visually-hidden"> email address</span>
+          </a>
+        </dd>
+      </div>
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Phone number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['hm-mobile'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="household-member-contact-mobile-number">
+            Change<span class="govuk-visually-hidden"> phone number</span>
+          </a>
+        </dd>
+      </div>
+
+
+      {% if (data['hm-postcodeOptions'] == "same") %}
+        {% set hmpostcode = data['postcode'] %}
+      {% else %}
+        {% set hmpostcode = data['hm-postcode'] %}
+      {% endif %}
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Postcode
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ hmpostcode }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="household-member-postcode">
+            Change<span class="govuk-visually-hidden"> postcode</span>
+          </a>
+        </dd>
+      </div>
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          NHS number known
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['hm-nhsNumberOption'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="household-member-nhs-number-option">
+            Change<span class="govuk-visually-hidden"> NHS number known</span>
+          </a>
+        </dd>
+      </div>
+
+
+      {% if (data['hm-nhsNumberOption'] == "Yes") %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          NHS number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['hm-nhsNumber'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="household-member-nhs-number">
+            Change<span class="govuk-visually-hidden"> NHS number</span>
+          </a>
+        </dd>
+      </div>
+      {% endif %}
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Does {{ name }} have the NHS app
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['hm-appReferenceOption'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="household-member-app-reference-option">
+            Change<span class="govuk-visually-hidden"> if {{ name }} has the NHS app</span>
+          </a>
+        </dd>
+      </div>
+
+
+      {% if (data['hm-appReferenceOption'] == "Yes") %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          App reference code
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['hm-appReference'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="household-member-app-reference">
+            Change<span class="govuk-visually-hidden"> app reference code</span>
+          </a>
+        </dd>
+      </div>
+      {% endif %}
+
+    </dl>
+
+    <a href="household-members-extras" class="govuk-button">Save and continue</a>
+
   </div>
+</div>
 
 {% endblock %}

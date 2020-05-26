@@ -1,11 +1,23 @@
 {% extends "layout.html" %}
 
+{% if (data['hm-given-name']) %}
+  {% set name = data['hm-given-name'] + ' ' + data['hm-family-name'] %}
+{% else %}
+  {% set name = "John Smith" %}
+{% endif %}
+
+{% if (data['hm-postcode']) %}
+  {% set samepostcode = data['postcode'] %}
+{% else %}
+  {% set samepostcode = "LS27BJ" %}
+{% endif %}
+
 {% block pageTitle %}
-  What's John Smith's home postcode? - GOV.UK
+  What's {{ name }}'s home postcode? - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="household-member-email-address-error">Back</a>
+  <a class="govuk-back-link" href="household-member-contact-mobile-number">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -13,46 +25,44 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="household-member-postcode-error" method="post" novalidate>
+      <form action="household-member-nhs-number-option" method="post" novalidate>
 
-        {% set postcodeHtml %}
-        {{ govukInput({
-          id: "postcode",
-          name: "postcode",
-          label: {
-            text: "Postcode"
-          }
-        }) }}
-        {% endset -%}
+        <div class="govuk-form-group">
 
-        {{ govukRadios({
-          name: "postcodeOptions",
-          fieldset: {
-            legend: {
-              text: "What's John Smith's home postcode",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--xl"
-            }
-          },
-          hint: {
-            html: '<span class="govuk-body govuk-!-margin-top-6" style="display:block">Enter their home postcode (ideally the one they used to register with their GP).</span>'
-          },
-          items: [
-            {
-              id: "same",
-              value: "same",
-              text: "ls17bj (the same as fname lname)"
-            },
-            {
-              id: "different",
-              value: "different",
-              text: "Somewhere else",
-              conditional: {
-                html: postcodeHtml
-              }
-            }
-          ]
-        }) }}
+          <fieldset class="govuk-fieldset" aria-describedby="postcodeOptions-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                What's {{ name }}'s home postcode
+              </h1>
+            </legend>
+            <p id="postcodeOptions-hint" class="govuk-body govuk-!-margin-top-4">
+              Enter their home postcode (ideally the one they used to register with their GP).
+            </p>
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="same" name="hm-postcodeOptions" type="radio" value="same" {{ checked("hm-postcodeOptions", "same") }}>
+                <label class="govuk-label govuk-radios__label" for="same">
+                  {{ samepostcode }} (the same as {{ name }})
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="different" name="hm-postcodeOptions" type="radio" value="different"
+                  data-aria-controls="conditional-different" {{ checked("hm-postcodeOptions", "different") }}>
+                <label class="govuk-label govuk-radios__label" for="different">
+                  Somewhere else
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-different">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="postcode">
+                    Postcode
+                  </label>
+                  <input class="govuk-input" id="postcode" name="hm-postcode" type="text" value="{{ data['hm-postcode'] }}">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
 
         <button class="govuk-button" data-module="govuk-button">
           Continue
