@@ -8,12 +8,22 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      
+
       <h1 class="govuk-heading-xl">
         <span class="govuk-caption-xl">Accessibility testing notes</span>
         Essential workers: apply for a coronavirus test
       </h1>
-    
+
+      <h2 class="govuk-heading-s">Summary</h2>
+
+      <ol class="govuk-list govuk-list--number">
+        <li>Initial type of test page and application submission page lacks <code>&lt;main&gt;</code> elements.</li>
+        <li>Issues with hidden reCAPTCHA form elements could cause confusion for screen reader users.</li>
+        <li>Use of <code>&lt;fieldset&gt;</code>, <code>&lt;legend&gt;</code> and <code>&lt;label&gt;</code> elements should be checked and used consistently, as per the GOV.UK Design System. Also hint text should be used appropriately and associated correctly.</li>
+        <li>Error pages should have the "Error:" text in the title as some screen readers read this out. The error summary links should link to the appropriate input and not to the error message.</li>
+        <li>Ensure that the tab focus returns to the top of the screen when moving between pages.</li>
+      </ol>
+
       <nav aria-labelledby="page-content">
         <h2 class="govuk-heading-s" id="page-content">Contents</h2>
         <ol class="govuk-list govuk-list--number">
@@ -36,10 +46,10 @@
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
       <ol class="govuk-list govuk-list--number govuk-!-margin-top-8">
-        
+
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="start">Start page</h2>
-          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/">start</a><br>Page with sample HTML: <a href="start">start</a></p> 
+          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/">start</a><br>Page with sample HTML: <a href="start">start</a></p>
           <h3 class="govuk-heading-s">Comments</h3>
           <ol class="govuk-list govuk-list--number">
             <li>No <code>&lt;main&gt;</code> element on the page. This landmark would help screen reader users with navigation.</li>
@@ -47,10 +57,10 @@
           </ol>
         </li>
 
-        
+
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="eligibility">Eligibility page</h2>
-          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/eligibility">eligibility</a><br>Page with sample HTML: <a href="eligibility">eligibility</a></p> 
+          <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/eligibility">eligibility</a><br>Page with sample HTML: <a href="eligibility">eligibility</a></p>
           <h3 class="govuk-heading-s">Comments</h3>
           <ol class="govuk-list govuk-list--number">
             <li>No <code>&lt;main&gt;</code> element on the page. This landmark would help screen reader users with navigation.</li>
@@ -58,11 +68,11 @@
           </ol>
         </li>
 
-        
+
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="test-type">How do you want to take the coronavirus test?</h2>
           <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/test-type">test-type</a><br>Page with sample HTML: <a href="test-type">test-type</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -77,7 +87,7 @@
             <li><a href="https://design-system.service.gov.uk/components/fieldset/">https://design-system.service.gov.uk/components/fieldset/</a></li>
             <li><a href="https://design-system.service.gov.uk/components/radios/">https://design-system.service.gov.uk/components/radios/</a></li>
           </ul>
-          
+
           <h3 class="govuk-heading-s">Example code</h3>
           <pre style="background:#f3f2f1; overflow-x:scroll; padding:0 20px;"><code class="govuk-!-font-size-16 govuk-!-font-weight-regular">
 &lt;form&gt;
@@ -132,7 +142,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="test-type-error">Error: How do you want to take the coronavirus test?</h2>
           <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/test-type">test-type</a> (with forced error)<br>Page with sample HTML: <a href="test-type-error">test-type-error</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -164,7 +174,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="name">What's your name?</h2>
           <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/name">name</a><br>Page with sample HTML: <a href="name">name</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -185,7 +195,7 @@
 &lt;form&gt;
   &lt;div class="govuk-form-group"&gt;
     &lt;fieldset class="govuk-fieldset"&gt;
-      
+
       &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"&gt;
         &lt;h1 class="govuk-fieldset__heading"&gt;What's your name?&lt;/h1&gt;
       &lt;/legend&gt;
@@ -203,7 +213,7 @@
         &lt;/label&gt;
         &lt;input class="govuk-input" id="family-name" name="family-name" type="text" autocomplete="family-name" spellcheck="false"&gt;
       &lt;/div&gt;
-    
+
     &lt;/fieldset&gt;
   &lt;/div&gt;
 
@@ -217,7 +227,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="name-error">Error: What's your name?</h2>
           <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/name">name</a> (with forced error)<br>Page with sample HTML: <a href="name-error">name-error</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -256,7 +266,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="mobile-number">What's your mobile number?</h2>
           <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/mobile-number">mobile-number</a> (previous steps may need to have been completed to access this directly)<br>Page with sample HTML: <a href="mobile-number">mobile-number</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -298,13 +308,13 @@
   &lt;/div&gt;
 &lt;/form&gt;
           </code></pre>
-        </li> 
+        </li>
 
 
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="mobile-number-error">Error: What's your mobile number?</h2>
           <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/mobile-number">mobile-number</a> (with forced error)<br>Page with sample HTML: <a href="mobile-number-error">mobile-number-error</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -343,7 +353,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="reason">Why are you getting tested?</h2>
           <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/reason">reason</a> (previous steps may need to have been completed to access this directly)<br>Page with sample HTML: <a href="reason">reason</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
@@ -388,7 +398,7 @@
         <li class="govuk-!-font-size-24 govuk-!-font-weight-bold govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m" id="reason-error">Error: Why are you getting tested?</h2>
           <p>Tested link: <a href="https://npd-int-1-sr.int.bluesquirrelproject.net/reason">reason</a> (with forced error)<br>Page with sample HTML: <a href="reason-error">reason-error</a></p>
-          
+
           <h3 class="govuk-heading-s">Comments</h3>
 
           <ol class="govuk-list govuk-list--number">
